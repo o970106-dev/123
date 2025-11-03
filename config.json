@@ -1,0 +1,8 @@
+{
+  "host": "34.80.194.190",
+  "port": 22,
+  "user": "o0930",
+  "auth_method": "key",
+  "key_path": "C:\\Users\\o0930\\.ssh\\gcp_key",
+  "password": null
+}
