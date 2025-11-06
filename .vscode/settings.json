@@ -1,6 +1,7 @@
 {
-    "cybrosys-assista-odoo-helper.odooVersion": "18",
+    "cybrosys-assista-odoo-helper.odooVersion": "19",
     "cSpell.words": [
         "venv"
-    ]
+    ],
+    "python.languageServer": "None"
 }

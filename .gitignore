@@ -1,0 +1,39 @@
+# OS & editor
+Thumbs.db
+.DS_Store
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Logs & temp
+*.log
+*.tmp
+*.swp
+
+# Secrets & local configs
+config.json
+*.secret
+.env
+.env.*
+
+# Build / archives / large indexes
+dist/
+build/
+odoo17_memory_archive.zip
+odoo17_memory_index.json
+
+# Docker / compose temps
+compose.tmp.yml
+
+# Node / web (if present)
+node_modules/
+
