@@ -1,0 +1,11 @@
+.bm-dialog { max-height: 60vh; overflow: auto; padding: 12px; }
+.bm-tabs { display: flex; gap: 8px; margin-bottom: 8px; }
+.bm-tab { padding: 6px 10px; }
+.bm-panels { margin-bottom: 12px; }
+.bm-panel { display: grid; gap: 8px; }
+.bm-label { margin-bottom: 4px; font-weight: 600; }
+.bm-radio { padding: 8px; border: 1px solid var(--border, #ddd); border-radius: 6px; text-align: left; }
+.bm-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.bm-confirm[disabled] { opacity: .5; cursor: not-allowed; }
+.bm-dialog :focus { outline: 2px solid #2a67ff; outline-offset: 2px; }
+

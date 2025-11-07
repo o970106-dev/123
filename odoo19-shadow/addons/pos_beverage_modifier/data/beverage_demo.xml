@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Demo product template for POS beverage -->
+    <record id="product_tmpl_beverage_demo" model="product.template">
+        <field name="name">招牌咖啡</field>
+        <field name="list_price">85.0</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="available_in_pos">1</field>
+    </record>
+
+    <!-- Beverage configuration with default items -->
+    <record id="pos_beverage_config_coffee_demo" model="pos.beverage.config">
+        <field name="name">招牌咖啡設定</field>
+        <field name="product_tmpl_id" ref="product_tmpl_beverage_demo"/>
+        <field name="show_popup">1</field>
+        <field name="line_ids" eval="[
+            (0, 0, {'attribute_type': 'other', 'name': '正常甜', 'selected': False, 'price': 0.0}),
+            (0, 0, {'attribute_type': 'other', 'name': '微糖', 'selected': False, 'price': 0.0}),
+            (0, 0, {'attribute_type': 'other', 'name': '無糖', 'selected': False, 'price': 0.0}),
+            (0, 0, {'attribute_type': 'other', 'name': '去冰',  'selected': False, 'price': 0.0}),
+            (0, 0, {'attribute_type': 'other', 'name': '熱飲',  'selected': False, 'price': 0.0})
+        ]"/>
+    </record>
+</odoo>

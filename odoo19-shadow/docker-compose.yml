@@ -7,13 +7,14 @@ services:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_DB=postgres
     volumes:
-      - ./db-data:/var/lib/postgresql/data
+      - db19-data:/var/lib/postgresql/data
     networks:
       - odoo19net
   odoo19:
     image: odoo:19
     depends_on:
       - db19
+    restart: unless-stopped
     ports:
       - "18069:8069"
       - "18072:8072"
@@ -26,11 +27,14 @@ services:
       - USER=odoo
       - PASSWORD=odoo
     volumes:
-      - ./odoo-data:/var/lib/odoo
+      - odoo19-data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
     # 啟動時不自動創建資料庫，讓服務先就緒
-    command: ["--db_host=db19", "--db_user=odoo", "--db_password=odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons", "--proxy-mode=True", "--longpolling-port=8072", "--workers=2"]
+    command: ["--db_host=db19", "--db_user=odoo", "--db_password=odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons", "--proxy-mode", "--workers=0"]
     networks:
       - odoo19net
 networks:
   odoo19net:
+volumes:
+  db19-data:
+  odoo19-data:

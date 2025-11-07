@@ -7,6 +7,7 @@
 - `connect.ps1`：一键 SSH 交互连接脚本
 - `manage_server.py`：常见维护任务（更新、ESM/Pro状态、升级检查、任意命令执行）
 - `requirements.txt`：Python 依赖（Paramiko）
+ - `import_pos_menu.py`：从 Excel 导入 POS 菜单到 Odoo 的脚本
 
 ## 使用前准备
 
@@ -77,9 +78,30 @@
 - 远程命令需要 `sudo` 权限时：确保账号在 `sudoers`，并在 `config.json` 填写 `password` 或配置免密 `sudo`（谨慎）。
 - `do-release-upgrade` 通常为交互式流程，脚本中使用 `-c` 仅做检查；实际升级请在交互 SSH 会话中执行。
 
+## 导入 POS 菜单（Excel → Odoo）
+
+前置：
+- 安装依赖：`pip install -r requirements.txt`（需要 `openpyxl`）
+- 准备 Excel：第一行是表头，至少包含「品名/名稱」「售價/價格」「類別/分類」三欄（英文亦可：`name`、`price`、`category`）。
+
+使用方式：
+- 预览（不写入）：
+  ```powershell
+  python import_pos_menu.py --source .\data\source_menu.xlsx
+  ```
+- 实际写入 Odoo（建立/更新品项与 POS 類別）：
+  ```powershell
+  python import_pos_menu.py --source .\data\source_menu.xlsx --apply --update-existing \
+    --url http://34.80.194.190 --login admin@wuchang.life --password poiuY926
+  ```
+- 可选参数：`--sheet <工作表名稱>`、`--db <資料庫>`。
+
+说明：
+- 脚本会尝试自动识别表头中的常见中文/英文字段，并创建缺失的 `pos.category`，将商品导入为 `product.template`（`available_in_pos=True`）。
+- 若 Odoo 版本字段为 `pos_categ_id`（旧版）脚本会自动回退处理。
+
 ## 参考链接
 - 文档参考：`https://help.ubuntu.com`
 - 管理工具：`https://landscape.canonical.com`
 - 技术支持：`https://ubuntu.com/pro`
 - ESM 扩展安全维护：`https://ubuntu.com/esm`
-

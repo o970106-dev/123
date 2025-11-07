@@ -1,0 +1,605 @@
+{
+  "count": 60,
+  "items": [
+    {
+      "name": "招牌咖啡",
+      "sku": "QC_P_39095596",
+      "category": "義式咖啡",
+      "price_m": 85.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 2,
+      "available_in_pos": true
+    },
+    {
+      "name": "特調咖啡",
+      "sku": "QC_P_39095597",
+      "category": "義式咖啡",
+      "price_m": 75.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 34,
+      "available_in_pos": true
+    },
+    {
+      "name": "咖啡拿鐵",
+      "sku": "QC_P_39095598",
+      "category": "義式咖啡",
+      "price_m": 90.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 35,
+      "available_in_pos": true
+    },
+    {
+      "name": "風味拿鐵",
+      "sku": "QC_P_39095603",
+      "category": "義式咖啡",
+      "price_m": 105.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 36,
+      "available_in_pos": true
+    },
+    {
+      "name": "美式黑咖啡",
+      "sku": "QC_P_39095599",
+      "category": "義式咖啡",
+      "price_m": 70.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 37,
+      "available_in_pos": true
+    },
+    {
+      "name": "卡布奇諾",
+      "sku": "QC_P_39095600",
+      "category": "義式咖啡",
+      "price_m": 90.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 38,
+      "available_in_pos": true
+    },
+    {
+      "name": "瑪奇朵",
+      "sku": "QC_P_39095601",
+      "category": "義式咖啡",
+      "price_m": 110.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 39,
+      "available_in_pos": true
+    },
+    {
+      "name": "愛爾蘭威士忌咖啡",
+      "sku": "QC_P_39095595",
+      "category": "義式咖啡",
+      "price_m": 105.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 40,
+      "available_in_pos": true
+    },
+    {
+      "name": "摩卡奇諾咖啡",
+      "sku": "QC_P_39095602",
+      "category": "義式咖啡",
+      "price_m": 105.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 41,
+      "available_in_pos": true
+    },
+    {
+      "name": "岩鹽玫瑰",
+      "sku": null,
+      "category": "義式咖啡",
+      "price_m": 105.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 42,
+      "available_in_pos": true
+    },
+    {
+      "name": "初戀西西里",
+      "sku": null,
+      "category": "義式咖啡",
+      "price_m": 90.0,
+      "pos_category_name": "義式咖啡",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 43,
+      "available_in_pos": true
+    },
+    {
+      "name": "耶加雪夫",
+      "sku": "QC_P_39095604",
+      "category": "單品手沖",
+      "price_m": 110.0,
+      "pos_category_name": "單品手沖",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 44,
+      "available_in_pos": true
+    },
+    {
+      "name": "藍山風味咖啡",
+      "sku": "QC_P_39095619",
+      "category": "單品手沖",
+      "price_m": 100.0,
+      "pos_category_name": "單品手沖",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 45,
+      "available_in_pos": true
+    },
+    {
+      "name": "黃金曼特寧",
+      "sku": "QC_P_39095617",
+      "category": "單品手沖",
+      "price_m": 110.0,
+      "pos_category_name": "單品手沖",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 46,
+      "available_in_pos": true
+    },
+    {
+      "name": "曼巴咖啡",
+      "sku": "QC_P_39095621",
+      "category": "單品手沖",
+      "price_m": 100.0,
+      "pos_category_name": "單品手沖",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 47,
+      "available_in_pos": true
+    },
+    {
+      "name": "肯亞AA",
+      "sku": null,
+      "category": "單品手沖",
+      "price_m": 110.0,
+      "pos_category_name": "單品手沖",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 48,
+      "available_in_pos": true
+    },
+    {
+      "name": "小沙彌素齋飯",
+      "sku": "QC_P_49180033",
+      "category": "聊國簡餐",
+      "price_m": 130.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 49,
+      "available_in_pos": true
+    },
+    {
+      "name": "黑胡椒豬柳飯(辣)",
+      "sku": "QC_P_49180043",
+      "category": "聊國簡餐",
+      "price_m": 130.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 50,
+      "available_in_pos": true
+    },
+    {
+      "name": "黑胡椒雞柳飯(辣)",
+      "sku": "QC_P_49180057",
+      "category": "聊國簡餐",
+      "price_m": 130.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 51,
+      "available_in_pos": true
+    },
+    {
+      "name": "香草起司雞丁飯",
+      "sku": "QC_P_49180068",
+      "category": "聊國簡餐",
+      "price_m": 135.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 52,
+      "available_in_pos": true
+    },
+    {
+      "name": "醬燒牛培根丼飯",
+      "sku": null,
+      "category": "聊國簡餐",
+      "price_m": 230.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 53,
+      "available_in_pos": true
+    },
+    {
+      "name": "醬燒無骨雞腿飯",
+      "sku": null,
+      "category": "聊國簡餐",
+      "price_m": 230.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 54,
+      "available_in_pos": true
+    },
+    {
+      "name": "醬燒松阪豬肉丼飯",
+      "sku": null,
+      "category": "聊國簡餐",
+      "price_m": 235.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 55,
+      "available_in_pos": true
+    },
+    {
+      "name": "黑胡椒牛柳飯(辣)",
+      "sku": null,
+      "category": "聊國簡餐",
+      "price_m": 135.0,
+      "pos_category_name": "聊國簡餐",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 56,
+      "available_in_pos": true
+    },
+    {
+      "name": "錫蘭紅茶🔴",
+      "sku": "QC_P_39095620",
+      "category": "茶",
+      "price_m": 45.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 57,
+      "available_in_pos": true
+    },
+    {
+      "name": "錫蘭奶茶🔴",
+      "sku": "QC_P_39095610",
+      "category": "茶",
+      "price_m": 50.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 58,
+      "available_in_pos": true
+    },
+    {
+      "name": "錫蘭鮮奶茶🔴🐄",
+      "sku": "QC_P_39095608",
+      "category": "茶",
+      "price_m": 65.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 59,
+      "available_in_pos": true
+    },
+    {
+      "name": "錫蘭奶蓋🔴🥛🧈",
+      "sku": "QC_P_49180061",
+      "category": "茶",
+      "price_m": 65.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 60,
+      "available_in_pos": true
+    },
+    {
+      "name": "茉莉綠茶🟢",
+      "sku": "QC_P_39095606",
+      "category": "茶",
+      "price_m": 45.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 61,
+      "available_in_pos": true
+    },
+    {
+      "name": "茉莉奶茶🟢",
+      "sku": "QC_P_39095609",
+      "category": "茶",
+      "price_m": 50.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 62,
+      "available_in_pos": true
+    },
+    {
+      "name": "茉莉鮮奶茶🟢🐄",
+      "sku": "QC_P_39095607",
+      "category": "茶",
+      "price_m": 65.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 63,
+      "available_in_pos": true
+    },
+    {
+      "name": "茉莉奶蓋🟢🥛🧈",
+      "sku": "QC_P_49180084",
+      "category": "茶",
+      "price_m": 65.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 64,
+      "available_in_pos": true
+    },
+    {
+      "name": "伯爵紅茶🟤",
+      "sku": "QC_P_49180087",
+      "category": "茶",
+      "price_m": 50.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 65,
+      "available_in_pos": true
+    },
+    {
+      "name": "伯爵奶茶🟤",
+      "sku": "QC_P_49180090",
+      "category": "茶",
+      "price_m": 60.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 66,
+      "available_in_pos": true
+    },
+    {
+      "name": "伯爵鮮奶茶🟤🐄",
+      "sku": "QC_P_49180093",
+      "category": "茶",
+      "price_m": 70.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 67,
+      "available_in_pos": true
+    },
+    {
+      "name": "伯爵奶蓋🟤🥛🧈",
+      "sku": "QC_P_49180095",
+      "category": "茶",
+      "price_m": 70.0,
+      "pos_category_name": "茶",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 68,
+      "available_in_pos": true
+    },
+    {
+      "name": "檸檬汁",
+      "sku": "QC_P_39095611",
+      "category": "無咖啡因",
+      "price_m": 50.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 69,
+      "available_in_pos": true
+    },
+    {
+      "name": "話梅檸檬",
+      "sku": "QC_P_39095616",
+      "category": "無咖啡因",
+      "price_m": 55.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 70,
+      "available_in_pos": true
+    },
+    {
+      "name": "金桔檸檬",
+      "sku": "QC_P_39095612",
+      "category": "無咖啡因",
+      "price_m": 55.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 71,
+      "available_in_pos": true
+    },
+    {
+      "name": "蔓越莓蘋果茶",
+      "sku": "QC_P_39095613",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 72,
+      "available_in_pos": true
+    },
+    {
+      "name": "松露巧克力",
+      "sku": "QC_P_39095614",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 73,
+      "available_in_pos": true
+    },
+    {
+      "name": "鮮奶抹茶",
+      "sku": "QC_P_39095615",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 74,
+      "available_in_pos": true
+    },
+    {
+      "name": "綠茶多多",
+      "sku": "QC_P_49180082",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 75,
+      "available_in_pos": true
+    },
+    {
+      "name": "檸檬多多",
+      "sku": "QC_P_49180085",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 76,
+      "available_in_pos": true
+    },
+    {
+      "name": "金桔多多",
+      "sku": "QC_P_49180088",
+      "category": "無咖啡因",
+      "price_m": 65.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 77,
+      "available_in_pos": true
+    },
+    {
+      "name": "蔓越莓多多",
+      "sku": "QC_P_49180092",
+      "category": "無咖啡因",
+      "price_m": 65.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 78,
+      "available_in_pos": true
+    },
+    {
+      "name": "蒸氣牛奶",
+      "sku": "QC_P_39095618",
+      "category": "無咖啡因",
+      "price_m": 60.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 79,
+      "available_in_pos": true
+    },
+    {
+      "name": "仲夏海鹽檸檬",
+      "sku": null,
+      "category": "無咖啡因",
+      "price_m": 65.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 80,
+      "available_in_pos": true
+    },
+    {
+      "name": "百香戀乳",
+      "sku": null,
+      "category": "無咖啡因",
+      "price_m": 70.0,
+      "pos_category_name": "無咖啡因",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 81,
+      "available_in_pos": true
+    },
+    {
+      "name": "貝果",
+      "sku": "QC_P_39095623",
+      "category": "點心",
+      "price_m": 50.0,
+      "pos_category_name": "點心",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 82,
+      "available_in_pos": true
+    },
+    {
+      "name": "厚片",
+      "sku": "QC_P_49180060",
+      "category": "點心",
+      "price_m": 45.0,
+      "pos_category_name": "點心",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 83,
+      "available_in_pos": true
+    },
+    {
+      "name": "精選曼巴",
+      "sku": "QC_P_39095626",
+      "category": "咖啡豆",
+      "price_m": 280.0,
+      "pos_category_name": "咖啡豆",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 84,
+      "available_in_pos": true
+    },
+    {
+      "name": "精品藍山風味咖啡",
+      "sku": "QC_P_39095637",
+      "category": "咖啡豆",
+      "price_m": 290.0,
+      "pos_category_name": "咖啡豆",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 85,
+      "available_in_pos": true
+    },
+    {
+      "name": "招牌咖啡豆",
+      "sku": "QC_P_39095627",
+      "category": "咖啡豆",
+      "price_m": 250.0,
+      "pos_category_name": "咖啡豆",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 86,
+      "available_in_pos": true
+    },
+    {
+      "name": "曼特寧",
+      "sku": "QC_P_39095629",
+      "category": "咖啡豆",
+      "price_m": 280.0,
+      "pos_category_name": "咖啡豆",
+      "exists_in_odoo": true,
+      "odoo_tmpl_id": 87,
+      "available_in_pos": true
+    },
+    {
+      "name": "耶加雪夫濾掛",
+      "sku": "QC_P_39095630",
+      "category": "濾掛咖啡",
+      "price_m": 400.0,
+      "pos_category_name": null,
+      "exists_in_odoo": false,
+      "odoo_tmpl_id": null,
+      "available_in_pos": null
+    },
+    {
+      "name": "精選藍山咖啡",
+      "sku": "QC_P_39095631",
+      "category": "濾掛咖啡",
+      "price_m": 320.0,
+      "pos_category_name": null,
+      "exists_in_odoo": false,
+      "odoo_tmpl_id": null,
+      "available_in_pos": null
+    },
+    {
+      "name": "曼特寧濾掛",
+      "sku": "QC_P_39095632",
+      "category": "濾掛咖啡",
+      "price_m": 320.0,
+      "pos_category_name": null,
+      "exists_in_odoo": false,
+      "odoo_tmpl_id": null,
+      "available_in_pos": null
+    },
+    {
+      "name": "曼巴咖啡濾掛",
+      "sku": "QC_P_39095633",
+      "category": "濾掛咖啡",
+      "price_m": 310.0,
+      "pos_category_name": null,
+      "exists_in_odoo": false,
+      "odoo_tmpl_id": null,
+      "available_in_pos": null
+    },
+    {
+      "name": "招牌濾掛咖啡",
+      "sku": "QC_P_39095634",
+      "category": "濾掛咖啡",
+      "price_m": 280.0,
+      "pos_category_name": null,
+      "exists_in_odoo": false,
+      "odoo_tmpl_id": null,
+      "available_in_pos": null
+    }
+  ]
+}

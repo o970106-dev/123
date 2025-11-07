@@ -3,25 +3,26 @@ import requests
 
 
 def create_db(base_url: str, master_pwd: str, db_name: str, admin_login: str, admin_password: str, lang: str = "zh_TW", demo: bool = False):
-    url = f"{base_url.rstrip('/')}/web/database/create"
+    base = base_url.rstrip('/')
+    url = f"{base}/web/database/create"
+    s = requests.Session()
+    # fetch CSRF token
+    s.get(f"{base}/web", timeout=30)
+    csrf = s.cookies.get('csrf_token')
+    # Odoo 19 expects form fields: master_pwd, name, lang, password, login, demo, csrf_token
     payload = {
-        "jsonrpc": "2.0",
-        "method": "call",
-        "params": {
-            "master_pwd": master_pwd,
-            "db_name": db_name,
-            "demo": demo,
-            "login": admin_login,
-            "password": admin_password,
-            "lang": lang,
-        },
+        "master_pwd": master_pwd,
+        "name": db_name,
+        "demo": str(demo).lower(),
+        "login": admin_login,
+        "password": admin_password,
+        "lang": lang,
+        "csrf_token": csrf or "",
     }
-    resp = requests.post(url, json=payload, timeout=60)
+    resp = s.post(url, data=payload, timeout=180)
     resp.raise_for_status()
-    data = resp.json()
-    if "error" in data:
-        raise RuntimeError(str(data["error"]))
-    return data.get("result")
+    # When using form data, success returns HTML; we can return status code.
+    return resp.status_code
 
 
 def main():

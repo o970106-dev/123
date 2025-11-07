@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_pos_beverage_config" model="ir.actions.act_window">
+        <field name="name">Beverage Settings</field>
+        <field name="res_model">pos.beverage.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu under Point of Sale -->
+    <menuitem id="menu_pos_beverage_config_root" name="Beverage Settings"
+              parent="point_of_sale.menu_point_root" action="action_pos_beverage_config" sequence="90"/>
+
+    <!-- List View -->
+    <record id="view_pos_beverage_config_tree" model="ir.ui.view">
+        <field name="name">pos.beverage.config.tree</field>
+        <field name="model">pos.beverage.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+                <field name="pos_category_id"/>
+                <field name="show_popup"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_pos_beverage_config_form" model="ir.ui.view">
+        <field name="name">pos.beverage.config.form</field>
+        <field name="model">pos.beverage.config</field>
+        <field name="arch" type="xml">
+            <form string="Beverage Settings">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="product_tmpl_id"/>
+                        <field name="pos_category_id"/>
+                        <field name="show_popup"/>
+                    </group>
+                    <notebook>
+                        <page string="Customization Items">
+                            <field name="line_ids" context="{'default_price': 0.0}">
+                                <list editable="bottom">
+                                    <field name="selected"/>
+                                    <field name="attribute_type"/>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

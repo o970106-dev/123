@@ -1,0 +1,6312 @@
+[
+  {
+    "name": "招牌咖啡",
+    "sku": "QC_P_39095596",
+    "category": "義式咖啡",
+    "combo_id": "O7835309",
+    "price_m": 85.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 30.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "特調咖啡",
+    "sku": "QC_P_39095597",
+    "category": "義式咖啡",
+    "combo_id": "O8536132",
+    "price_m": 75.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 30.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -10.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "咖啡拿鐵",
+    "sku": "QC_P_39095598",
+    "category": "義式咖啡",
+    "combo_id": "O7835310",
+    "price_m": 90.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 35.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "風味拿鐵",
+    "sku": "QC_P_39095603",
+    "category": "義式咖啡",
+    "combo_id": "O7835321",
+    "price_m": 105.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 35.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "榛果",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "香草",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑糖",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "焦糖",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "美式黑咖啡",
+    "sku": "QC_P_39095599",
+    "category": "義式咖啡",
+    "combo_id": "O7835316",
+    "price_m": 70.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 25.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -10.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "卡布奇諾",
+    "sku": "QC_P_39095600",
+    "category": "義式咖啡",
+    "combo_id": "O7835310",
+    "price_m": 90.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 35.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "瑪奇朵",
+    "sku": "QC_P_39095601",
+    "category": "義式咖啡",
+    "combo_id": "O7835321",
+    "price_m": 110.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 35.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "榛果",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "香草",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑糖",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "焦糖",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "愛爾蘭威士忌咖啡",
+    "sku": "QC_P_39095595",
+    "category": "義式咖啡",
+    "combo_id": "O7835311",
+    "price_m": 105.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 40.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "摩卡奇諾咖啡",
+    "sku": "QC_P_39095602",
+    "category": "義式咖啡",
+    "combo_id": "O7835311",
+    "price_m": 105.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 40.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "岩鹽玫瑰",
+    "sku": null,
+    "category": "義式咖啡",
+    "combo_id": "O7835310",
+    "price_m": 105.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 35.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "初戀西西里",
+    "sku": null,
+    "category": "義式咖啡",
+    "combo_id": "O8796286",
+    "price_m": 90.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "義式咖啡",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": " L西西里",
+          "selected": false,
+          "price": 25.0
+        },
+        {
+          "attribute_type": "size",
+          "name": " M西西里",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "耶加雪夫",
+    "sku": "QC_P_39095604",
+    "category": "單品手沖",
+    "combo_id": "O8640678",
+    "price_m": 110.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "單品手沖",
+      "lines": [
+        {
+          "attribute_type": "temperature",
+          "name": "無冰瞬間冷卻",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "隔水保熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "無須調整(熱)_",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "雙層紙杯(限外帶)",
+          "selected": false,
+          "price": 3.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "藍山風味咖啡",
+    "sku": "QC_P_39095619",
+    "category": "單品手沖",
+    "combo_id": "O8640678",
+    "price_m": 100.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "單品手沖",
+      "lines": [
+        {
+          "attribute_type": "temperature",
+          "name": "無冰瞬間冷卻",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "隔水保熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "無須調整(熱)_",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "雙層紙杯(限外帶)",
+          "selected": false,
+          "price": 3.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "黃金曼特寧",
+    "sku": "QC_P_39095617",
+    "category": "單品手沖",
+    "combo_id": "O8640678",
+    "price_m": 110.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "單品手沖",
+      "lines": [
+        {
+          "attribute_type": "temperature",
+          "name": "無冰瞬間冷卻",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "隔水保熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "無須調整(熱)_",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "雙層紙杯(限外帶)",
+          "selected": false,
+          "price": 3.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "曼巴咖啡",
+    "sku": "QC_P_39095621",
+    "category": "單品手沖",
+    "combo_id": "O8640678",
+    "price_m": 100.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "單品手沖",
+      "lines": [
+        {
+          "attribute_type": "temperature",
+          "name": "無冰瞬間冷卻",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "隔水保熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "無須調整(熱)_",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "雙層紙杯(限外帶)",
+          "selected": false,
+          "price": 3.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "肯亞AA",
+    "sku": null,
+    "category": "單品手沖",
+    "combo_id": "O7835317",
+    "price_m": 110.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "單品手沖",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 400.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "小沙彌素齋飯",
+    "sku": "QC_P_49180033",
+    "category": "聊國簡餐",
+    "combo_id": "O8701672",
+    "price_m": 130.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "黑胡椒豬柳飯(辣)",
+    "sku": "QC_P_49180043",
+    "category": "聊國簡餐",
+    "combo_id": "O8701672",
+    "price_m": 130.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "黑胡椒雞柳飯(辣)",
+    "sku": "QC_P_49180057",
+    "category": "聊國簡餐",
+    "combo_id": "O7835329",
+    "price_m": 130.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "香草起司雞丁飯",
+    "sku": "QC_P_49180068",
+    "category": "聊國簡餐",
+    "combo_id": "O7835329",
+    "price_m": 135.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "醬燒牛培根丼飯",
+    "sku": null,
+    "category": "聊國簡餐",
+    "combo_id": "O8701672",
+    "price_m": 230.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "醬燒無骨雞腿飯",
+    "sku": null,
+    "category": "聊國簡餐",
+    "combo_id": "O8701672",
+    "price_m": 230.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "醬燒松阪豬肉丼飯",
+    "sku": null,
+    "category": "聊國簡餐",
+    "combo_id": "O8701672",
+    "price_m": 235.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "黑胡椒牛柳飯(辣)",
+    "sku": null,
+    "category": "聊國簡餐",
+    "combo_id": "O7835329",
+    "price_m": 135.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "聊國簡餐",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "錫蘭紅茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "茉莉綠茶",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "附餐飲料",
+          "selected": false,
+          "price": -20.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "拿鐵Latte coffee",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "定食飲品",
+          "selected": false,
+          "price": 60.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "黑咖啡black coffee",
+          "selected": false,
+          "price": 40.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "錫蘭紅茶🔴",
+    "sku": "QC_P_39095620",
+    "category": "茶",
+    "combo_id": "O7835312",
+    "price_m": 45.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 5.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "錫蘭奶茶🔴",
+    "sku": "QC_P_39095610",
+    "category": "茶",
+    "combo_id": "O7835313",
+    "price_m": 50.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "錫蘭鮮奶茶🔴🐄",
+    "sku": "QC_P_39095608",
+    "category": "茶",
+    "combo_id": "O7835314",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "錫蘭奶蓋🔴🥛🧈",
+    "sku": "QC_P_49180061",
+    "category": "茶",
+    "combo_id": "O7835325",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 20.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "茉莉綠茶🟢",
+    "sku": "QC_P_39095606",
+    "category": "茶",
+    "combo_id": "O7835312",
+    "price_m": 45.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 5.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "茉莉奶茶🟢",
+    "sku": "QC_P_39095609",
+    "category": "茶",
+    "combo_id": "O7835313",
+    "price_m": 50.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "茉莉鮮奶茶🟢🐄",
+    "sku": "QC_P_39095607",
+    "category": "茶",
+    "combo_id": "O7835314",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "茉莉奶蓋🟢🥛🧈",
+    "sku": "QC_P_49180084",
+    "category": "茶",
+    "combo_id": "O7835325",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 20.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "伯爵紅茶🟤",
+    "sku": "QC_P_49180087",
+    "category": "茶",
+    "combo_id": "O7835312",
+    "price_m": 50.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 5.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "伯爵奶茶🟤",
+    "sku": "QC_P_49180090",
+    "category": "茶",
+    "combo_id": "O7835313",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "伯爵鮮奶茶🟤🐄",
+    "sku": "QC_P_49180093",
+    "category": "茶",
+    "combo_id": "O7835314",
+    "price_m": 70.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "伯爵奶蓋🟤🥛🧈",
+    "sku": "QC_P_49180095",
+    "category": "茶",
+    "combo_id": "O7835325",
+    "price_m": 70.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "茶",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 20.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "S",
+          "selected": false,
+          "price": -15.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "檸檬汁",
+    "sku": "QC_P_39095611",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 50.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "話梅檸檬",
+    "sku": "QC_P_39095616",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 55.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "金桔檸檬",
+    "sku": "QC_P_39095612",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 55.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "蔓越莓蘋果茶",
+    "sku": "QC_P_39095613",
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "松露巧克力",
+    "sku": "QC_P_39095614",
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "鮮奶抹茶",
+    "sku": "QC_P_39095615",
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "綠茶多多",
+    "sku": "QC_P_49180082",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "檸檬多多",
+    "sku": "QC_P_49180085",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "金桔多多",
+    "sku": "QC_P_49180088",
+    "category": "無咖啡因",
+    "combo_id": "O7835313",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "蔓越莓多多",
+    "sku": "QC_P_49180092",
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "蒸氣牛奶",
+    "sku": "QC_P_39095618",
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 60.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "仲夏海鹽檸檬",
+    "sku": null,
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 65.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "百香戀乳",
+    "sku": null,
+    "category": "無咖啡因",
+    "combo_id": "O7835314",
+    "price_m": 70.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "無咖啡因",
+      "lines": [
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "L",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "size",
+          "name": "M",
+          "selected": true,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "正常100%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "少糖75%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "半糖50%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "微糖30%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "無糖0%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "sweetness",
+          "name": "多糖120%",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "去冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "少冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "正常冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "溫",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "微冰",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "冰沙",
+          "selected": false,
+          "price": 10.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "貝果",
+    "sku": "QC_P_39095623",
+    "category": "點心",
+    "combo_id": "O7835315",
+    "price_m": 50.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "點心",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "巧克力",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "花生",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "原味",
+          "selected": false,
+          "price": -10.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "奶酥",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "火腿起司",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "奶油",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "培根起司",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "香蒜",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "厚片",
+    "sku": "QC_P_49180060",
+    "category": "點心",
+    "combo_id": "O7835326",
+    "price_m": 45.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "點心",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "花生",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "巧克力",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "奶油",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "香蒜",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "奶酥",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "耶加雪夫",
+    "sku": "QC_P_39095624",
+    "category": "咖啡豆",
+    "combo_id": "O7835317",
+    "price_m": 445.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 400.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "黃金曼特寧",
+    "sku": "QC_P_39095625",
+    "category": "咖啡豆",
+    "combo_id": "O7835317",
+    "price_m": 480.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 400.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "精選曼巴",
+    "sku": "QC_P_39095626",
+    "category": "咖啡豆",
+    "combo_id": "O7835319",
+    "price_m": 280.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 260.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "精品藍山風味咖啡",
+    "sku": "QC_P_39095637",
+    "category": "咖啡豆",
+    "combo_id": "O7835318",
+    "price_m": 290.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 270.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "招牌咖啡豆",
+    "sku": "QC_P_39095627",
+    "category": "咖啡豆",
+    "combo_id": "O7835320",
+    "price_m": 250.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 230.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "曼特寧",
+    "sku": "QC_P_39095629",
+    "category": "咖啡豆",
+    "combo_id": "O7835318",
+    "price_m": 280.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "other",
+          "name": "半磅",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "other",
+          "name": "一磅",
+          "selected": false,
+          "price": 270.0
+        }
+      ]
+    }
+  },
+  {
+    "name": "肯亞AA",
+    "sku": null,
+    "category": "咖啡豆",
+    "combo_id": "O8640678",
+    "price_m": 445.0,
+    "config": {
+      "show_popup": true,
+      "pos_category_name": "咖啡豆",
+      "lines": [
+        {
+          "attribute_type": "temperature",
+          "name": "無冰瞬間冷卻",
+          "selected": false,
+          "price": 15.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "隔水保熱",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "無須調整(熱)_",
+          "selected": false,
+          "price": 0.0
+        },
+        {
+          "attribute_type": "temperature",
+          "name": "雙層紙杯(限外帶)",
+          "selected": false,
+          "price": 3.0
+        }
+      ]
+    }
+  }
+]

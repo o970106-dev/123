@@ -5,9 +5,10 @@ import xml.etree.ElementTree as ET
 from odoo_jsonrpc import OdooClient
 
 
-URL = "http://34.80.194.190"
-LOGIN = "admin@wuchang.life"
-PASSWORD = "poiuY926"
+URL = "http://127.0.0.1:18069"
+LOGIN = "admin"
+PASSWORD = "odoo"
+DB_NAME = "wuchang_preview_20251107"
 PRODUCT_NAME = "招牌咖啡"
 OUTPUT_FILENAME = f"product_{PRODUCT_NAME}.xml"
 
@@ -24,7 +25,7 @@ def ensure_db(odoo: OdooClient, db: Optional[str] = None) -> str:
 
 
 def find_product(odoo: OdooClient, name: str) -> Dict[str, Any]:
-    fields = [
+    candidate_fields = [
         "id",
         "name",
         "list_price",
@@ -39,7 +40,11 @@ def find_product(odoo: OdooClient, name: str) -> Dict[str, Any]:
         "supplier_taxes_id",
         "barcode",
         "default_code",
+        "sale_ok",
+        "type",
     ]
+    fields_info = odoo.call_kw("product.template", "fields_get", [], {"attributes": ["string"]}) or {}
+    fields = [f for f in candidate_fields if f in fields_info]
     res = odoo.search_read("product.template", [["name", "=", name]], fields, limit=1)
     if not res:
         res = odoo.search_read("product.template", [["name", "ilike", name]], fields, limit=1)
@@ -131,7 +136,7 @@ def export_xml(product: Dict[str, Any], client: OdooClient) -> str:
 
 def main():
     client = OdooClient(URL)
-    db = ensure_db(client)
+    db = ensure_db(client, DB_NAME)
     client.authenticate(db, LOGIN, PASSWORD)
 
     product = find_product(client, PRODUCT_NAME)
@@ -141,4 +146,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

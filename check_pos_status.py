@@ -3,9 +3,10 @@ from odoo_jsonrpc import OdooClient
 
 
 def main():
-    url = "http://34.80.194.190"
-    login = "admin@wuchang.life"
-    pw = "poiuY926"
+    url = "http://127.0.0.1:18069"
+    db_name = "wuchang_preview_20251107"
+    login = "admin"
+    pw = "odoo"
 
     print("Connecting to", url)
     client = OdooClient(url)
@@ -15,24 +16,24 @@ def main():
         print("No databases returned")
         return
 
-    db = dbs[0]
+    db = db_name if db_name in dbs else dbs[0]
     print("Using DB:", db)
     client.authenticate(db, login, pw)
     print("Authenticated as", login)
 
-    configs = client.search_read(
-        "pos.config",
-        [],
-        [
-            "id",
-            "name",
-            "iface_customer_facing_display",
-            "company_id",
-            "pos_session_state",
-            "currency_id",
-        ],
-        limit=50,
-    )
+    # Determine available fields dynamically to avoid invalid-field errors across versions
+    fields_info = client.call_kw("pos.config", "fields_get", [], {"attributes": ["string"]}) or {}
+    candidate_fields = [
+        "id",
+        "name",
+        "company_id",
+        "currency_id",
+        "pos_session_state",
+        "current_session_id",
+        "active",
+    ]
+    read_fields = [f for f in candidate_fields if f in fields_info]
+    configs = client.search_read("pos.config", [], read_fields, limit=50)
     print("pos.config records:", json.dumps(configs, ensure_ascii=False))
 
     uoms = client.search_read("uom.uom", [], ["id", "name"], limit=10)
@@ -46,4 +47,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
