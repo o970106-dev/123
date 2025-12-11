@@ -1,11 +1,14 @@
 import argparse
 import json
+import logging
 import os
 import sys
 import time
 from typing import Tuple
 
 import paramiko
+
+logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 
 
 def load_config(path: str) -> dict:
@@ -14,7 +17,7 @@ def load_config(path: str) -> dict:
         if not os.path.exists(alt):
             raise FileNotFoundError("缺少配置文件，请创建 config.json 或保留 config.example.json")
         path = alt
-        print(f"[提示] 使用示例配置：{path}")
+        logging.info(f"使用示例配置：{path}")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -74,40 +77,40 @@ def run_command(client: paramiko.SSHClient, command: str, sudo: bool = False, pa
 
 
 def action_check(client: paramiko.SSHClient, password: str = None):
-    print("[1/3] apt 更新索引...")
+    logging.info("[1/3] apt 更新索引...")
     out, err, rc = run_command(client, "apt update", sudo=True, password=password)
-    print(out or err)
+    logging.info(out or err)
 
-    print("\n[2/3] 可升级软件包列表...")
+    logging.info("\n[2/3] 可升级软件包列表...")
     out, err, rc = run_command(client, "apt list --upgradable", sudo=False)
-    print(out or err)
+    logging.info(out or err)
 
-    print("\n[3/3] Ubuntu Pro / ESM 状态...")
+    logging.info("\n[3/3] Ubuntu Pro / ESM 状态...")
     out, err, rc = run_command(client, "pro status", sudo=True, password=password)
-    print(out or err)
+    logging.info(out or err)
 
 
 def action_upgrade(client: paramiko.SSHClient, password: str = None):
-    print("[1/2] apt 更新索引...")
+    logging.info("[1/2] apt 更新索引...")
     out, err, rc = run_command(client, "apt update", sudo=True, password=password)
-    print(out or err)
+    logging.info(out or err)
 
-    print("\n[2/2] 执行升级 (apt upgrade -y)...")
+    logging.info("\n[2/2] 执行升级 (apt upgrade -y)...")
     out, err, rc = run_command(client, "apt upgrade -y", sudo=True, password=password)
-    print(out)
+    logging.info(out)
     if err:
-        print(err)
+        logging.error(err)
 
 
 def action_pro_status(client: paramiko.SSHClient, password: str = None):
     out, err, rc = run_command(client, "pro status", sudo=True, password=password)
-    print(out or err)
+    logging.info(out or err)
 
 
 def action_release_check(client: paramiko.SSHClient, password: str = None):
     # 仅检查是否有可用发行版升级，不执行实际升级
     out, err, rc = run_command(client, "do-release-upgrade -c", sudo=True, password=password)
-    print(out or err)
+    logging.info(out or err)
 
 
 def main():
@@ -133,16 +136,16 @@ def main():
             action_release_check(client, password)
         elif args.action == "run":
             if not args.cmd:
-                print("请通过 --cmd 指定要执行的命令")
+                logging.error("请通过 --cmd 指定要执行的命令")
                 sys.exit(2)
             out, err, rc = run_command(client, args.cmd, sudo=args.sudo, password=password)
-            print(out)
+            logging.info(out)
             if err:
-                print(err)
+                logging.error(err)
         else:
-            print("未知操作")
+            logging.error("未知操作")
     except Exception as e:
-        print(f"[错误] {e}")
+        logging.error(f"{e}")
         sys.exit(1)
     finally:
         try:
