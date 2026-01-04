@@ -2,155 +2,127 @@ import argparse
 import json
 import os
 import sys
-import time
-from typing import Tuple
+import subprocess
 
-import paramiko
+from paramiko import SSHClient, AutoAddPolicy, AuthenticationException, SSHException
+from invoke import UnexpectedExit, Result
 
+def load_config(config_path='config.json'):
+    if not os.path.exists(config_path):
+        print(f"[警告] 未找到 {config_path}，将尝试使用 config.example.json", file=sys.stderr)
+        config_path = 'config.example.json'
+        if not os.path.exists(config_path):
+            print(f"[错误] {config_path} 也不存在，请创建您的 config.json", file=sys.stderr)
+            sys.exit(1)
 
-def load_config(path: str) -> dict:
-    if not os.path.exists(path):
-        alt = os.path.join(os.path.dirname(__file__), "config.example.json")
-        if not os.path.exists(alt):
-            raise FileNotFoundError("缺少配置文件，请创建 config.json 或保留 config.example.json")
-        path = alt
-        print(f"[提示] 使用示例配置：{path}")
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    with open(config_path) as f:
+        return json.load(f).get('ssh', {})
 
-
-def connect(cfg: dict) -> paramiko.SSHClient:
-    host = cfg.get("host")
-    port = int(cfg.get("port", 22))
-    user = cfg.get("user")
-    auth_method = cfg.get("auth_method", "key")
-    key_path = cfg.get("key_path")
-    password = cfg.get("password") or None
-
-    if not host or not user:
-        raise ValueError("配置不完整：需要 host 与 user")
-
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-
-    # 尝试连接
-    if auth_method == "key":
-        client.connect(
-            hostname=host,
-            port=port,
-            username=user,
-            key_filename=key_path if key_path else None,
-            allow_agent=True,
-            look_for_keys=True,
-        )
-    else:
-        client.connect(
-            hostname=host,
-            port=port,
-            username=user,
-            password=password,
-            allow_agent=False,
-            look_for_keys=False,
-        )
-    return client
-
-
-def run_command(client: paramiko.SSHClient, command: str, sudo: bool = False, password: str = None) -> Tuple[str, str, int]:
-    cmd = command
-    if sudo:
-        # 使用 -S 从 stdin 读取密码；-p '' 静默提示
-        cmd = f"sudo -S -p '' {command}"
-        stdin, stdout, stderr = client.exec_command(cmd, get_pty=True)
-        if password:
-            stdin.write(password + "\n")
-            stdin.flush()
-    else:
-        stdin, stdout, stderr = client.exec_command(cmd)
-
-    out = stdout.read().decode(errors="ignore")
-    err = stderr.read().decode(errors="ignore")
-    rc = stdout.channel.recv_exit_status()
-    return out, err, rc
-
-
-def action_check(client: paramiko.SSHClient, password: str = None):
-    print("[1/3] apt 更新索引...")
-    out, err, rc = run_command(client, "apt update", sudo=True, password=password)
-    print(out or err)
-
-    print("\n[2/3] 可升级软件包列表...")
-    out, err, rc = run_command(client, "apt list --upgradable", sudo=False)
-    print(out or err)
-
-    print("\n[3/3] Ubuntu Pro / ESM 状态...")
-    out, err, rc = run_command(client, "pro status", sudo=True, password=password)
-    print(out or err)
-
-
-def action_upgrade(client: paramiko.SSHClient, password: str = None):
-    print("[1/2] apt 更新索引...")
-    out, err, rc = run_command(client, "apt update", sudo=True, password=password)
-    print(out or err)
-
-    print("\n[2/2] 执行升级 (apt upgrade -y)...")
-    out, err, rc = run_command(client, "apt upgrade -y", sudo=True, password=password)
-    print(out)
-    if err:
-        print(err)
-
-
-def action_pro_status(client: paramiko.SSHClient, password: str = None):
-    out, err, rc = run_command(client, "pro status", sudo=True, password=password)
-    print(out or err)
-
-
-def action_release_check(client: paramiko.SSHClient, password: str = None):
-    # 仅检查是否有可用发行版升级，不执行实际升级
-    out, err, rc = run_command(client, "do-release-upgrade -c", sudo=True, password=password)
-    print(out or err)
-
-
-def main():
-    parser = argparse.ArgumentParser(description="远程管理 Ubuntu 服务器")
-    parser.add_argument("action", choices=["check", "upgrade", "pro-status", "release-check", "run"], help="操作类型")
-    parser.add_argument("--config", default="config.json", help="配置文件路径，默认为 config.json")
-    parser.add_argument("--cmd", help="当 action=run 时要执行的命令")
-    parser.add_argument("--sudo", action="store_true", help="当 action=run 时以 sudo 执行")
-    args = parser.parse_args()
+def get_ssh_client(config):
+    client = SSHClient()
+    client.set_missing_host_key_policy(AutoAddPolicy())
+    auth_method = config.get('auth_method', 'key')
 
     try:
-        cfg = load_config(args.config)
-        client = connect(cfg)
-        password = cfg.get("password") or None
-
-        if args.action == "check":
-            action_check(client, password)
-        elif args.action == "upgrade":
-            action_upgrade(client, password)
-        elif args.action == "pro-status":
-            action_pro_status(client, password)
-        elif args.action == "release-check":
-            action_release_check(client, password)
-        elif args.action == "run":
-            if not args.cmd:
-                print("请通过 --cmd 指定要执行的命令")
-                sys.exit(2)
-            out, err, rc = run_command(client, args.cmd, sudo=args.sudo, password=password)
-            print(out)
-            if err:
-                print(err)
+        if auth_method == 'key':
+            key_path = os.path.expanduser(config.get('key_path', '~/.ssh/id_rsa'))
+            if not os.path.exists(key_path):
+                raise FileNotFoundError(f"SSH key not found at {key_path}")
+            client.connect(config['host'], port=config.get('port', 22),
+                           username=config['user'], key_filename=key_path, timeout=10)
+        elif auth_method == 'password':
+            client.connect(config['host'], port=config.get('port', 22),
+                           username=config['user'], password=config['password'], timeout=10)
         else:
-            print("未知操作")
-    except Exception as e:
-        print(f"[错误] {e}")
+            raise ValueError(f"Unsupported authentication method: {auth_method}")
+
+    except FileNotFoundError as e:
+        print(f"[错误] {e}", file=sys.stderr)
+        print("\n[提示] 请在 config.json 中提供正确的 SSH 私钥路径，", file=sys.stderr)
+        print("或联系管理员以获取必要的凭据。", file=sys.stderr)
         sys.exit(1)
-    finally:
+    except (AuthenticationException, SSHException) as e:
+        print(f"[错误] SSH 认证失败: {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"[错误] 连接到 {config.get('host')} 时发生错误: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    return client
+
+def run_remote_command(client, command, sudo_pass=None):
+    if 'sudo' in command and sudo_pass:
+        # Use invoke for commands requiring sudo password
         try:
-            client.close()
-        except Exception:
+            from invoke import Connection
+            conn = Connection(
+                host=client.get_transport().getpeername()[0],
+                user=client.get_transport().get_username(),
+                connect_kwargs={
+                    "pkey": client._get_pkey(),
+                }
+            )
+            result = conn.sudo(command.replace('sudo', '').strip(), password=sudo_pass, pty=True)
+            return result.exited, result.stdout, result.stderr
+        except ImportError:
+            print("[警告] `invoke` 库未安装，sudo 密码传递可能无法正常工作。", file=sys.stderr)
+            print("请运行: pip install invoke", file=sys.stderr)
+            # Fallback to basic exec_command without password
+            pass
+        except Exception as e:
+            print(f"使用 invoke 执行 sudo 命令时出错: {e}", file=sys.stderr)
+            # Fallback or re-raise
             pass
 
 
+    stdin, stdout, stderr = client.exec_command(command, get_pty=True)
+    exit_status = stdout.channel.recv_exit_status()
+
+    output = stdout.read().decode('utf-8')
+    error = stderr.read().decode('utf-8')
+
+    return exit_status, output, error
+
+def main():
+    parser = argparse.ArgumentParser(description="远程服务器管理工具")
+    subparsers = parser.add_subparsers(dest='command', required=True)
+
+    check_parser = subparsers.add_parser('check', help='检查服务器状态和更新')
+    upgrade_parser = subparsers.add_parser('upgrade', help='更新服务器软件包')
+    pro_status_parser = subparsers.add_parser('pro-status', help='检查 Ubuntu Pro/ESM 状态')
+    release_check_parser = subparsers.add_parser('release-check', help='检查是否有新的发行版升级')
+    run_parser = subparsers.add_parser('run', help='在远程服务器上执行任意命令')
+    run_parser.add_argument('--cmd', required=True, help='要执行的命令')
+
+    args = parser.parse_args()
+
+    config = load_config()
+    client = get_ssh_client(config)
+
+    sudo_password = config.get('password')
+
+    commands = {
+        'check': [
+            "echo '--- 系统信息 ---'", "uname -a",
+            "echo '\n--- 可用更新 ---'", "apt list --upgradable 2>/dev/null | grep -v 'Listing...'",
+        ],
+        'upgrade': ["sudo apt-get update && sudo apt-get -y upgrade"],
+        'pro-status': ["sudo pro status"],
+        'release-check': ["do-release-upgrade -c"],
+        'run': [args.cmd] if args.command == 'run' else [],
+    }
+
+    full_command = " && ".join(commands[args.command])
+
+    print(f"在 {config['host']} 上执行: {full_command}\n")
+    exit_status, output, error = run_remote_command(client, full_command, sudo_pass=sudo_password)
+
+    if output:
+        print(output)
+    if error:
+        print(f"错误输出:\n{error}", file=sys.stderr)
+
+    client.close()
+
 if __name__ == "__main__":
     main()
-
