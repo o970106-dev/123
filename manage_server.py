@@ -2,7 +2,6 @@ import argparse
 import json
 import os
 import sys
-import time
 from typing import Tuple
 
 import paramiko
@@ -16,7 +15,11 @@ def load_config(path: str) -> dict:
         path = alt
         print(f"[提示] 使用示例配置：{path}")
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        config = json.load(f)
+
+    if "ssh" not in config:
+        raise ValueError("Config file is missing 'ssh' section")
+    return config["ssh"]
 
 
 def connect(cfg: dict) -> paramiko.SSHClient:
@@ -153,4 +156,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
