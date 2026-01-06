@@ -4,5 +4,11 @@
   "user": "ubuntu",
   "auth_method": "key",
   "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
-  "password": ""
+  "password": "",
+  "odoo": {
+    "url": "https://your.odoo.instance",
+    "db": "your_database_name",
+    "login": "admin",
+    "password": "your_password"
+  }
 }
