@@ -4,5 +4,11 @@
   "user": "ubuntu",
   "auth_method": "key",
   "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
-  "password": ""
+  "password": "",
+  "odoo": {
+    "url": "https://wuchang.life",
+    "db": "wuchang_preview_20251107",
+    "login": "admin@wuchang.life",
+    "password": "your_odoo_password"
+  }
 }

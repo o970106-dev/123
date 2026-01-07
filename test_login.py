@@ -1,45 +1,54 @@
+import json
+from pathlib import Path
+from typing import Any, Dict
+
 from odoo_jsonrpc import OdooClient, OdooRPCError
 
 
-URL = "http://127.0.0.1:18069"
-TARGET_DB = "wuchang_preview_20251107"
-
-# Try common admin credential sets, first one that succeeds wins
-CREDENTIALS = [
-    ("admin", "odoo"),
-    ("admin@wuchang.life", "poiuY926"),
-]
+def load_config() -> Dict[str, Any]:
+    """Loads config.json, falling back to the example."""
+    config_path = Path("config.json")
+    if not config_path.exists():
+        print("[warn] config.json not found, using config.example.json")
+        config_path = Path("config.example.json")
+    if not config_path.exists():
+        raise FileNotFoundError("config.json or config.example.json not found.")
+    return json.loads(config_path.read_text(encoding="utf-8"))
 
 
 def main():
-    client = OdooClient(URL)
-    dbs = client.list_databases() or []
-    if isinstance(dbs, dict) and dbs.get("databases"):
-        dbs = dbs["databases"]
-    if not dbs:
-        print("[error] No databases found on server")
-        return
-    print("[info] available databases:", dbs)
-    db = TARGET_DB if TARGET_DB in dbs else dbs[0]
-    print("[info] selected db:", db)
-
-    last_err = None
-    for login, password in CREDENTIALS:
-        try:
-            client.authenticate(db, login, password)
-            me = client.search_read("res.users", [["login", "=", login]], ["id", "name", "login", "active"], limit=1)
-            base_url = client.call_kw("ir.config_parameter", "get_param", [], {"key": "web.base.url"})
-            print("[ok] login succeeded")
-            print("db:", db)
-            print("user:", me)
-            print("web.base.url:", base_url)
+    """Attempts to authenticate to Odoo using credentials from config."""
+    try:
+        config = load_config()
+        odoo_cfg = config.get("odoo")
+        if not odoo_cfg:
+            print("[error] 'odoo' section missing in config file.")
             return
-        except Exception as e:
-            last_err = e
-            print(f"[warn] login failed for {login}:", str(e))
 
-    if last_err:
-        print("[error] all credential attempts failed:", str(last_err))
+        url = odoo_cfg.get("url")
+        db = odoo_cfg.get("db")
+        login = odoo_cfg.get("login")
+        password = odoo_cfg.get("password")
+
+        if not all([url, db, login, password]):
+            print("[error] url, db, login, and password must be set in the 'odoo' config section.")
+            return
+
+        client = OdooClient(url)
+        print(f"[*] Authenticating to {url} with db='{db}' and user='{login}'...")
+        uid = client.authenticate(db, login, password)
+        me = client.search_read("res.users", [["id", "=", uid]], ["name", "login"], limit=1)
+
+        print("\n[ok] Login successful!")
+        print(f"  - UID: {uid}")
+        print(f"  - User: {me[0]['name']} ({me[0]['login']})")
+
+    except FileNotFoundError as e:
+        print(f"[error] {e}")
+    except OdooRPCError as e:
+        print(f"\n[fail] Odoo RPC Error: {e}")
+    except Exception as e:
+        print(f"\n[fail] An unexpected error occurred: {e}")
 
 
 if __name__ == "__main__":
