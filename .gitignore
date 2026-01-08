@@ -46,3 +46,6 @@ odoo19-shadow/backups/
 
 # Node / web (if present)
 node_modules/
+
+# Excel files
+*.xlsx
