@@ -1,45 +1,32 @@
 from odoo_jsonrpc import OdooClient, OdooRPCError
 
-
-URL = "http://127.0.0.1:18069"
-TARGET_DB = "wuchang_preview_20251107"
-
-# Try common admin credential sets, first one that succeeds wins
-CREDENTIALS = [
-    ("admin", "odoo"),
-    ("admin@wuchang.life", "poiuY926"),
-]
+from utils import load_config
 
 
 def main():
-    client = OdooClient(URL)
-    dbs = client.list_databases() or []
-    if isinstance(dbs, dict) and dbs.get("databases"):
-        dbs = dbs["databases"]
-    if not dbs:
-        print("[error] No databases found on server")
+    cfg = load_config()
+    odoo_cfg = cfg.get("odoo", {})
+    url = odoo_cfg.get("url")
+    db = odoo_cfg.get("db")
+    login = odoo_cfg.get("login")
+    password = odoo_cfg.get("password")
+
+    if not all([url, db, login, password]):
+        print("[error] Odoo config missing in config.json (url, db, login, password)")
         return
-    print("[info] available databases:", dbs)
-    db = TARGET_DB if TARGET_DB in dbs else dbs[0]
-    print("[info] selected db:", db)
 
-    last_err = None
-    for login, password in CREDENTIALS:
-        try:
-            client.authenticate(db, login, password)
-            me = client.search_read("res.users", [["login", "=", login]], ["id", "name", "login", "active"], limit=1)
-            base_url = client.call_kw("ir.config_parameter", "get_param", [], {"key": "web.base.url"})
-            print("[ok] login succeeded")
-            print("db:", db)
-            print("user:", me)
-            print("web.base.url:", base_url)
-            return
-        except Exception as e:
-            last_err = e
-            print(f"[warn] login failed for {login}:", str(e))
-
-    if last_err:
-        print("[error] all credential attempts failed:", str(last_err))
+    client = OdooClient(url)
+    try:
+        client.authenticate(db, login, password)
+        me = client.search_read("res.users", [["login", "=", login]], ["id", "name", "login"], limit=1)
+        print("[ok] Login successful")
+        print("  - URL:", url)
+        print("  - DB:", db)
+        print("  - User:", me[0] if me else "N/A")
+    except OdooRPCError as e:
+        print(f"[error] Login failed: {e.fault_code} - {e.fault_string}")
+    except Exception as e:
+        print(f"[error] An unexpected error occurred: {e}")
 
 
 if __name__ == "__main__":
