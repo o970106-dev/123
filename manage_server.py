@@ -20,12 +20,13 @@ def load_config(path: str) -> dict:
 
 
 def connect(cfg: dict) -> paramiko.SSHClient:
-    host = cfg.get("host")
-    port = int(cfg.get("port", 22))
-    user = cfg.get("user")
-    auth_method = cfg.get("auth_method", "key")
-    key_path = cfg.get("key_path")
-    password = cfg.get("password") or None
+    ssh_cfg = cfg.get("ssh", {})
+    host = ssh_cfg.get("host")
+    port = int(ssh_cfg.get("port", 22))
+    user = ssh_cfg.get("user")
+    auth_method = ssh_cfg.get("auth_method", "key")
+    key_path = ssh_cfg.get("key_path")
+    password = ssh_cfg.get("password") or None
 
     if not host or not user:
         raise ValueError("配置不完整：需要 host 与 user")
