@@ -1,34 +1,26 @@
 import argparse
-import json
-import os
 import sys
-import time
 from typing import Tuple
 
 import paramiko
 
-
-def load_config(path: str) -> dict:
-    if not os.path.exists(path):
-        alt = os.path.join(os.path.dirname(__file__), "config.example.json")
-        if not os.path.exists(alt):
-            raise FileNotFoundError("缺少配置文件，请创建 config.json 或保留 config.example.json")
-        path = alt
-        print(f"[提示] 使用示例配置：{path}")
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+from shared_config import load_config
 
 
-def connect(cfg: dict) -> paramiko.SSHClient:
-    host = cfg.get("host")
-    port = int(cfg.get("port", 22))
-    user = cfg.get("user")
-    auth_method = cfg.get("auth_method", "key")
-    key_path = cfg.get("key_path")
-    password = cfg.get("password") or None
+def connect(config: dict) -> paramiko.SSHClient:
+    ssh_config = config.get("ssh")
+    if not ssh_config:
+        raise ValueError("設定檔中缺少 `ssh` 區段。")
+
+    host = ssh_config.get("host")
+    port = int(ssh_config.get("port", 22))
+    user = ssh_config.get("user")
+    auth_method = ssh_config.get("auth_method", "key")
+    key_path = ssh_config.get("key_path")
+    password = ssh_config.get("password") or None
 
     if not host or not user:
-        raise ValueError("配置不完整：需要 host 与 user")
+        raise ValueError("SSH 設定不完整，`host` 和 `user` 為必填項。")
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
