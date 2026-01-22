@@ -1,8 +1,16 @@
 {
-  "host": "34.80.194.190",
-  "port": 22,
-  "user": "o0930",
-  "auth_method": "key",
-  "key_path": "C:\\Users\\o0930\\.ssh\\gcp_key",
-  "password": null
+  "ssh": {
+    "host": "wuchang.life",
+    "port": 22,
+    "user": "ubuntu",
+    "auth_method": "key",
+    "key_path": null,
+    "password": null
+  },
+  "odoo": {
+    "url": "https://wuchang.life",
+    "db": "wuchang_online_20240321",
+    "login": "admin@wuchang.life",
+    "password": "fake_password"
+  }
 }

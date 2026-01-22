@@ -1,8 +1,16 @@
 {
-  "host": "your.server.example",
-  "port": 22,
-  "user": "ubuntu",
-  "auth_method": "key",
-  "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
-  "password": ""
+  "ssh": {
+    "host": "wuchang.life",
+    "port": 22,
+    "user": "ubuntu",
+    "auth_method": "key",
+    "key_path": null,
+    "password": null
+  },
+  "odoo": {
+    "url": "https://wuchang.life",
+    "db": "wuchang_online_20240321",
+    "login": "admin@wuchang.life",
+    "password": "your_odoo_password"
+  }
 }

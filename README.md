@@ -6,14 +6,15 @@
 - `config.example.json`：配置模板（主机、端口、用户、密钥路径等）
 - `connect.ps1`：一键 SSH 交互连接脚本
 - `manage_server.py`：常见维护任务（更新、ESM/Pro状态、升级检查、任意命令执行）
-- `requirements.txt`：Python 依赖（Paramiko）
- - `import_pos_menu.py`：从 Excel 导入 POS 菜单到 Odoo 的脚本
+- `requirements.txt`：Python 依赖（Paramiko, Requests, OpenPyXL）
+- `import_pos_menu.py`：从 Excel 导入 POS 菜单到 Odoo 的脚本
+- `check_system.py`：**（新）** 一键检查服务器与 Odoo 服务状态的诊断脚本
 
 ## 使用前准备
 
 - 确保 Windows 已安装 OpenSSH 客户端（Windows 10/11 默认包含，可在 PowerShell 运行 `ssh -V` 验证）。
 - 准备好服务器的登录方式（建议使用 SSH 私钥）。
-- 获取服务器连接信息：`host`、`port`（默认 22）、`user`、私钥路径或密码。
+- 获取服务器与 Odoo 的连接信息。
 
 ## 快速开始
 
@@ -35,22 +36,20 @@
      pip install -r requirements.txt
      ```
 
-4. 常见维护任务：
-   - 查看更新与状态检查：
+4. **系统健康检查**：
+   - 运行全面的服务器与 Odoo 状态检查：
+     ```powershell
+     python check_system.py
+     ```
+
+5. 常见维护任务：
+   - 查看更新与状态检查（仅服务器）：
      ```powershell
      python manage_server.py check
      ```
    - 执行系统更新（`apt update && apt upgrade -y`）：
      ```powershell
      python manage_server.py upgrade
-     ```
-   - 查看 Ubuntu Pro / ESM 状态：
-     ```powershell
-     python manage_server.py pro-status
-     ```
-   - 检查是否有可用发行版升级（不会实际升级）：
-     ```powershell
-     python manage_server.py release-check
      ```
    - 在远端执行任意命令：
      ```powershell
@@ -59,13 +58,21 @@
 
 ## 配置说明（config.json）
 
-示例字段：
+配置文件分为 `ssh` 和 `odoo` 两个部分。
+
+### SSH 配置 (`ssh`)
 - `host`：服务器地址或公网 IP
 - `port`：SSH 端口（默认 22）
 - `user`：登录用户名（如 `ubuntu`）
 - `auth_method`：`key` 或 `password`（建议 `key`）
-- `key_path`：私钥文件路径（Windows 示例：`C:\\Users\\<you>\\.ssh\\id_rsa`）
-- `password`：密码（如使用密码登录可填写；不建议存明文）
+- `key_path`：私钥文件路径（`auth_method: "key"` 时使用）
+- `password`：密码（`auth_method: "password"` 时使用；不建议存明文）
+
+### Odoo 配置 (`odoo`)
+- `url`：Odoo 实例的 URL (例如 `https://your.domain.com`)
+- `db`：要连接的数据库名称
+- `login`：Odoo 管理员用户名
+- `password`：Odoo 管理员密码
 
 > 注：如使用密码登录，`connect.ps1` 会在连接时交互式提示输入密码；`manage_server.py` 会在需要 `sudo` 时将密码通过安全方式传入（如配置了 `password`）。
 

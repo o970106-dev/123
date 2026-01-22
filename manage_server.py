@@ -1,22 +1,10 @@
 import argparse
-import json
-import os
 import sys
 import time
 from typing import Tuple
 
 import paramiko
-
-
-def load_config(path: str) -> dict:
-    if not os.path.exists(path):
-        alt = os.path.join(os.path.dirname(__file__), "config.example.json")
-        if not os.path.exists(alt):
-            raise FileNotFoundError("缺少配置文件，请创建 config.json 或保留 config.example.json")
-        path = alt
-        print(f"[提示] 使用示例配置：{path}")
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+from shared_config import load_config
 
 
 def connect(cfg: dict) -> paramiko.SSHClient:
@@ -118,10 +106,14 @@ def main():
     parser.add_argument("--sudo", action="store_true", help="当 action=run 时以 sudo 执行")
     args = parser.parse_args()
 
+    client = None  # 确保 client 在 finally 中可用
     try:
-        cfg = load_config(args.config)
-        client = connect(cfg)
-        password = cfg.get("password") or None
+        # 注意：这里的 cfg 加载的是完整的 config.json，我们需要 ssh 部分
+        full_cfg = load_config(args.config)
+        ssh_cfg = full_cfg.get("ssh", {})
+
+        client = connect(ssh_cfg)
+        password = ssh_cfg.get("password") or None
 
         if args.action == "check":
             action_check(client, password)
@@ -145,10 +137,8 @@ def main():
         print(f"[错误] {e}")
         sys.exit(1)
     finally:
-        try:
+        if client:
             client.close()
-        except Exception:
-            pass
 
 
 if __name__ == "__main__":
