@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Portal My Home : PMS Entry" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Property Management</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholder_count" t-value="0"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_pms_dashboard" name="PMS Dashboard">
+        <t t-call="portal.portal_layout">
+            <t t-set="my_details" t-value="True"/>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Welcome, <t t-esc="resident_name"/></h2>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fa fa-bullhorn"/> Latest Announcements
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted">No new announcements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <i class="fa fa-cube"/> My Packages
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted">You have no pending packages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">
+                                <i class="fa fa-wrench"/> Quick Actions
+                            </div>
+                            <div class="card-body">
+                                <div class="btn-group w-100">
+                                    <a href="#" class="btn btn-outline-info">Facility Booking</a>
+                                    <a href="#" class="btn btn-outline-info">Visitor Request</a>
+                                    <a href="#" class="btn btn-outline-info">Report Issue</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
