@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t_call="portal.portal_docs_entry">
+                <t t_set="title">物業管理 (PMS)</t>
+                <t t_set="url" t_value="'/my/pms'"/>
+                <t t_set="placeholder">我的社區服務</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_pms_dashboard" name="PMS Dashboard">
+        <t t_call="portal.portal_layout">
+            <t t_set="breadcrumbs_searchbar" t_value="True"/>
+
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>歡迎回來, <t t_esc="resident_name"/></h3>
+                        <p class="text-muted">這裡是您的社區物業管理中心</p>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <!-- Announcements -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fa fa-bullhorn mr-2"/>最新公告</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <t t_foreach="announcements" t_as="ann">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <t t_esc="ann['title']"/>
+                                            <span class="badge badge-light badge-pill text-muted"><t t_esc="ann['date']"/></span>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Packages -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fa fa-cube mr-2"/>包裹快遞</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>單號</th>
+                                            <th>物流</th>
+                                            <th>狀態</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t_foreach="packages" t_as="pkg">
+                                            <tr>
+                                                <td><t t_esc="pkg['id']"/></td>
+                                                <td><t t_esc="pkg['carrier']"/></td>
+                                                <td>
+                                                    <span t_attf-class="badge badge-#{'warning' if pkg['status'] == '待領取' else 'secondary'}">
+                                                        <t t_esc="pkg['status']"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <!-- Quick Actions -->
+                    <div class="col-md-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex justify-content-around">
+                                <a href="#" class="btn btn-outline-info"><i class="fa fa-calendar mr-2"/>公設預約</a>
+                                <a href="#" class="btn btn-outline-info"><i class="fa fa-wrench mr-2"/>行動報修</a>
+                                <a href="#" class="btn btn-outline-info"><i class="fa fa-credit-card mr-2"/>繳交管理費</a>
+                                <a href="#" class="btn btn-outline-info"><i class="fa fa-lightbulb-o mr-2"/>智能家居</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
