@@ -1,8 +1,16 @@
 {
-  "host": "34.80.194.190",
-  "port": 22,
-  "user": "o0930",
-  "auth_method": "key",
-  "key_path": "C:\\Users\\o0930\\.ssh\\gcp_key",
-  "password": null
+  "ssh": {
+    "host": "your.server.example",
+    "port": 22,
+    "user": "ubuntu",
+    "auth_method": "key",
+    "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
+    "password": ""
+  },
+  "odoo": {
+    "url": "http://your.odoo.instance",
+    "db": "your_odoo_database",
+    "login": "admin_user",
+    "pw": "your_admin_password"
+  }
 }
