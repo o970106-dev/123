@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_pms_home" name="PMS Resident Portal Home">
+        <t t-call="portal.portal_layout">
+            <t t-set="my_details" t-value="True"/>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>物管服務中心 (PMS Portal)</h3>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fa fa-bullhorn fa-3x mb-3 text-primary"></i>
+                                <h5 class="card-title">社區公告</h5>
+                                <p class="card-text">查看最新社區資訊與通知</p>
+                                <a href="#" class="btn btn-outline-primary">進入</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fa fa-wrench fa-3x mb-3 text-warning"></i>
+                                <h5 class="card-title">報修申請</h5>
+                                <p class="card-text">提交設備維修申請並追蹤進度</p>
+                                <a href="#" class="btn btn-outline-warning">進入</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fa fa-calendar fa-3x mb-3 text-success"></i>
+                                <h5 class="card-title">設施預約</h5>
+                                <p class="card-text">預約社區公共設施</p>
+                                <a href="#" class="btn btn-outline-success">進入</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

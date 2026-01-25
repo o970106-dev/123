@@ -1,0 +1,36 @@
+
+version: "3.8"
+services:
+  db19:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    networks:
+      - ccnet
+  odoo19:
+    image: odoo:19
+    depends_on:
+      - db19
+    ports:
+      - "18104:8069"
+      - "8114:8072"
+    environment:
+      - ADMIN_PASSWORD=odoo
+      - DB_HOST=db19
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo
+      - HOST=db19
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - ./odoo-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+    command: ["--db_host=db19", "--db_user=odoo", "--db_password=odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons", "--proxy-mode", "--longpolling-port=8072", "--workers=2"]
+    networks:
+      - ccnet
+networks:
+  ccnet:
