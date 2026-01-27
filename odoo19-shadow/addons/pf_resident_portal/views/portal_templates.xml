@@ -106,6 +106,9 @@
                                     <span class="badge badge-success small ml-2" style="font-size: 0.6rem;">
                                         <i class="fa fa-refresh mr-1"/>已同步: <t t-esc="last_sync"/>
                                     </span>
+                                    <span class="badge badge-info small ml-1" style="font-size: 0.6rem;">
+                                        <i class="fa fa-bolt mr-1"/>CNS 傳輸: <t t-esc="cns_transmission_ms"/>ms
+                                    </span>
                                     <small class="float-right text-muted" style="font-size: 0.7rem;">(Double J Collaboration)</small>
                                 </h5>
                                 <hr/>

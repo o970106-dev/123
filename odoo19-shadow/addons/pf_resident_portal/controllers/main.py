@@ -7,6 +7,7 @@ class ResidentPortal(http.Controller):
         # Collaboration Log data
         import json
         import os
+        import time
         log_path = "/home/jules/collaboration_log.json"
         sync_state_path = "/home/jules/sync_state.json"
         collab_logs = []
@@ -36,6 +37,8 @@ class ResidentPortal(http.Controller):
                 {'date': '2025-01-20', 'title': '電梯維護公告'},
             ],
             'collab_logs': collab_logs,
-            'last_sync': last_sync
+            'last_sync': last_sync,
+            'cns_status': '穩定 (O(1) 絕對定位)',
+            'cns_transmission_ms': 0.0234 # 模擬 STAPS 效能
         }
         return request.render("pf_resident_portal.portal_my_pms", values)

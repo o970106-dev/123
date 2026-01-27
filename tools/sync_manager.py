@@ -2,6 +2,7 @@ import json
 import os
 import time
 from .space_time_algo import SpaceTimeSystem
+from .double_j_cns_transmission import SpaceTimeSystem as STAPS_Universe, DoubleJ_TypeA_CNS
 
 LOG_FILE = "collaboration_log.json"
 SYNC_STATE = "sync_state.json"
@@ -9,7 +10,11 @@ SYNC_STATE = "sync_state.json"
 class DoubleJSyncManager:
     def __init__(self, time_window_seconds=86400): # Default 24h window
         self.now = time.time()
-        self.st_system = SpaceTimeSystem(self.now - time_window_seconds, self.now + 600) # Buffer for future
+        # 原有的時空索引系統 (用於歷史查詢)
+        self.st_index = SpaceTimeSystem(self.now - time_window_seconds, self.now + 600)
+        # 新增的 CNS 傳輸系統 (用於即時廣播)
+        self.universe = STAPS_Universe()
+        self.cns = DoubleJ_TypeA_CNS(self.universe)
         self.last_sync_time = self._load_last_sync()
 
     def _load_last_sync(self):
@@ -30,15 +35,14 @@ class DoubleJSyncManager:
             logs = json.load(f)
 
         for log in logs:
-            # We assume the log has a 'timestamp_unix' field
             t = log.get("timestamp_unix", 0)
             if t:
-                self.st_system.insert(t, log)
+                self.st_index.insert(t, log)
         return logs
 
     def get_pending_actions(self):
         # Efficiently query actions from last_sync_time to now
-        return self.st_system.query(self.last_sync_time + 0.001, self.now)
+        return self.st_index.query(self.last_sync_time + 0.001, self.now)
 
     def perform_sync(self):
         self.load_and_index_logs()
