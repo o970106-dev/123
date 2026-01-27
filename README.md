@@ -17,7 +17,14 @@
 - **POS 菜單導入** (`import_pos_menu.py`): 從 Excel 快速導入品項與客製化設定至 Odoo。
 - **一鍵連線** (`connect.ps1`): PowerShell 下的快速 SSH 互動式連線。
 
-## 快速開始
+## 快速開始：一鍵控制中樞
+
+為了發揮 **Double J 架構** 的最大威力，我們建議您直接使用 **Master Controller**，它集成了所有子系統的控制權：
+
+```bash
+# 啟動總控制台
+python wuchang_master.py
+```
 
 ### 1. 配置環境
 
@@ -31,13 +38,6 @@
 
 ```bash
 pip install -r requirements.txt
-```
-
-### 3. 系統診斷
-
-在開始操作前，建議先執行診斷：
-```bash
-python check_system.py
 ```
 
 ## 使用說明
