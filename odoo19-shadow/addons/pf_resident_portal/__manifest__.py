@@ -4,7 +4,7 @@
     'category': 'Property Management',
     'summary': 'A beautiful home for residents of Wuchang.',
     'description': 'Provides a unified dashboard for residents to manage their home.',
-    'depends': ['portal', 'account', 'website_payment'],
+    'depends': ['portal', 'account'],
     'data': [
         'views/portal_templates.xml',
     ],
