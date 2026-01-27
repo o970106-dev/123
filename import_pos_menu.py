@@ -226,6 +226,8 @@ def main() -> None:
         print(f"[{action}] product.template(id={pid}) name='{name}'")
 
         if not args.no_config and combo_id:
+            # 檢查是否已存在配置，避免重複建立
+            existing_cfg = client.search_read("pos.beverage.config", [["product_tmpl_id", "=", pid]], ["id"], limit=1)
             lines = combo_map.get(combo_id) or []
             cmd = [(5, 0, 0)]
             m_extra_cfg = next((ln.get("price") or 0.0 for ln in lines if ln.get("type") == "size" and str(ln.get("name")).strip().upper() == "M"), 0.0)
@@ -236,7 +238,13 @@ def main() -> None:
                 cmd.append((0, 0, {"attribute_type": ln["type"], "name": ln["name"], "selected": bool(is_m), "price": adj_price}))
             vals = {"name": f"{name}設定", "product_tmpl_id": pid, "show_popup": True, "line_ids": cmd}
             if cat_id: vals["pos_category_id"] = cat_id
-            client.create("pos.beverage.config", vals)
+
+            if existing_cfg:
+                client.write("pos.beverage.config", [existing_cfg[0]["id"]], vals)
+                print(f"  [updated] beverage config for {name}")
+            else:
+                client.create("pos.beverage.config", vals)
+                print(f"  [created] beverage config for {name}")
 
 if __name__ == "__main__":
     main()

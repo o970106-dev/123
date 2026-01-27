@@ -1,7 +1,14 @@
 import os
 
-MODULES = ["pm", "pf", "vt", "cc", "sc", "er"]
-BASE_PORT = 18069
+# 定義模組與對應的連接埠 (與 Nginx 配置同步)
+MODULE_CONFIG = {
+    "pm": {"port": 18101, "long_port": 8111},
+    "pf": {"port": 18102, "long_port": 8112},
+    "vt": {"port": 18103, "long_port": 8113},
+    "cc": {"port": 18104, "long_port": 8114},
+    "sc": {"port": 18105, "long_port": 8115},
+    "er": {"port": 18107, "long_port": 8117},
+}
 
 COMPOSE_TEMPLATE = """version: "3.8"
 services:
@@ -42,10 +49,10 @@ volumes:
 """
 
 def main():
-    print("=== 正在生成 PMS 模組 Docker Compose 檔案 ===")
-    for i, module in enumerate(MODULES):
-        port = BASE_PORT + i
-        long_port = 18072 + i
+    print("=== 正在生成 PMS 模組 Docker Compose 檔案 (同步 Nginx 埠號) ===")
+    for module, cfg in MODULE_CONFIG.items():
+        port = cfg["port"]
+        long_port = cfg["long_port"]
         target_dir = f"pms_modules/{module}/core/odoo19-shadow"
         os.makedirs(os.path.join(target_dir, "addons"), exist_ok=True)
 

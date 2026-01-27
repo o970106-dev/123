@@ -47,6 +47,17 @@ def check_odoo(cfg):
     print("\n--- 正在檢查 Odoo API 連線 ---")
     odoo_cfg = cfg.get("odoo", {})
     url = odoo_cfg.get("url")
+
+    if url and url.startswith("http://"):
+        print(f"[警告] 目前使用非加密連線: {url}")
+        https_url = url.replace("http://", "https://")
+        print(f"[資訊] 嘗試檢查 HTTPS 版本: {https_url}")
+        try:
+            import requests
+            r = requests.get(https_url, timeout=5)
+            print(f"[成功] HTTPS 可連通 (狀態碼: {r.status_code})")
+        except Exception as e:
+            print(f"[資訊] HTTPS 目前無法連通: {e}")
     db = odoo_cfg.get("db")
     login = odoo_cfg.get("login")
     password = odoo_cfg.get("password")
