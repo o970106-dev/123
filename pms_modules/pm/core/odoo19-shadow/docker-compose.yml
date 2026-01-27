@@ -16,8 +16,8 @@ services:
       - db_pm
     restart: unless-stopped
     ports:
-      - "18069:8069"
-      - "18072:8072"
+      - "18101:8069"
+      - "8111:8072"
     environment:
       - ADMIN_PASSWORD=odoo
       - DB_HOST=db_pm

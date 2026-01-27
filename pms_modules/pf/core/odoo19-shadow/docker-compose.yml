@@ -16,8 +16,8 @@ services:
       - db_pf
     restart: unless-stopped
     ports:
-      - "18070:8069"
-      - "18073:8072"
+      - "18102:8069"
+      - "8112:8072"
     environment:
       - ADMIN_PASSWORD=odoo
       - DB_HOST=db_pf

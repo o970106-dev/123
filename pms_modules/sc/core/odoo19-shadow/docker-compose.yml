@@ -16,8 +16,8 @@ services:
       - db_sc
     restart: unless-stopped
     ports:
-      - "18073:8069"
-      - "18076:8072"
+      - "18105:8069"
+      - "8115:8072"
     environment:
       - ADMIN_PASSWORD=odoo
       - DB_HOST=db_sc

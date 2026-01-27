@@ -1,13 +1,16 @@
 import os
 
-# 定義模組與對應的連接埠 (與 Nginx 配置同步)
+# 定義 8 個神經適配器節點與對應的連接埠 (與 Nginx 配置同步)
+# 遵循 Double J 1對8 傳輸架構
 MODULE_CONFIG = {
     "pm": {"port": 18101, "long_port": 8111},
     "pf": {"port": 18102, "long_port": 8112},
     "vt": {"port": 18103, "long_port": 8113},
     "cc": {"port": 18104, "long_port": 8114},
     "sc": {"port": 18105, "long_port": 8115},
-    "er": {"port": 18107, "long_port": 8117},
+    "er": {"port": 18107, "long_port": 8117}, # 跳過 106 以保持原有配置相容
+    "ax1": {"port": 18108, "long_port": 8118}, # 擴展節點 1
+    "ax2": {"port": 18109, "long_port": 8119}, # 擴展節點 2
 }
 
 COMPOSE_TEMPLATE = """version: "3.8"
@@ -49,7 +52,7 @@ volumes:
 """
 
 def main():
-    print("=== 正在生成 PMS 模組 Docker Compose 檔案 (同步 Nginx 埠號) ===")
+    print("=== [STAPS] 正在生成 8 個地端神經適配器 Docker Compose 檔案 ===")
     for module, cfg in MODULE_CONFIG.items():
         port = cfg["port"]
         long_port = cfg["long_port"]
@@ -61,7 +64,7 @@ def main():
 
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
-        print(f"[成功] 已生成: {filepath} (連接埠: {port})")
+        print(f"[成功] 座標鎖定: {module} -> Port {port}")
 
 if __name__ == "__main__":
     main()

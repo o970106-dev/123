@@ -16,8 +16,8 @@ services:
       - db_er
     restart: unless-stopped
     ports:
-      - "18074:8069"
-      - "18077:8072"
+      - "18107:8069"
+      - "8117:8072"
     environment:
       - ADMIN_PASSWORD=odoo
       - DB_HOST=db_er

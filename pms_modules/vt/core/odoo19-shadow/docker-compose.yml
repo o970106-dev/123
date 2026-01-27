@@ -16,8 +16,8 @@ services:
       - db_vt
     restart: unless-stopped
     ports:
-      - "18071:8069"
-      - "18074:8072"
+      - "18103:8069"
+      - "8113:8072"
     environment:
       - ADMIN_PASSWORD=odoo
       - DB_HOST=db_vt

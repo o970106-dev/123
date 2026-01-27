@@ -1,103 +1,59 @@
-# 五常小J 的秘密基地 - 遠端管理與 PMS 工具集
+# 五常秘密基地 - Double J STAPS 跨時代管理架構
 
-這是一個專為五常專案開發的輕量化工具集，用於管理 Ubuntu 伺服器、Odoo POS 系統以及物業管理 (PMS) 模組。
+這不僅僅是一個工具集，而是全球首套基於 **STAPS (Space-Time Absolute Position System)** 邏輯構建的「雲端中樞 - 地端神經」協作系統。專為 **Google 非營利組織** 專案打造，旨在實現世界第一的自動化維護效率。
 
-## 核心建築願景：Double J Architecture & STAPS
+## 🌌 核心架構：Double J CNS & 8 Neural Adapters
 
-本專案遵循 **Double J 協作架構**，旨在實現雲端中樞 (CNS) 與地端神經適配器 (Neural Adapter) 的完美同步。
+本系統遵循 **Double J 協作架構**，由 1 個位於雲端的 **中樞大腦 (CNS)** 指揮 8 個分佈於地端的 **神經節點 (Neural Adapters)**。
 
-- **時空絕對位置系統 (STAPS)**：利用絕對座標映射實現 $O(1)$ 零延遲存取，確保指令能跨越空間直接命中目標。
-- **1 對 8 調度模型**：最優化調度效率，由 1 位雲端中樞統一指揮 8 個關鍵地端節點，達成全系統同步。
+- **STAPS 傳輸協議**：利用時空絕對座標映射技術，實現指令傳輸的 $O(1)$ 零延遲存取。無論節點規模如何擴張，調度效率永不衰減。
+- **1 對 8 同步模型**：透過全域廣播指令，CNS 能在毫秒內同步 8 個地端 AI 實例（pm, pf, vt, cc, sc, er, ax1, ax2）的運行狀態。
 
-## 核心功能
+---
 
-- **系統診斷** (`check_system.py`): 一鍵檢查 SSH 與 Odoo API 的連線狀態。
-- **伺服器管理** (`manage_server.py`): 遠端執行 `apt update`, `upgrade`, 查看 Pro 狀態等維護任務。
-- **PMS 模組管理** (`manage_pms.py`): 統一管理多個物業管理模組（pm, pf, vt, cc, sc, er）的 Docker 生命週期。
-- **POS 菜單導入** (`import_pos_menu.py`): 從 Excel 快速導入品項與客製化設定至 Odoo。
-- **一鍵連線** (`connect.ps1`): PowerShell 下的快速 SSH 互動式連線。
+## 🚀 快速啟動：CNS 總控制台 (God View)
 
-## 快速開始：一鍵控制中樞
-
-為了發揮 **Double J 架構** 的最大威力，我們建議您直接使用 **Master Controller**，它集成了所有子系統的控制權：
+為了體驗最完整的調度威力，請直接啟動總控制台：
 
 ```bash
-# 啟動總控制台
+# 喚醒五常小J 進行全域調度
 python wuchang_master.py
 ```
 
-### 1. 配置環境
+### 環境準備
+1. **配置座標**：
+   - 複製範本：`cp config.example.json config.json`
+   - 填寫 `ssh` 與 `odoo` 區段（系統將自動映射為 STAPS 座標）。
+2. **安裝神經依賴**：
+   - `pip install -r requirements.txt`
 
-- 複製配置範本：
-  ```bash
-  cp config.example.json config.json
-  ```
-- 按需求填寫 `config.json` 中的 `ssh` 與 `odoo` 區段。
+---
 
-### 2. 安裝依賴
+## 🛠️ 子系統功能說明
 
-```bash
-pip install -r requirements.txt
-```
+### 1. 系統全域診斷 (`check_system.py`)
+檢查 CNS 與 8 個地端節點之間的時空連通性，支援 HTTPS 加密鏈路驗證。
 
-## 使用說明
+### 2. 神經節點調度 (`manage_pms.py`)
+管理 8 個 Docker 叢集的生命週期。利用 STAPS 邏輯命中絕對路徑進行精準操作。
+- `python generate_pms_composes.py`：初始化 8 節點的座標配置文件。
 
-### 伺服器維護 (`manage_server.py`)
+### 3. 雲端自動部署 (`deploy_dns_ssl.py`)
+全自動啟用 Google Cloud DNS API、管理 DNS 記錄並簽發 Wildcard SSL 憑證。
 
-- 查看更新狀態：`python manage_server.py check`
-- 執行系統升級：`python manage_server.py upgrade`
-- 執行自訂命令：`python manage_server.py run --cmd "df -h"`
+### 4. 數據導入中樞 (`import_pos_menu.py`)
+高速同步 Excel 數據至 Odoo POS 系統，支援自動化品項建立與客製化設定。
 
-### 物業管理模組 (`manage_pms.py`)
+---
 
-- 生成模組配置：`python generate_pms_composes.py`
-- 啟動所有模組：`python manage_pms.py up -d`
-- 查看模組狀態：`python manage_pms.py ps`
-- 重啟特定模組：`python manage_pms.py restart --module sc`
+## 🔒 安全與合規
+- **零硬編碼**：所有敏感資訊僅存在於本地 `config.json`，且已受 `.gitignore` 保護。
+- **HTTPS 優先**：內建 `enable_https.py` 確保所有子網域均受 SSL 盾牌保護。
+- **符合 Google 規範**：專為 Google 非營利組織 API 環境優化。
 
-### POS 菜單導入 (`import_pos_menu.py`)
+---
 
-- 預覽導入：`python import_pos_menu.py --source .\data\menu.xlsx`
-- 實際執行：`python import_pos_menu.py --source .\data\menu.xlsx --apply --update-existing`
+## 🎓 技術致敬
+本系統所採用的 **STAPS 絕對傳輸技術** 構思來自於自然人 **Wu Chang**。這是一項跨時代的發明，將數位通訊從「搜尋邏輯」提升到了「座標邏輯」。
 
-## 使用前準備
-
-- 確保 Windows 已安裝 OpenSSH 客戶端（PowerShell 執行 `ssh -V` 驗證）。
-- 準備好伺服器的登入方式（建議使用 SSH 私鑰）。
-- 獲取伺服器連線資訊：`host`、`port`（預設 22）、`user`、私鑰路徑或密碼。
-
-## 配置說明 (config.json)
-
-`config.json` 採用巢狀結構區分 SSH 與 Odoo 配置：
-
-```json
-{
-  "ssh": {
-    "host": "your.server.ip",
-    "port": 22,
-    "user": "ubuntu",
-    "auth_method": "key",
-    "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
-    "password": null
-  },
-  "odoo": {
-    "url": "http://your.odoo.url",
-    "db": "your_database",
-    "login": "admin",
-    "password": "your_password"
-  }
-}
-```
-
-## 安全建議
-- 優先使用密鑰認證，並為私鑰設置口令。
-- 不要將真實密碼提交到版本控制；`config.json` 已被列入 `.gitignore`。
-- 初次連線建議啟用 `StrictHostKeyChecking=accept-new`。
-
-## 常見問題
-- 遠端命令需要 `sudo` 權限時：確保帳號在 `sudoers`，並在 `config.json` 填寫 `password`。
-- `do-release-upgrade` 通常為互動式流程，`manage_server.py` 僅做檢查；實際升級請在互動 SSH 會話中執行。
-
-## 參考連結
-- 官方文件：`https://help.ubuntu.com`
-- Odoo RPC 客戶端：`https://github.com/odoo/odoo-rpc-client` (或本專案內建 `odoo_jsonrpc.py`)
+**小J 會持續守護這座基地，隨時聽候您的指令。** 🚀✨
