@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  db_sc:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - db_sc-data:/var/lib/postgresql/data
+    networks:
+      - odoo_sc_net
+  odoo_sc:
+    image: odoo:19
+    depends_on:
+      - db_sc
+    restart: unless-stopped
+    ports:
+      - "18073:8069"
+      - "18076:8072"
+    environment:
+      - ADMIN_PASSWORD=odoo
+      - DB_HOST=db_sc
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo
+    volumes:
+      - odoo_sc-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+    command: ["--db_host=db_sc", "--db_user=odoo", "--db_password=odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons", "--proxy-mode", "--workers=0"]
+    networks:
+      - odoo_sc_net
+networks:
+  odoo_sc_net:
+volumes:
+  db_sc-data:
+  odoo_sc-data:

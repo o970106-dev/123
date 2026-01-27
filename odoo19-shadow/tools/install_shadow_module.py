@@ -1,13 +1,26 @@
 import requests
 import sys
+import json
+import os
 
-BASE = "http://127.0.0.1:18069"
-DB = "wuchang_shadow19"
-LOGIN = "admin"
-PASSWORD = "odoo"
-MODULE = "pos_beverage_modifier"
+def load_config():
+    paths = ["config.json", "../config.json", "../../config.json"]
+    for p in paths:
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                return json.load(f)
+    return {}
 
 def main():
+    cfg = load_config()
+    odoo_cfg = cfg.get("odoo", {})
+
+    BASE = odoo_cfg.get("url", "http://127.0.0.1:8069")
+    DB = odoo_cfg.get("db", "odoo")
+    LOGIN = odoo_cfg.get("login", "admin")
+    PASSWORD = odoo_cfg.get("password", "admin")
+    MODULE = "pos_beverage_modifier"
+
     s = requests.Session()
     # Authenticate
     p = {"jsonrpc": "2.0", "method": "call", "params": {"db": DB, "login": LOGIN, "password": PASSWORD}}
