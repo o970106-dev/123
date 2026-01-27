@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import time
+from staps_core import timed_process
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -26,6 +27,7 @@ def run_script(script_name, args=""):
     input("\n按任意鍵返回 CNS 主選單...")
 
 def main_menu():
+    start_time = time.time()
     while True:
         clear_screen()
         print_banner()
@@ -35,6 +37,7 @@ def main_menu():
         print("    [4] 雲端自動化部署 (Cloud Automation) - DNS & SSL 一鍵同步")
         print("    [5] STAPS 傳輸實驗 (STAPS Protocol) - 執行絕對座標廣播")
         print("    [6] 數據導入中樞 (Data Ingestion) - POS 菜單資料同步")
+        print("    [7] 基地全自動改造 (Full System Renovation) - 一鍵完成全線升級")
         print("    [0] 系統休眠 (System Sleep)")
         print("\n    " + "="*50)
 
@@ -74,8 +77,13 @@ def main_menu():
             else:
                 print("找不到指定數據源。")
                 input("\n按任意鍵返回...")
+        elif choice == '7':
+            run_script("renovate_system.py")
         elif choice == '0':
-            print("\n    [資訊] 五常小J 感謝您的指揮，時空通道已關閉。")
+            end_time = time.time()
+            total_session = end_time - start_time
+            print(f"\n    [資訊] 五常小J 感謝您的指揮。本次調度總時長: {total_session:.2f} 秒。")
+            print("    系統休眠中。")
             break
         else:
             print("無效指令代碼。")

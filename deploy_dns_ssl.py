@@ -3,6 +3,7 @@ import subprocess
 import sys
 import json
 import time
+from staps_core import timed_process
 
 def load_config(path="config.json"):
     if os.path.exists(path):
@@ -22,7 +23,7 @@ def run_cmd(cmd):
         return False
 
 def deploy_dns(domain, ip):
-    print(f"=== 正在配置 Google Cloud DNS: {domain} ===")
+    print(f"=== [CNS] 正在配置 Google Cloud DNS: {domain} ===")
 
     if not run_cmd("gcloud services enable dns.googleapis.com"):
         print("無法啟用 DNS API，請確認已安裝 gcloud 並具備權限。")
@@ -54,7 +55,7 @@ def deploy_dns(domain, ip):
     return True
 
 def deploy_ssl(domain):
-    print(f"=== 正在簽發 SSL 憑證 (Certbot + Google DNS): {domain} ===")
+    print(f"=== [CNS] 正在簽發 SSL 憑證 (Certbot + Google DNS): {domain} ===")
 
     run_cmd("sudo apt update")
     run_cmd("sudo apt install -y certbot python3-certbot-dns-google")
@@ -73,27 +74,22 @@ def deploy_ssl(domain):
         return False
 
 def main():
-    start_time = time.time()
-    cfg = load_config()
-    ssh_cfg = cfg.get("ssh", {})
+    with timed_process("全自動雲端 DNS 與 SSL 部署"):
+        cfg = load_config()
+        ssh_cfg = cfg.get("ssh", {})
 
-    domain = "wuchang.life"
-    ip = ssh_cfg.get("host")
-    if not ip or ip == "your.server.ip":
-        print("[警告] config.json 中未設定有效的伺服器 IP，將跳過 DNS A 記錄更新。")
-        ip = None
+        domain = "wuchang.life"
+        ip = ssh_cfg.get("host")
+        if not ip or ip == "your.server.ip":
+            print("[警告] config.json 中未設定有效的伺服器 IP，將跳過 DNS A 記錄更新。")
+            ip = None
 
-    dns_success = True
-    if ip:
-        dns_success = deploy_dns(domain, ip)
+        dns_success = True
+        if ip:
+            dns_success = deploy_dns(domain, ip)
 
-    if dns_success:
-        deploy_ssl(domain)
-
-    total_time = time.time() - start_time
-    print(f"\n✅ 全自動 DNS 與 SSL 部署程序執行完畢。")
-    print(f"⏱️ 總耗時: {total_time:.2f} 秒")
-    print("請接續執行 enable_https.py 更新 Nginx 配置以啟用 HTTPS。")
+        if dns_success:
+            deploy_ssl(domain)
 
 if __name__ == "__main__":
     main()

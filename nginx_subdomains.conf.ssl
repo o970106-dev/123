@@ -1,58 +1,5 @@
-## Nginx reverse proxy for Odoo services and longpolling endpoints
-
-# dp001 → user1.wuchang.life
-server {
-        listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    server_name user1.wuchang.life;
-
-    client_max_body_size 64m;
-    location / {
-        proxy_pass http://127.0.0.1:18069;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-    location /longpolling/ {
-        proxy_pass http://127.0.0.1:8072;
-        proxy_set_header Host $host;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
-}
-
-# dp002 → user2.wuchang.life
-server {
-        listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    server_name user2.wuchang.life;
-
-    client_max_body_size 64m;
-    location / {
-        proxy_pass http://127.0.0.1:28069;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-    location /longpolling/ {
-        proxy_pass http://127.0.0.1:8073;
-        proxy_set_header Host $host;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
-}
+## [STAPS] Nginx Reverse Proxy - Double J 8-Node Architecture
+## 確保雲端中樞 (CNS) 能透過絕對座標調度地端神經節點
 
 # pm → pm.wuchang.life
 server {
@@ -63,7 +10,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name pm.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18101;
@@ -90,7 +36,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name pf.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18102;
@@ -117,7 +62,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name vt.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18103;
@@ -144,7 +88,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name cc.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18104;
@@ -171,7 +114,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name sc.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18105;
@@ -198,7 +140,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     server_name er.wuchang.life;
-
     client_max_body_size 64m;
     location / {
         proxy_pass http://127.0.0.1:18107;
@@ -216,11 +157,68 @@ server {
     }
 }
 
+# ax1 → ax1.wuchang.life (Neural Adapter 07)
+server {
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    server_name ax1.wuchang.life;
+    client_max_body_size 64m;
+    location / {
+        proxy_pass http://127.0.0.1:18108;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    location /longpolling/ {
+        proxy_pass http://127.0.0.1:8118;
+        proxy_set_header Host $host;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+
+# ax2 → ax2.wuchang.life (Neural Adapter 08)
+server {
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    server_name ax2.wuchang.life;
+    client_max_body_size 64m;
+    location / {
+        proxy_pass http://127.0.0.1:18109;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    location /longpolling/ {
+        proxy_pass http://127.0.0.1:8119;
+        proxy_set_header Host $host;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
 
 
 server {
     listen 80;
-    server_name pf.wuchang.life;
+    server_name ax2.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name er.wuchang.life;
     return 301 https://$host$request_uri;
 }
 
@@ -244,24 +242,18 @@ server {
 
 server {
     listen 80;
-    server_name user1.wuchang.life;
+    server_name ax1.wuchang.life;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 80;
-    server_name er.wuchang.life;
+    server_name pf.wuchang.life;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 80;
     server_name pm.wuchang.life;
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 80;
-    server_name user2.wuchang.life;
     return 301 https://$host$request_uri;
 }

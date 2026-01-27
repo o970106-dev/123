@@ -99,7 +99,7 @@ server {
 
 server {
     listen 80;
-    server_name www.wuchang.life;
+    server_name bp.wuchang.life;
     return 301 https://$host$request_uri;
 }
 
@@ -111,12 +111,12 @@ server {
 
 server {
     listen 80;
-    server_name bp.wuchang.life;
+    server_name pos.bp.wuchang.life;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 80;
-    server_name pos.bp.wuchang.life;
+    server_name www.wuchang.life;
     return 301 https://$host$request_uri;
 }

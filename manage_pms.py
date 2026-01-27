@@ -2,11 +2,7 @@ import argparse
 import os
 import subprocess
 import sys
-import hashlib
-
-# ==========================================
-# 核心技術：時空絕對位置系統 (STAPS) 整合版
-# ==========================================
+from staps_core import STAPS_NODES, get_absolute_coordinate, get_node_path, timed_process
 
 class STAPSOrchestrator:
     """
@@ -14,24 +10,19 @@ class STAPSOrchestrator:
     """
     def __init__(self):
         self.nodes = {}
-        # 初始化 8 個關鍵神經節點
-        module_list = ["pm", "pf", "vt", "cc", "sc", "er", "ax1", "ax2"]
-        for mod in module_list:
+        for mod in STAPS_NODES:
             self.register_node(mod)
 
-    def _get_absolute_coordinate(self, identity_code):
-        return hashlib.sha256(identity_code.encode()).hexdigest()
-
     def register_node(self, node_id):
-        coord = self._get_absolute_coordinate(node_id)
-        target_dir = f"pms_modules/{node_id}/core/odoo19-shadow"
+        coord = get_absolute_coordinate(node_id)
+        target_dir = get_node_path(node_id)
         self.nodes[coord] = {
             "id": node_id,
             "path": target_dir
         }
 
     def dispatch(self, node_id, action, extra_args=None):
-        coord = self._get_absolute_coordinate(node_id)
+        coord = get_absolute_coordinate(node_id)
         node = self.nodes.get(coord)
 
         if not node:
@@ -66,17 +57,15 @@ def main():
     if args.action == "up" and args.detach:
         extra_args.append("-d")
 
-    if args.module:
-        # 單點傳輸
-        orchestrator.dispatch(args.module, args.action, extra_args)
-    else:
-        # 1 對 8 全域廣播
-        print(f"╔════════════════════════════════════════════════╗")
-        print(f"║ [CNS] 啟動 1 對 8 STAPS 全域廣播程序         ║")
-        print(f"╚════════════════════════════════════════════════╝")
-        module_list = ["pm", "pf", "vt", "cc", "sc", "er", "ax1", "ax2"]
-        for mod in module_list:
-            orchestrator.dispatch(mod, args.action, extra_args)
+    with timed_process(f"神經調度程序 ({args.action})"):
+        if args.module:
+            orchestrator.dispatch(args.module, args.action, extra_args)
+        else:
+            print(f"╔════════════════════════════════════════════════╗")
+            print(f"║ [CNS] 啟動 1 對 8 STAPS 全域廣播程序         ║")
+            print(f"╚════════════════════════════════════════════════╝")
+            for mod in STAPS_NODES:
+                orchestrator.dispatch(mod, args.action, extra_args)
 
 if __name__ == "__main__":
     main()
