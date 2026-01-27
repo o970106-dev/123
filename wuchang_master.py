@@ -2,18 +2,24 @@ import os
 import sys
 import subprocess
 import time
-from staps_core import timed_process
+from datetime import datetime
+from staps_core import timed_process, get_system_birth_moment
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_banner():
-    print("""
+    birth = get_system_birth_moment()
+    now = datetime.now()
+    uptime = (now - birth).total_seconds()
+
+    print(f"""
     ╔══════════════════════════════════════════════════════════════╗
     ║                                                              ║
     ║      五常秘密基地：Double J Architecture & STAPS             ║
     ║           Master Controller (CNS God View)                   ║
     ║                                                              ║
+    ║      [下令時刻]: {birth.strftime('%H:%M:%S')} UTC       [運作秒數]: {uptime:.1f}s   ║
     ║      [傳輸協議]: STAPS O(1)      [地端節點]: 8 Neural Nodes   ║
     ╚══════════════════════════════════════════════════════════════╝
     """)

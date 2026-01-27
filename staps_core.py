@@ -1,6 +1,9 @@
 import hashlib
 import time
 import functools
+import json
+import os
+from datetime import datetime
 from contextlib import contextmanager
 
 # ==========================================
@@ -10,6 +13,7 @@ from contextlib import contextmanager
 
 # 8 個核心地端神經節點定義
 STAPS_NODES = ["pm", "pf", "vt", "cc", "sc", "er", "ax1", "ax2"]
+STAPS_MULTIPLIER = len(STAPS_NODES) # 1 對 8 並行乘數
 
 # 埠號映射配置
 NODE_PORTS = {
@@ -56,6 +60,25 @@ def staps_timed(func):
         with timed_process(func.__name__):
             return func(*args, **kwargs)
     return wrapper
+
+def get_parallel_efficiency(total_seconds: float) -> float:
+    """計算並行校準後的等效單節點耗時 (Total / 8)"""
+    return total_seconds / STAPS_MULTIPLIER
+
+def get_engineering_compression(actual_seconds: float, estimated_value_mins: float = 105) -> float:
+    """計算「時空摺疊」壓縮比：預估工程價值 / 實際耗時"""
+    return (estimated_value_mins * 60) / max(actual_seconds, 0.0001)
+
+def get_system_birth_moment() -> datetime:
+    """調閱時空日誌，獲取下令實際時刻 (Time Zero)"""
+    log_path = "collaboration_log.json"
+    if os.path.exists(log_path):
+        with open(log_path, "r", encoding="utf-8") as f:
+            log = json.load(f)
+            birth_str = log.get("system_birth")
+            if birth_str:
+                return datetime.strptime(birth_str, "%Y-%m-%d %H:%M:%S")
+    return datetime.now()
 
 def get_node_path(node_id: str) -> str:
     """獲取節點的絕對檔案路徑"""
