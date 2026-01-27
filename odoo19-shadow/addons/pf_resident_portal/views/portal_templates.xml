@@ -95,6 +95,56 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Double J Collaboration Log -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">
+                                    <i class="fa fa-users mr-2"/>雙J 協作日誌
+                                    <span class="badge badge-success small ml-2" style="font-size: 0.6rem;">
+                                        <i class="fa fa-refresh mr-1"/>已同步: <t t-esc="last_sync"/>
+                                    </span>
+                                    <small class="float-right text-muted" style="font-size: 0.7rem;">(Double J Collaboration)</small>
+                                </h5>
+                                <hr/>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover border-0">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th class="border-0">時間</th>
+                                                <th class="border-0">成員</th>
+                                                <th class="border-0">動作</th>
+                                                <th class="border-0">詳細資訊</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="collab_logs" t-as="log">
+                                                <tr>
+                                                    <td class="text-muted small"><t t-esc="log['timestamp'][:16].replace('T', ' ')"/></td>
+                                                    <td><span t-attf-class="badge #{log['agent'] == 'User' ? 'badge-info' : 'badge-primary'}"><t t-esc="log['agent']"/></span></td>
+                                                    <td><strong><t t-esc="log['action']"/></strong></td>
+                                                    <td class="small text-truncate" style="max-width: 300px;"><t t-esc="log['details']"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="not collab_logs">
+                                                <tr>
+                                                    <td colspan="4" class="text-center text-muted py-3 italic">尚無協作紀錄，雙J 待命中...</td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 0.65rem; font-style: italic;">
+                                        <i class="fa fa-coffee mr-1"/>技術核心：時空系統絕對距離 (由 聊國咖啡館 社工老闆 傾心發明)
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </t>
     </template>
