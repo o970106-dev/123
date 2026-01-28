@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_pms_delivery_order_tree" model="ir.ui.view">
+        <field name="name">pms.delivery.order.tree</field>
+        <field name="model">pms.delivery.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="resident_id"/>
+                <field name="volunteer_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pms_delivery_order" model="ir.actions.act_window">
+        <field name="name">Delivery Orders</field>
+        <field name="res_model">pms.delivery.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pms_delivery" name="Delivery" parent="menu_pms_community_root" action="action_pms_delivery_order"/>
+</odoo>
