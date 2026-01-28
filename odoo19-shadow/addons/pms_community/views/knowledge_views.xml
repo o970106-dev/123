@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pms_knowledge_tree" model="ir.ui.view">
+        <field name="name">pms.knowledge.tree</field>
+        <field name="model">pms.knowledge</field>
+        <field name="arch" type="xml">
+            <list string="物業管理知識庫">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="importance"/>
+                <field name="author_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pms_knowledge" model="ir.actions.act_window">
+        <field name="name">物業管理知識</field>
+        <field name="res_model">pms.knowledge</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pms_knowledge_public,pms.knowledge.public,model_pms_knowledge,base.group_portal,1,0,0,0
+access_pms_knowledge_admin,pms.knowledge.admin,model_pms_knowledge,base.group_user,1,1,1,1
+access_pms_community_chat_public,pms.community.chat.public,model_pms_community_chat,base.group_portal,1,0,1,0
+access_pms_community_chat_admin,pms.community.chat.admin,model_pms_community_chat,base.group_user,1,1,1,1

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Portal My Home: PMS" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">物業管理系統</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholder_count" t-value="device_count"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Dashboard">
+        <t t-call="portal.portal_layout">
+            <div id="pms_dashboard" class="container mt-4">
+                <!-- Hero Section: Building Image Platform -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="pf-portal-card" style="background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&amp;fit=crop&amp;w=1200&amp;q=80') center/cover no-repeat; height: 300px; position: relative; overflow: hidden; display: flex; align-items: flex-end;">
+                            <div style="background: rgba(0,0,0,0.5); width: 100%; padding: 20px; backdrop-filter: blur(5px);">
+                                <h1 class="text-white mb-0">仁義住宅區 - 智慧管理平台</h1>
+                                <p class="text-white-50 mb-0">致力於為您打造最安全、最舒適的現代化社區</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Management Fee & Telemetry -->
+                    <div class="col-12 col-md-6">
+                        <div class="pf-portal-card">
+                            <div class="pf-portal-header">
+                                管理費狀態
+                                <span class="pf-telemetry-badge">CNS: <t t-esc="latency"/>ms</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>本月管理費</span>
+                                <h3 class="mb-0 text-success"><t t-esc="management_fee_status"/></h3>
+                            </div>
+                            <hr style="border-top: 1px solid rgba(255,255,255,0.1);"/>
+                            <div class="small">
+                                <strong>AI 物管小J 提示：</strong> 您的社區本月能源消耗下降了 5%，感謝您的節能貢獻！
+                            </div>
+                        </div>
+
+                        <!-- Community Links -->
+                        <div class="pf-portal-card">
+                            <div class="pf-portal-header">社區功能</div>
+                            <div class="list-group list-group-flush" style="background: transparent;">
+                                <a href="/my/community/chat" class="list-group-item list-group-item-action" style="background: transparent; color: white; border-color: rgba(255,255,255,0.1);">
+                                    <i class="fa fa-comments mr-2"></i> 仁義住宅區聊天室
+                                </a>
+                                <a href="/my/community/knowledge" class="list-group-item list-group-item-action" style="background: transparent; color: white; border-color: rgba(255,255,255,0.1);">
+                                    <i class="fa fa-book mr-2"></i> 物業管理知識庫
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smart Devices -->
+                    <div class="col-12 col-md-6">
+                        <div class="pf-portal-card">
+                            <div class="pf-portal-header">
+                                智能設備
+                                <span class="pf-telemetry-badge">Google Home 已聯結</span>
+                            </div>
+                            <t t-if="not devices">
+                                <div class="text-center py-4">
+                                    <i class="fa fa-plug fa-3x mb-3 text-white-50"></i>
+                                    <p>尚未聯結任何設備</p>
+                                </div>
+                            </t>
+                            <t t-foreach="devices" t-as="device">
+                                <div class="pf-device-item">
+                                    <span class="pf-device-name"><t t-esc="device.name"/></span>
+                                    <span class="pf-device-status">
+                                        <t t-if="device.is_on">
+                                            <span class="badge badge-success">開啟</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="badge badge-secondary">關閉</span>
+                                        </t>
+                                        <t t-if="device.device_type == 'LIGHT'">
+                                            <span class="ml-2"><t t-esc="device.brightness"/>%</span>
+                                        </t>
+                                    </span>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
