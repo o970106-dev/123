@@ -1,8 +1,8 @@
 {
-  "host": "34.80.194.190",
+  "host": "your.server.example",
   "port": 22,
-  "user": "o0930",
+  "user": "ubuntu",
   "auth_method": "key",
-  "key_path": "C:\\Users\\o0930\\.ssh\\gcp_key",
-  "password": null
+  "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
+  "password": ""
 }
