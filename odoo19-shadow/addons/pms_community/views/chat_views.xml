@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pms_community_chat_tree" model="ir.ui.view">
+        <field name="name">pms.community.chat.tree</field>
+        <field name="model">pms.community.chat</field>
+        <field name="arch" type="xml">
+            <list string="社區聊天記錄">
+                <field name="create_date"/>
+                <field name="partner_id"/>
+                <field name="message"/>
+                <field name="district"/>
+                <field name="is_ai_response"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pms_community_chat" model="ir.actions.act_window">
+        <field name="name">仁義住宅區聊天室</field>
+        <field name="res_model">pms.community.chat</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
