@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_pms_voucher_template_tree" model="ir.ui.view">
+        <field name="name">pms.voucher.template.tree</field>
+        <field name="model">pms.voucher.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="merchant_id"/>
+                <field name="coin_cost"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pms_voucher_template" model="ir.actions.act_window">
+        <field name="name">Voucher Templates</field>
+        <field name="res_model">pms.voucher.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pms_community_root" name="Community" web_icon="base,static/description/icon.png"/>
+    <menuitem id="menu_pms_vouchers" name="Vouchers" parent="menu_pms_community_root" action="action_pms_voucher_template"/>
+</odoo>
