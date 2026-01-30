@@ -141,8 +141,14 @@ def main():
                 print(err)
         else:
             print("未知操作")
+    except paramiko.ssh_exception.SSHException as e:
+        print(f"[错误] SSH 连接失败: {e}")
+        sys.exit(1)
+    except TimeoutError:
+        print("[错误] 连接超时。请检查主机地址、端口和网络连接。")
+        sys.exit(1)
     except Exception as e:
-        print(f"[错误] {e}")
+        print(f"[错误] 发生意外错误: {e}")
         sys.exit(1)
     finally:
         try:
