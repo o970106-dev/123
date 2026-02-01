@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_happiness_coin_tree" model="ir.ui.view">
+        <field name="name">pms.happiness.coin.tree</field>
+        <field name="model">pms.happiness.coin</field>
+        <field name="arch" type="xml">
+            <tree string="Happiness Coin Transactions">
+                <field name="resident_id"/>
+                <field name="amount"/>
+                <field name="type"/>
+                <field name="reason"/>
+                <field name="timestamp"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_happiness_coin" model="ir.actions.act_window">
+        <field name="name">Happiness Coins</field>
+        <field name="res_model">pms.happiness.coin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_happiness_coin_root" name="Community Center" sequence="10"/>
+    <menuitem id="menu_happiness_coin" name="Happiness Coins" parent="menu_happiness_coin_root" action="action_happiness_coin"/>
+</odoo>
