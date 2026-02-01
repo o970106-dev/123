@@ -7,6 +7,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/beverage_config_views.xml",
+        "views/product_template_views.xml",
         "data/beverage_demo.xml",
     ],
     "assets": {
