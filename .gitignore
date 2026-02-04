@@ -43,6 +43,7 @@ odoo19-shadow/backups/
 .pytest_cache/
 .mypy_cache/
 *.coverage
+SYSTEM_AUDIT.md
 
 # Node / web (if present)
 node_modules/

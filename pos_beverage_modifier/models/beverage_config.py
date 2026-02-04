@@ -45,3 +45,27 @@ class PosBeverageConfigLine(models.Model):
     name = fields.Char(string='Item Name', required=True)
     selected = fields.Boolean(string='Selected', default=False)
     price = fields.Float(string='Price Extra', default=0.0)
+
+
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
+
+    beverage_config_ids = fields.One2many(
+        'pos.beverage.config', 'product_tmpl_id', string='Beverage Settings'
+    )
+    beverage_config_count = fields.Integer(
+        string='Beverage Settings Count', compute='_compute_beverage_config_count'
+    )
+
+    def _compute_beverage_config_count(self):
+        for rec in self:
+            rec.beverage_config_count = self.env['pos.beverage.config'].search_count(
+                [('product_tmpl_id', '=', rec.id)]
+            )
+
+    def action_open_beverage_configs(self):
+        self.ensure_one()
+        action = self.env.ref('pos_beverage_modifier.action_pos_beverage_config').read()[0]
+        action['domain'] = [('product_tmpl_id', '=', self.id)]
+        action['context'] = {'default_product_tmpl_id': self.id}
+        return action
