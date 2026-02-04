@@ -1,0 +1,73 @@
+<odoo>
+    <template id="dashboard_template" name="Resident Portal Dashboard">
+        <t t-call="website.layout">
+            <style>
+                .glass-card {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    padding: 20px;
+                    color: white;
+                    margin-bottom: 20px;
+                }
+                .pms-container {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                    padding: 40px;
+                }
+                .coin-balance {
+                    font-size: 2.5em;
+                    font-weight: bold;
+                }
+                .device-toggle {
+                    cursor: pointer;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    background: #4caf50;
+                    color: white;
+                    display: inline-block;
+                }
+                .device-off {
+                    background: #f44336;
+                }
+            </style>
+            <div class="pms-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="glass-card">
+                                <h3>Happiness Coins</h3>
+                                <div class="coin-balance">
+                                    <t t-esc="balance"/> <small>HC</small>
+                                </div>
+                                <p>Volunteer more to earn!</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="glass-card">
+                                <h3>Smart Devices</h3>
+                                <div class="row">
+                                    <t t-foreach="devices" t-as="device">
+                                        <div class="col-sm-6 mb-3">
+                                            <div class="p-3 border rounded">
+                                                <h5 t-esc="device.name"/>
+                                                <p>Status: <span t-esc="device.state"/></p>
+                                                <div t-attf-class="device-toggle #{'device-off' if device.state == 'off' else ''}"
+                                                     t-att-data-id="device.id">
+                                                    Toggle
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
