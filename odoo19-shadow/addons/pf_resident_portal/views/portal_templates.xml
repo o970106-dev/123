@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Portal My Home : PMS Entry" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t_call="portal.portal_docs_entry">
+                <t t_set="title">Property Management (Double J)</t>
+                <t t_set="url" t_value="'/my/pms'"/>
+                <t t_set="placeholdertext">Manage your property and smart home with STAPS O(1) speed</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="pms_portal_home" name="PMS Portal Home">
+        <t t_call="portal.portal_layout">
+            <style>
+                .glass-card {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    transition: transform 0.3s ease;
+                }
+                .glass-card:hover {
+                    transform: translateY(-5px);
+                }
+                .stat-value {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+                .pms-gradient-bg {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 40px 0;
+                    margin-bottom: 30px;
+                    border-radius: 0 0 30px 30px;
+                }
+                .coin-icon {
+                    color: #ffd700;
+                    margin-right: 10px;
+                }
+            </style>
+
+            <div id="pms_portal_content">
+                <div class="pms-gradient-bg text-center">
+                    <div class="container">
+                        <h1 class="display-4">Welcome, <t t_esc="resident_name"/></h1>
+                        <p class="lead">Double J Property Management - Neural Interface Active</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <!-- Happiness Coin Widget -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card glass-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title"><i class="fa fa-coins coin-icon"/>Happiness Coins</h5>
+                                    <div class="stat-value text-warning"><t t_esc="happiness_coins"/></div>
+                                    <p class="text-muted">Community Contribution Score</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Management Fee -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card glass-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Management Fee</h5>
+                                    <div t_attf-class="stat-value #{'text-success' if management_fee_status == 'Paid' else 'text-danger'}">
+                                        <t t_esc="management_fee_status"/>
+                                    </div>
+                                    <p class="text-muted">Current Month Status</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Energy Efficiency -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card glass-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Energy Efficiency</h5>
+                                    <div class="stat-value text-info">A+</div>
+                                    <p class="text-muted">Rank: Top 5% in Community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-8">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Smart Home Control Center</h4>
+                                <span class="badge bg-success">STAPS Active</span>
+                            </div>
+                            <div class="row" t_if="smart_devices">
+                                <t t_foreach="smart_devices" t_as="device">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card glass-card h-100">
+                                            <div class="card-body d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0"><t t_esc="device.name"/></h6>
+                                                    <small class="text-muted"><t t_esc="device.room_name or 'Main Room'"/></small>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input device-toggle" type="checkbox"
+                                                           t_att-checked="device.state_on"
+                                                           t_att-data-device-id="device.id"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h4>Community News</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action glass-card mb-2">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Pool Maintenance</h6>
+                                        <small>3 days ago</small>
+                                    </div>
+                                    <p class="mb-1 text-muted small">Cleaning scheduled for next Monday.</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action glass-card">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Garbage Collection</h6>
+                                        <small>Today</small>
+                                    </div>
+                                    <p class="mb-1 text-muted small">Lunar New Year schedule updated.</p>
+                                </a>
+                            </div>
+
+                            <h4 class="mt-4">Security &amp; Integration</h4>
+                            <div class="card glass-card">
+                                <div class="card-body">
+                                    <h6 class="card-title"><i class="fa fa-google coin-icon"/>Google Home Token</h6>
+                                    <div class="alert alert-info py-1 px-2 mb-0" style="font-family: monospace; font-size: 0.8rem;">
+                                        <t t_if="google_home_token">
+                                            <t t_esc="google_home_token"/>
+                                        </t>
+                                        <t t_else="">
+                                            <span class="text-muted">No token generated. Please contact management.</span>
+                                        </t>
+                                    </div>
+                                    <small class="text-muted">Use this token as 'Bearer Token' when linking your account.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript" src="/pf_resident_portal/static/src/js/pms_toggle.js"></script>
+        </t>
+    </template>
+</odoo>
