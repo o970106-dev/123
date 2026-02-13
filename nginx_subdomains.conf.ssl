@@ -3,7 +3,12 @@
 
 # pm → pm.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name pm.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -24,7 +29,12 @@ server {
 
 # pf → pf.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name pf.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -45,7 +55,12 @@ server {
 
 # vt → vt.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name vt.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -66,7 +81,12 @@ server {
 
 # cc → cc.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name cc.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -87,7 +107,12 @@ server {
 
 # sc → sc.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name sc.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -108,7 +133,12 @@ server {
 
 # er → er.wuchang.life
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name er.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -129,7 +159,12 @@ server {
 
 # ax1 → ax1.wuchang.life (Neural Adapter 07)
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name ax1.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -150,7 +185,12 @@ server {
 
 # ax2 → ax2.wuchang.life (Neural Adapter 08)
 server {
-    listen 80;
+        listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/wuchang.life/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wuchang.life/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
     server_name ax2.wuchang.life;
     client_max_body_size 64m;
     location / {
@@ -167,4 +207,53 @@ server {
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
     }
+}
+
+
+server {
+    listen 80;
+    server_name pf.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name vt.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name ax1.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name er.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name ax2.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name pm.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name cc.wuchang.life;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name sc.wuchang.life;
+    return 301 https://$host$request_uri;
 }
