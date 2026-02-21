@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pms_dashboard_template" name="PMS Resident Dashboard">
+        <t t-call="website.layout">
+            <div id="wrap" class="pms-dashboard-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-white mb-4">Resident Portal</h1>
+                            <div class="pms-telemetry-badge mb-4">
+                                <span class="pms-telemetry-data">Initializing CNS Signal...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Happiness Coin Widget -->
+                        <div class="col-lg-4">
+                            <div class="pms-glass-card">
+                                <h3>Happiness Coins</h3>
+                                <div class="display-4"><t t-esc="happiness_coins"/></div>
+                                <p class="mt-3">Earn coins by participating in community sustainability programs.</p>
+                                <button class="btn btn-outline-light btn-sm">View History</button>
+                            </div>
+                        </div>
+
+                        <!-- Energy Analytics Widget -->
+                        <div class="col-lg-8">
+                            <div class="pms-glass-card">
+                                <h3>Energy Efficiency</h3>
+                                <div style="height: 150px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: flex-end; padding: 10px;">
+                                    <t t-foreach="energy_data" t-as="val">
+                                        <div t-attf-style="height: #{val * 5}px; width: 30px; background: #00d2ff; margin-right: 10px; border-radius: 4px;"></div>
+                                    </t>
+                                </div>
+                                <p class="mt-3">Real-time energy consumption optimized via STAPS.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <div class="pms-glass-card">
+                                <h3>Smart Home Controls</h3>
+                                <div class="row">
+                                    <t t-foreach="devices" t-as="device">
+                                        <div class="col-md-3 mb-3">
+                                            <div class="card bg-dark text-white p-3">
+                                                <h5><t t-esc="device.name"/></h5>
+                                                <p class="text-muted"><t t-esc="device.device_type"/></p>
+                                                <button t-attf-class="btn pms-device-toggle #{'btn-primary' if device.is_on else 'btn-secondary'}"
+                                                        t-att-data-device-id="device.id">
+                                                    <t t-esc="'ON' if device.is_on else 'OFF'"/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
