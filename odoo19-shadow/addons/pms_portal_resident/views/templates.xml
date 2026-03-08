@@ -1,0 +1,38 @@
+<odoo>
+    <template id="dashboard_template" name="Resident Dashboard">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container mt32" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 20px;">
+                    <h2 class="text-white">Resident Portal - Glassmorphism View</h2>
+                    <div class="row mt16">
+                        <div class="col-md-4">
+                            <div class="card bg-dark text-white shadow-lg" style="border: 1px solid rgba(255,255,255,0.2);">
+                                <div class="card-body">
+                                    <h5 class="text-info">Happiness Coins</h5>
+                                    <p class="h3"><t t-esc="user.happiness_coin_balance"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt32">
+                        <h4 class="text-white">Smart Devices</h4>
+                        <t t-foreach="devices" t-as="device">
+                            <div class="col-md-3 mb3">
+                                <div class="card bg-secondary text-white p-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span><t t-esc="device.name"/></span>
+                                        <button class="btn btn-sm btn-light pms-device-toggle"
+                                                t-att-data-device-id="device.id"
+                                                t-att-data-state="device.state">
+                                            <t t-esc="device.state.upper()"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
