@@ -1,0 +1,94 @@
+<odoo>
+    <template id="dashboard_template" name="Resident Dashboard">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding-top: 50px;">
+                <div class="container" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border-radius: 24px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);">
+                    <div class="d-flex justify-content-between align-items-center mb40">
+                        <h1 class="text-white fw-bold" style="letter-spacing: -1px;">Resident Dashboard</h1>
+                        <span class="badge rounded-pill bg-info text-dark p-2 px-3">STAPS 2.0 Active</span>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Happiness Coin Widget -->
+                        <div class="col-md-4">
+                            <div class="card h-100 bg-transparent border-0" style="background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1) !important;">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="text-uppercase text-muted small fw-bold mb-3">Happiness Balance</h5>
+                                    <div class="display-4 text-warning fw-bold mb-2"><t t-esc="user.happiness_coin_balance"/></div>
+                                    <p class="text-white-50 small">Coins earned through community action</p>
+                                    <button class="btn btn-outline-warning btn-sm mt-3 w-100 rounded-pill action_sustainability" style="border-width: 2px;">Claim Sustainability Reward</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Telemetry Widget -->
+                        <div class="col-md-8">
+                            <div class="card h-100 bg-transparent border-0" style="background: rgba(0,0,0,0.2); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1) !important;">
+                                <div class="card-body p-4">
+                                    <h5 class="text-white mb-4">Real-time STAPS Telemetry</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless text-white-50 align-middle">
+                                            <thead>
+                                                <tr class="text-uppercase small fw-bold" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                                    <th>Action</th>
+                                                    <th>Latency</th>
+                                                    <th>Coordinate (O1)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="staps_log_body">
+                                                <!-- Mock or real data if available -->
+                                                <tr>
+                                                    <td>Dashboard Load</td>
+                                                    <td class="text-success">0.0012ms</td>
+                                                    <td><code class="text-info small">5f3e9a...</code></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 g-4">
+                        <h4 class="text-white mb-3 px-3">Connected Devices</h4>
+                        <t t-foreach="devices" t-as="device">
+                            <div class="col-md-4">
+                                <div class="card bg-transparent border-0 pms-device-card" style="background: rgba(255,255,255,0.03); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1) !important; transition: transform 0.3s ease;">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h6 class="text-white mb-1"><t t-esc="device.name"/></h6>
+                                                <span class="badge bg-dark text-white-50 small"><t t-esc="device.device_type.upper()"/></span>
+                                            </div>
+                                            <div t-attf-class="rounded-circle #{'bg-success' if device.state == 'on' else 'bg-danger'}" style="width: 12px; height: 12px; box-shadow: 0 0 10px currentColor;"></div>
+                                        </div>
+
+                                        <div class="mt-4 d-flex gap-2">
+                                            <button class="btn btn-sm flex-grow-1 rounded-pill pms-device-toggle"
+                                                    t-att-data-device-id="device.id"
+                                                    t-att-data-state="device.state"
+                                                    t-attf-class="#{'btn-info' if device.state == 'off' else 'btn-outline-light'}">
+                                                <t t-if="device.state == 'off'">TURN ON</t>
+                                                <t t-else="">TURN OFF</t>
+                                            </button>
+                                            <t t-if="device.device_type == 'lock'">
+                                                <button class="btn btn-sm btn-outline-warning rounded-pill px-3">
+                                                    <i t-attf-class="fa #{'fa-lock' if device.is_locked else 'fa-unlock'}"/>
+                                                </button>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .pms-device-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07) !important; }
+                .action_sustainability:hover { background: #ffc107; color: #000 !important; }
+            </style>
+        </t>
+    </template>
+</odoo>
