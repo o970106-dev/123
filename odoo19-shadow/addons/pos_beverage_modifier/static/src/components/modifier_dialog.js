@@ -3,15 +3,24 @@ import { Component, useState, onMounted, onWillUnmount } from "@odoo/owl";
 
 export class ModifierDialog extends Component {
     setup() {
-        const last = JSON.parse(localStorage.getItem("beverage_last_selection") || "{}");
+        const lastIds = JSON.parse(localStorage.getItem("beverage_last_selection_ids") || "{}");
+
+        const sweetnessLines = this.props.configLines.filter(l => l.attribute_type === 'sweetness');
+        const temperatureLines = this.props.configLines.filter(l => l.attribute_type === 'temperature');
+        const sizeLines = this.props.configLines.filter(l => l.attribute_type === 'size');
+
         this.state = useState({
-            tab: "sweetness",
-            sweetness: last.sweetness || null,
-            temperature: last.temperature || null,
-            size: last.size || null,
+            tab: sweetnessLines.length ? "sweetness" : (sizeLines.length ? "size" : "temperature"),
+            sweetness: sweetnessLines.find(l => l.id === lastIds.sweetness) || sweetnessLines.find(l => l.selected) || null,
+            temperature: temperatureLines.find(l => l.id === lastIds.temperature) || temperatureLines.find(l => l.selected) || null,
+            size: sizeLines.find(l => l.id === lastIds.size) || sizeLines.find(l => l.selected) || null,
             canConfirm: false,
             timer: null,
         });
+
+        this.sweetnessLines = sweetnessLines;
+        this.temperatureLines = temperatureLines;
+        this.sizeLines = sizeLines;
 
         onMounted(() => {
             this._updateConfirm();
@@ -24,18 +33,28 @@ export class ModifierDialog extends Component {
     }
 
     _updateConfirm() {
-        this.state.canConfirm = !!(this.state.sweetness && this.state.temperature && this.state.size);
+        const needsSweetness = this.sweetnessLines.length > 0;
+        const needsTemperature = this.temperatureLines.length > 0;
+        const needsSize = this.sizeLines.length > 0;
+
+        this.state.canConfirm = (!needsSweetness || this.state.sweetness) &&
+                               (!needsTemperature || this.state.temperature) &&
+                               (!needsSize || this.state.size);
     }
     _startAutoClose() {
         if (this.state.timer) clearTimeout(this.state.timer);
-        this.state.timer = setTimeout(() => this.props.close?.(), 10000);
+        this.state.timer = setTimeout(() => this.props.close?.(), 15000); // 15s for data-driven
     }
     onInteract() { this._startAutoClose(); }
-    onPick(group, value) { this.state[group] = value; this._updateConfirm(); this.onInteract(); }
+    onPick(group, line) {
+        this.state[group] = line;
+        this._updateConfirm();
+        this.onInteract();
+    }
     onReset() {
-        this.state.sweetness = null;
-        this.state.temperature = null;
-        this.state.size = null;
+        this.state.sweetness = this.sweetnessLines.find(l => l.selected) || null;
+        this.state.temperature = this.temperatureLines.find(l => l.selected) || null;
+        this.state.size = this.sizeLines.find(l => l.selected) || null;
         this._updateConfirm();
         this.onInteract();
     }
@@ -51,4 +70,3 @@ export class ModifierDialog extends Component {
 }
 
 ModifierDialog.template = "pos_beverage_modifier.ModifierDialog";
-
