@@ -1,0 +1,42 @@
+.pms-glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+}
+
+.pms-glass-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 45px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.latency-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.latency-green { background-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
+.latency-yellow { background-color: #ffff00; box-shadow: 0 0 10px #ffff00; }
+.latency-red { background-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+
+.eco-efficiency-bar {
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.eco-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+    transition: width 0.5s ease;
+}
