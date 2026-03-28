@@ -1,0 +1,113 @@
+<odoo>
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-dashboard-bg container-fluid">
+                <div class="row mb-5">
+                    <div class="col-12 text-center text-white">
+                        <h1 class="display-4 fw-bold">Smart PMS Command Center</h1>
+                        <p class="lead">Next-Gen Resident Experience with STAPS 2.0 Precision</p>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <!-- Real-time STAPS Telemetry -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-glass-card h-100">
+                            <h4 class="text-white mb-3">STAPS 2.0 Telemetry</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-white-50 small">Signal Latency:</span>
+                                <span id="staps_latency" class="h5 mb-0 fw-bold">0.0000</span>
+                                <span class="text-white small">ms</span>
+                            </div>
+                            <div class="mt-2 text-white-50 staps-telemetry-badge small">
+                                Coordinate: <span id="staps_coord">INITIALIZING...</span>
+                            </div>
+                            <hr class="border-white-50"/>
+                            <div class="small text-white-50">
+                                <i class="fa fa-microchip me-1"/> Core Node: CNS-Main
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin Wallet -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-glass-card h-100 coin-balance-display">
+                            <h4 class="text-white mb-3">Community Ecosystem</h4>
+                            <div class="text-center py-2">
+                                <span class="h1 text-warning fw-bold" t-esc="request.env.user.happiness_coin_balance"/>
+                                <div class="text-white small mt-1">Happiness Coins</div>
+                            </div>
+                            <button id="btn_claim_reward" class="btn btn-warning btn-block mt-3 w-100">Claim Daily Reward</button>
+                        </div>
+                    </div>
+
+                    <!-- Eco-Efficiency Score -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-glass-card h-100 eco-efficiency-widget text-white">
+                            <h4 class="mb-3">Eco-Efficiency</h4>
+                            <div class="d-flex align-items-center justify-content-center flex-column">
+                                <div class="h2 mb-0" t-esc="request.env.user.eco_efficiency_score"/>
+                                <div class="progress w-100 mt-2" style="height: 10px;">
+                                    <div class="progress-bar bg-success" role="progressbar" t-att-style="'width: ' + str(request.env.user.eco_efficiency_score) + '%;'"/>
+                                </div>
+                            </div>
+                            <div class="mt-4 d-flex justify-content-between">
+                                <span>Eco Mode</span>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="pms_eco_mode_toggle" t-att-checked="'checked' if any(d.eco_mode for d in request.env.user.pms_device_ids) else None"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Smart Devices List -->
+                    <div class="col-12">
+                        <div class="pms-glass-card">
+                            <h4 class="text-white mb-4">Smart Device Matrix</h4>
+                            <div class="table-responsive">
+                                <table class="table table-borderless text-white align-middle">
+                                    <thead>
+                                        <tr class="text-white-50">
+                                            <th>Device</th>
+                                            <th>Room</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                            <th>Brightness/Control</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="request.env.user.pms_device_ids" t-as="device">
+                                            <tr>
+                                                <td class="fw-bold" t-esc="device.name"/>
+                                                <td t-esc="device.room_name"/>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-light text-dark" t-esc="device.device_type.split('.')[-1]"/>
+                                                </td>
+                                                <td>
+                                                    <span t-if="device.is_on" class="badge badge-success">ON</span>
+                                                    <span t-else="" class="badge badge-secondary">OFF</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-light pms-toggle" t-att-data-id="device.id">Toggle</button>
+                                                </td>
+                                                <td>
+                                                    <input t-if="'action.devices.traits.Brightness' in device.get_google_traits()"
+                                                           type="range" class="brightness-slider pms-brightness"
+                                                           t-att-data-id="device.id" min="0" max="100" t-att-value="device.brightness"/>
+                                                    <span t-else="" class="text-white-50 small">Standard Binary</span>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
