@@ -1,0 +1,13 @@
+{
+    'name': 'PMS Base (Double J Architecture)',
+    'version': '1.0',
+    'category': 'Property Management',
+    'summary': 'Core PMS Neural Adapter with STAPS 2.0 High-Precision Timing',
+    'author': 'Jules',
+    'depends': ['base', 'portal'],
+    'data': [
+        'security/ir.model.access.csv',
+    ],
+    'installable': True,
+    'application': True,
+}
