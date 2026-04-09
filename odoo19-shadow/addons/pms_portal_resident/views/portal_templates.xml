@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS Dashboard" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMS Dashboard</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholdertext">Manage your smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-glass-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4 text-white">Smart Home Dashboard</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Telemetry Widget -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Real-time Telemetry</h4>
+                            <div id="pms_staps_status" class="mt-3">
+                                <p>STAPS Node: <span class="badge badge-success">Active</span></p>
+                                <p>Last Latency: <span id="staps_latency">--</span> ms</p>
+                                <p>Coordinate: <span id="staps_coord">--</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin & Eco Score Widget -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Resident Rewards</h4>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="coin-balance-display">
+                                    <span class="h1 text-warning" t-esc="request.env.user.happiness_coin_balance"/>
+                                    <span class="ml-2">Coins</span>
+                                </div>
+                                <div class="eco-score-display text-right">
+                                    <span class="h1 text-success" t-esc="'%.1f' % request.env.user.eco_efficiency_score"/>
+                                    <span class="ml-2">Eco Score</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-light mt-3 w-100" id="btn_claim_reward">Claim Energy Reward</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Sustainability Analytics -->
+                    <div class="col-12 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <div class="d-flex justify-content-between">
+                                <h4>Sustainability Analytics</h4>
+                                <div class="google-token-widget text-muted small">
+                                    Google Token: <span t-esc="request.env.user.google_home_token or 'Not Generated'"/>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4 text-center border-right border-secondary">
+                                    <h5 class="text-muted">Weekly Efficiency</h5>
+                                    <h3 class="text-success">98.2%</h3>
+                                </div>
+                                <div class="col-md-4 text-center border-right border-secondary">
+                                    <h5 class="text-muted">Carbon Saved</h5>
+                                    <h3 class="text-info">12.5 kg</h3>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h5 class="text-muted">Global Rank</h5>
+                                    <h3 class="text-warning">#42</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="pms-card glass-morphism">
+                            <h4>My Devices</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table text-white">
+                                    <thead>
+                                        <tr>
+                                            <th>Device</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th>Brightness</th>
+                                            <th>Eco Mode</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pms_device_list">
+                                        <t t-foreach="request.env['pms.device'].search([('resident_id', '=', request.env.user.id)])" t-as="device">
+                                            <tr>
+                                                <td t-esc="device.name"/>
+                                                <td t-esc="device.device_type.split('.')[-1]"/>
+                                                <td>
+                                                    <span t-attf-class="badge #{'badge-success' if device.is_on else 'badge-secondary'} status-badge">
+                                                        <t t-esc="'ON' if device.is_on else 'OFF'"/>
+                                                    </span>
+                                                </td>
+                                                <td style="width: 200px;">
+                                                    <input type="range" class="custom-range pms-brightness" t-att-data-id="device.id" t-att-value="device.brightness" min="0" max="100"/>
+                                                </td>
+                                                <td>
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input pms-eco-toggle" t-attf-id="ecoSwitch#{device.id}" t-att-data-id="device.id" t-att-checked="'checked' if device.eco_mode else None"/>
+                                                        <label class="custom-control-label" t-attf-for="ecoSwitch#{device.id}"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary pms-toggle" t-att-data-id="device.id">Toggle</button>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
