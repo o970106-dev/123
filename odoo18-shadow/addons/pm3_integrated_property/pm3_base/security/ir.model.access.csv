@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pm3_base_config_operator,pm3.base.config.operator,model_pm3_base_config,pm3_base.group_pm3_system_operator,1,1,1,0
+access_pm3_base_config_auditor,pm3.base.config.auditor,model_pm3_base_config,pm3_base.group_pm3_committee_auditor,1,0,0,0
