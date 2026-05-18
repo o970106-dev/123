@@ -2,40 +2,49 @@
 <odoo>
   <templates xml:space="preserve">
     <t t-name="pos_beverage_modifier.ModifierDialog">
-      <div class="bm-dialog" role="dialog" aria-modal="true" aria-labelledby="modifierDialogTitle">
-        <h2 id="modifierDialogTitle" tabindex="0">設定飲品選項</h2>
+      <div class="bm-dialog" role="dialog" aria-modal="true" aria-labelledby="modifierDialogTitle" t-on-mousedown="onInteract">
+        <h2 id="modifierDialogTitle" tabindex="0">
+            <t t-esc="props.product.display_name"/> - 設定選項
+        </h2>
 
         <div class="bm-tabs" role="tablist">
-          <button class="bm-tab" role="tab" aria-selected="true" t-on-click="() => state.tab='sweetness'">糖分</button>
-          <button class="bm-tab" role="tab" aria-selected="false" t-on-click="() => state.tab='size'">尺寸</button>
-          <button class="bm-tab" role="tab" aria-selected="false" t-on-click="() => state.tab='temperature'">溫度</button>
+          <button t-if="sweetnessLines.length" class="bm-tab" t-att-class="{'active': state.tab === 'sweetness'}" role="tab" t-on-click="() => state.tab='sweetness'">糖分</button>
+          <button t-if="sizeLines.length" class="bm-tab" t-att-class="{'active': state.tab === 'size'}" role="tab" t-on-click="() => state.tab='size'">尺寸</button>
+          <button t-if="temperatureLines.length" class="bm-tab" t-att-class="{'active': state.tab === 'temperature'}" role="tab" t-on-click="() => state.tab='temperature'">溫度</button>
         </div>
 
         <div class="bm-panels">
-          <div t-if="state.tab==='sweetness'" class="bm-panel" role="radiogroup" aria-labelledby="labelSweetness">
+          <div t-if="state.tab==='sweetness' &amp;&amp; sweetnessLines.length" class="bm-panel" role="radiogroup" aria-labelledby="labelSweetness">
             <label id="labelSweetness" class="bm-label">選擇糖分</label>
-            <button class="bm-radio" t-on-click="() => onPick('sweetness','正常糖 (100%)')">正常糖 (100%)</button>
-            <button class="bm-radio" t-on-click="() => onPick('sweetness','少糖 (70%)')">少糖 (70%)</button>
-            <button class="bm-radio" t-on-click="() => onPick('sweetness','半糖 (50%)')">半糖 (50%)</button>
-            <button class="bm-radio" t-on-click="() => onPick('sweetness','微糖 (30%)')">微糖 (30%)</button>
-            <button class="bm-radio" t-on-click="() => onPick('sweetness','更換蔗糖')">更換蔗糖 (+5)</button>
+            <t t-foreach="sweetnessLines" t-as="line" t-key="line.id">
+                <button class="bm-radio" t-att-class="{'selected': state.sweetness &amp;&amp; state.sweetness.id === line.id}" t-on-click="() => onPick('sweetness', line)">
+                    <t t-esc="line.name"/>
+                    <t t-if="line.price > 0"> (+<t t-esc="line.price"/>)</t>
+                    <t t-if="line.price &lt; 0"> (<t t-esc="line.price"/>)</t>
+                </button>
+            </t>
           </div>
 
-          <div t-if="state.tab==='size'" class="bm-panel" role="radiogroup" aria-labelledby="labelSize">
+          <div t-if="state.tab==='size' &amp;&amp; sizeLines.length" class="bm-panel" role="radiogroup" aria-labelledby="labelSize">
             <label id="labelSize" class="bm-label">選擇尺寸</label>
-            <button class="bm-radio" t-on-click="() => onPick('size','大杯 (600cc)')">大杯 (600cc) (+30)</button>
-            <button class="bm-radio" t-on-click="() => onPick('size','中杯 (450cc)')">中杯 (450cc)</button>
-            <button class="bm-radio" t-on-click="() => onPick('size','小杯 (350cc)')">小杯 (350cc) (-15)</button>
+            <t t-foreach="sizeLines" t-as="line" t-key="line.id">
+                <button class="bm-radio" t-att-class="{'selected': state.size &amp;&amp; state.size.id === line.id}" t-on-click="() => onPick('size', line)">
+                    <t t-esc="line.name"/>
+                    <t t-if="line.price > 0"> (+<t t-esc="line.price"/>)</t>
+                    <t t-if="line.price &lt; 0"> (<t t-esc="line.price"/>)</t>
+                </button>
+            </t>
           </div>
 
-          <div t-if="state.tab==='temperature'" class="bm-panel" role="radiogroup" aria-labelledby="labelTemperature">
+          <div t-if="state.tab==='temperature' &amp;&amp; temperatureLines.length" class="bm-panel" role="radiogroup" aria-labelledby="labelTemperature">
             <label id="labelTemperature" class="bm-label">選擇溫度</label>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','熱飲')">熱飲</button>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','溫飲')">溫飲</button>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','去冰')">去冰</button>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','微冰')">微冰</button>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','正常冰')">正常冰</button>
-            <button class="bm-radio" t-on-click="() => onPick('temperature','冰沙')">冰沙 (+10)</button>
+            <t t-foreach="temperatureLines" t-as="line" t-key="line.id">
+                <button class="bm-radio" t-att-class="{'selected': state.temperature &amp;&amp; state.temperature.id === line.id}" t-on-click="() => onPick('temperature', line)">
+                    <t t-esc="line.name"/>
+                    <t t-if="line.price > 0"> (+<t t-esc="line.price"/>)</t>
+                    <t t-if="line.price &lt; 0"> (<t t-esc="line.price"/>)</t>
+                </button>
+            </t>
           </div>
         </div>
 
@@ -47,4 +56,3 @@
     </t>
   </templates>
 </odoo>
-

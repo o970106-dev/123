@@ -69,3 +69,34 @@ class ProductTemplate(models.Model):
         action['domain'] = [('product_tmpl_id', '=', self.id)]
         action['context'] = {'default_product_tmpl_id': self.id}
         return action
+
+
+class PosSession(models.Model):
+    _inherit = 'pos.session'
+
+    def _get_pos_ui_pos_beverage_config(self, params):
+        return self.env['pos.beverage.config'].search_read(params['domain'], params['fields'])
+
+    def _get_pos_ui_pos_beverage_config_line(self, params):
+        return self.env['pos.beverage.config.line'].search_read(params['domain'], params['fields'])
+
+    def _pos_ui_models_to_load(self):
+        result = super()._pos_ui_models_to_load()
+        result += ['pos.beverage.config', 'pos.beverage.config.line']
+        return result
+
+    def _loader_params_pos_beverage_config(self):
+        return {
+            'search_params': {
+                'domain': [],
+                'fields': ['name', 'product_tmpl_id', 'pos_category_id', 'show_popup', 'line_ids'],
+            },
+        }
+
+    def _loader_params_pos_beverage_config_line(self):
+        return {
+            'search_params': {
+                'domain': [],
+                'fields': ['config_id', 'attribute_type', 'name', 'selected', 'price'],
+            },
+        }
