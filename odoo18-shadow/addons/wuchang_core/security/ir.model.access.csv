@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wuchang_wish_project,wuchang.wish.project,model_wuchang_wish_project,base.group_user,1,1,1,1
+access_wuchang_bank_clearance,wuchang.bank.clearance,model_wuchang_bank_clearance,base.group_user,1,1,1,1
+access_wuchang_ai_verification,wuchang.ai.verification,model_wuchang_ai_verification,base.group_user,1,1,1,1
