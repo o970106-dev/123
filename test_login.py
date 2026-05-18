@@ -1,7 +1,7 @@
 from odoo_jsonrpc import OdooClient, OdooRPCError
 
 
-URL = "http://127.0.0.1:18069"
+URL = "http://127.0.0.1:8069"
 TARGET_DB = "wuchang_preview_20251107"
 
 # Try common admin credential sets, first one that succeeds wins
