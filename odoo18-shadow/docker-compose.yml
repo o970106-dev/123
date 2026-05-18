@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  db18:
+    container_name: wuchang_os_pg
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    networks:
+      - wuchang_net
+  odoo18:
+    container_name: wuchang_os_odoo_18
+    image: odoo:18
+    depends_on:
+      - db18
+    ports:
+      - "18069:8069"
+      - "18072:8072"
+    environment:
+      - ADMIN_PASSWORD=odoo
+      - DB_HOST=db18
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo
+    volumes:
+      - ./odoo-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+    command: >
+      odoo
+      --db_host=db18
+      --db_user=odoo
+      --db_password=odoo
+      --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+      --proxy-mode
+      --longpolling-port=8072
+      --workers=2
+    networks:
+      - wuchang_net
+networks:
+  wuchang_net:

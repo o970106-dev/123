@@ -30,6 +30,12 @@
                         <field name="user_id"/>
                         <field name="trust_level"/>
                     </group>
+                    <group string="Identity Foundation">
+                        <field name="line_user_id"/>
+                        <field name="google_user_id"/>
+                        <button name="action_link_line" string="Link LINE" type="object" class="oe_highlight"/>
+                        <button name="action_link_google" string="Link Google" type="object" class="oe_highlight"/>
+                    </group>
                 </sheet>
                 <chatter/>
             </form>
