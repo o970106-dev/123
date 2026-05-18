@@ -37,3 +37,19 @@ class PM3Identity(models.Model):
 
     trust_level = fields.Integer(default=0, tracking=True)
     active = fields.Boolean(default=True)
+
+    # Identity Foundation: LINE + Google Integration
+    line_user_id = fields.Char(string='LINE User ID', index=True, tracking=True)
+    google_user_id = fields.Char(string='Google User ID', index=True, tracking=True)
+
+    def action_link_line(self):
+        """Logic to initialize LINE OAuth onboarding"""
+        self.ensure_one()
+        # Stub for LINE OAuth flow
+        return True
+
+    def action_link_google(self):
+        """Logic to initialize Google OAuth onboarding"""
+        self.ensure_one()
+        # Stub for Google OAuth flow
+        return True
