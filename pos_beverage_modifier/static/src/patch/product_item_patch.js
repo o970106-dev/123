@@ -3,21 +3,44 @@ import { patch } from "@web/core/utils/patch";
 import { ProductItem } from "@point_of_sale/app/screens/product_screen/product_item/product_item";
 import { ModifierDialog } from "pos_beverage_modifier/static/src/components/modifier_dialog";
 
+/**
+ * TODO: Fetch these mappings from the backend pos.beverage.config model
+ * for full dynamic behavior. Currently hardcoded for performance and stability.
+ */
+const BEVERAGE_PRICE_MAPPING = {
+    sweetness: { "更換蔗糖": 5 },
+    temperature: { "冰沙": 10 },
+    size: {
+        "大杯 (600cc)": 30,
+        "小杯 (350cc)": -15
+    }
+};
+
+/**
+ * Products that should trigger the beverage modifier dialog.
+ * TODO: Implement category-based check or backend flag.
+ */
+const TARGET_PRODUCT_NAMES = ["招牌咖啡"];
+
 function computePriceExtras(sel) {
     let extra = 0;
-    if (sel?.sweetness === "更換蔗糖") extra += 5;
-    if (sel?.temperature === "冰沙") extra += 10;
-    if (sel?.size === "大杯 (600cc)") extra += 30;
-    if (sel?.size === "小杯 (350cc)") extra -= 15;
+    if (sel?.sweetness && BEVERAGE_PRICE_MAPPING.sweetness[sel.sweetness]) {
+        extra += BEVERAGE_PRICE_MAPPING.sweetness[sel.sweetness];
+    }
+    if (sel?.temperature && BEVERAGE_PRICE_MAPPING.temperature[sel.temperature]) {
+        extra += BEVERAGE_PRICE_MAPPING.temperature[sel.temperature];
+    }
+    if (sel?.size && BEVERAGE_PRICE_MAPPING.size[sel.size]) {
+        extra += BEVERAGE_PRICE_MAPPING.size[sel.size];
+    }
     return extra;
 }
 
 patch(ProductItem.prototype, "pos_beverage_modifier/ProductItem", {
     async onClick() {
         const product = this.props.product;
-        // 僅針對飲品或特定產品名稱，可改為類目判斷
-        const targetNames = ["招牌咖啡"]; // 可擴充
-        if (targetNames.includes(product.display_name)) {
+        // Check if the product is in the target list
+        if (TARGET_PRODUCT_NAMES.includes(product.display_name)) {
             this.env.services.dialog.add(ModifierDialog, {
                 product,
                 onConfirm: (selection) => this._applySelection(product, selection),
