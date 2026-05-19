@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pms_coin_resident,pms.coin.resident,model_pms_happiness_coin,base.group_user,1,0,0,0
+access_pms_coin_history_resident,pms.coin.history.resident,model_pms_happiness_coin_history,base.group_user,1,0,0,0
+access_pms_coin_admin,pms.coin.admin,model_pms_happiness_coin,base.group_system,1,1,1,1
+access_pms_coin_history_admin,pms.coin.history.admin,model_pms_happiness_coin_history,base.group_system,1,1,1,1
