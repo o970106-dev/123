@@ -1,0 +1,20 @@
+import secrets
+from odoo import models, fields
+
+class ResUsers(models.Model):
+    _inherit = 'res.users'
+
+    google_home_token = fields.Char(string='Google Home Access Token', index=True)
+    google_home_authorization_code = fields.Char(string='Google Home Auth Code', index=True)
+
+    # Property Workflow Fields (Highest Degree Optimization)
+    x_is_volunteer = fields.Boolean(string='Is Volunteer', default=False)
+    x_volunteer_skills = fields.Text(string='Volunteer Skills')
+    required_skill_id = fields.Many2one('pms.skill', string='Required Skill')
+
+    def action_generate_google_token(self):
+        """Generate a secure token for Google Home account linking."""
+        for user in self:
+            if not user.google_home_token:
+                user.google_home_token = secrets.token_hex(16)
+        return True
