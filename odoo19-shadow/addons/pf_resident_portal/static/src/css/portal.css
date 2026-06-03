@@ -1,0 +1,64 @@
+.pms-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+}
+
+.border-left-primary {
+    border-left: 5px solid #714B33 !important; /* Matches our beverage theme */
+}
+
+.pms-welcome-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fcfaf9 100%);
+}
+
+#pms_dashboard .card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 15px;
+}
+
+#pms_dashboard .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+#pms_dashboard .card-title {
+    font-weight: 700;
+    color: #714B33;
+}
+
+#pms_dashboard hr {
+    border-top: 2px solid #f1f1f1;
+}
+
+.list-group-item {
+    transition: background 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.text-primary {
+    color: #714B33 !important;
+}
+
+.btn-primary {
+    background-color: #714B33;
+    border-color: #714B33;
+}
+
+.btn-primary:hover {
+    background-color: #5d3e2a;
+    border-color: #5d3e2a;
+}
+
+.btn-outline-primary {
+    color: #714B33;
+    border-color: #714B33;
+}
+
+.btn-outline-primary:hover {
+    background-color: #714B33;
+    color: #fff;
+}

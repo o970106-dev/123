@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">物業管理 (PMS)</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholder_count" t-value="'!'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_pms" name="PMS Dashboard">
+        <t t-call="portal.portal_layout">
+            <div id="pms_dashboard" class="container mt-4 mb-5">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="pms-welcome-card shadow-sm p-4 rounded bg-white border-left-primary">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="pms-avatar rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-home"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h2 class="mb-1">您好, <t t-esc="resident_name"/>!</h2>
+                                    <p class="text-muted mb-0">歡迎回到五常溫馨小家。我是 <strong>五常小J</strong>，隨時為您服務。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Management Fee Status -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary"><i class="fa fa-credit-card mr-2"/>管理費狀態</h5>
+                                <hr/>
+                                <div class="text-center py-3">
+                                    <t t-if="fee_status == 'paid'">
+                                        <div class="display-4 text-success mb-2"><i class="fa fa-check-circle"/></div>
+                                        <h4 class="mt-2">本月已繳清</h4>
+                                        <p class="small text-muted">感謝您的準時繳納</p>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="display-4 text-danger mb-2"><i class="fa fa-exclamation-circle"/></div>
+                                        <h4 class="mt-2">待繳納</h4>
+                                        <button class="btn btn-primary mt-2">立即繳費</button>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smart Devices -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary"><i class="fa fa-bolt mr-2"/>智能家居</h5>
+                                <hr/>
+                                <ul class="list-group list-group-flush">
+                                    <t t-foreach="smart_devices" t-as="device">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                            <span><i t-attf-class="fa #{device['icon']} mr-2 #{device['class']}"/> <t t-esc="device['name']"/></span>
+                                            <span class="badge badge-pill badge-light text-muted"><t t-esc="device['status']"/></span>
+                                        </li>
+                                    </t>
+                                </ul>
+                                <div class="mt-3 text-right">
+                                    <a href="#" class="btn btn-sm btn-outline-primary">進入控制中心</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary"><i class="fa fa-bullhorn mr-2"/>社區公告</h5>
+                                <hr/>
+                                <div class="list-group list-group-flush">
+                                    <t t-foreach="announcements" t-as="ann">
+                                        <a href="#" class="list-group-item list-group-item-action border-0 px-0 mb-2">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="mb-1 text-truncate"><t t-esc="ann['title']"/></h6>
+                                            </div>
+                                            <small class="text-muted"><t t-esc="ann['date']"/></small>
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double J Collaboration Log -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">
+                                    <i class="fa fa-users mr-2"/>雙J 協作日誌
+                                    <span class="badge badge-success small ml-2" style="font-size: 0.6rem;">
+                                        <i class="fa fa-refresh mr-1"/>已同步: <t t-esc="last_sync"/>
+                                    </span>
+                                    <span class="badge badge-info small ml-1" style="font-size: 0.6rem;">
+                                        <i class="fa fa-bolt mr-1"/>CNS 傳輸: <t t-esc="cns_transmission_ms"/>ms
+                                    </span>
+                                    <small class="float-right text-muted" style="font-size: 0.7rem;">(Double J Collaboration)</small>
+                                </h5>
+                                <hr/>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover border-0">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th class="border-0">時間</th>
+                                                <th class="border-0">成員</th>
+                                                <th class="border-0">動作</th>
+                                                <th class="border-0">詳細資訊</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="collab_logs" t-as="log">
+                                                <tr>
+                                                    <td class="text-muted small"><t t-esc="log['timestamp'][:16].replace('T', ' ')"/></td>
+                                                    <td><span t-attf-class="badge #{log['agent'] == 'User' ? 'badge-info' : 'badge-primary'}"><t t-esc="log['agent']"/></span></td>
+                                                    <td><strong><t t-esc="log['action']"/></strong></td>
+                                                    <td class="small text-truncate" style="max-width: 300px;"><t t-esc="log['details']"/></td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="not collab_logs">
+                                                <tr>
+                                                    <td colspan="4" class="text-center text-muted py-3 italic">尚無協作紀錄，雙J 待命中...</td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 0.65rem; font-style: italic;">
+                                        <i class="fa fa-coffee mr-1"/>技術核心：時空系統絕對距離 (由 聊國咖啡館 社工老闆 傾心發明)
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
