@@ -15,8 +15,6 @@
             "pos_beverage_modifier/static/src/patch/product_item_patch.js",
             "pos_beverage_modifier/static/src/components/modifier_dialog.js",
             "pos_beverage_modifier/static/src/css/modifier.css",
-        ],
-        "web.assets_qweb": [
             "pos_beverage_modifier/static/src/xml/modifier_templates.xml",
         ],
     },
