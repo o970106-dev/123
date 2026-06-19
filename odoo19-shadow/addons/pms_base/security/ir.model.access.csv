@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pms_device,pms.device,model_pms_device,base.group_user,1,1,1,1
+access_pms_device_portal,pms.device,model_pms_device,portal.group_portal,1,1,0,0
+access_pms_telemetry,pms.telemetry,model_pms_telemetry,base.group_user,1,1,1,0
+access_pms_telemetry_portal,pms.telemetry,model_pms_telemetry,portal.group_portal,1,0,0,0
