@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS Dashboard" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMS Dashboard</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholdertext">Manage your smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-glass-container" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding: 2rem;">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-white mb-0" style="text-shadow: 0 0 10px rgba(0,212,255,0.5);">Command Center</h2>
+                        <span class="badge badge-pill badge-info py-2 px-3" style="box-shadow: 0 0 20px rgba(23, 162, 184, 0.8); backdrop-filter: blur(10px);">
+                            <i class="fa fa-star mr-1"/> Supreme Optimization Active
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Telemetry Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100 p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>STAPS Live Telemetry</h4>
+                            <div id="pms_staps_status" class="mt-3">
+                                <p>Source Node: <span class="text-info">CNS-Main-01</span></p>
+                                <p>Signal Latency: <span id="staps_latency" class="h4">--</span> ms</p>
+                                <div class="progress mb-3" style="height: 6px; background: rgba(255,255,255,0.1);">
+                                    <div id="staps_heartbeat" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"/>
+                                </div>
+                                <p>Metric Tensor: <small id="staps_coord" class="text-muted" style="font-size: 0.75rem;">--</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100 p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>Sustainability Rewards</h4>
+                            <div class="coin-balance-display mt-3 text-center">
+                                <span class="h1 text-warning" id="coin_balance_val" t-esc="request.env.user.happiness_coin_balance"/>
+                                <div class="text-muted mt-2">Happiness Coins</div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-primary w-100" id="btn_claim_reward" style="background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); border: none;">Claim Reward (5.0)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eco Efficiency Score -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100 p-4 text-center" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>Eco-Efficiency Score</h4>
+                            <div class="mt-3">
+                                <h1 class="display-3 text-success" style="text-shadow: 0 0 15px rgba(40, 167, 69, 0.5);" t-esc="request.env.user.eco_efficiency_score"/>
+                                <p class="text-muted">Global Rank: <t t-esc="int(request.env.user.eco_efficiency_score * 0.9)"/>% Tile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supreme Service & Volunteer Nexus -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>Maintenance Matrix</h4>
+                            <div class="mt-3">
+                                <textarea id="maintenance_desc" class="form-control mb-2" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white;" placeholder="Describe property issue..."></textarea>
+                                <button id="btn_submit_maintenance" class="btn btn-outline-info w-100">Submit Service Request</button>
+                            </div>
+                            <div class="mt-3" style="max-height: 150px; overflow-y: auto;">
+                                <t t-foreach="request.env['pms.maintenance.request'].search([('resident_id', '=', request.env.user.id)], limit=5)" t-as="req">
+                                    <div class="d-flex justify-content-between align-items-center mb-2 p-2" style="background: rgba(255,255,255,0.05); border-radius: 8px;">
+                                        <small t-esc="req.description[:30] + '...'"/>
+                                        <span class="badge badge-secondary" t-esc="req.status"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>Volunteer Nexus</h4>
+                            <p class="text-muted small">Join our community elite and earn rewards for your skills.</p>
+                            <div class="d-flex align-items-center justify-content-between mt-3">
+                                <div>
+                                    <h5 class="mb-0">Volunteer Status</h5>
+                                    <small class="text-info" t-if="request.env.user.x_is_volunteer">Active Contributor</small>
+                                    <small class="text-muted" t-else="">Not Enrolled</small>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="volunteer_toggle" t-att-checked="request.env.user.x_is_volunteer"/>
+                                    <label class="custom-control-label" for="volunteer_toggle"></label>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted d-block mb-1">My Skills</small>
+                                <t t-foreach="request.env.user.x_volunteer_skills" t-as="skill">
+                                    <span class="badge badge-outline-info mr-1" t-esc="skill.name"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Home Integration Token Widget -->
+                <div class="row mt-2">
+                    <div class="col-12 mb-4">
+                        <div class="pms-card glass-morphism p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4>Google Home Integration</h4>
+                                    <p class="text-muted mb-0">Secure Fulfillment Identity (Metric Tensor Encoded)</p>
+                                </div>
+                                <div class="text-right">
+                                    <code class="h4 text-warning" style="letter-spacing: 2px;" t-esc="request.env.user.get_obfuscated_id()"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="pms-card glass-morphism p-4" style="border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); color: white;">
+                            <h4>Smart Matrix: Device Control</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table text-white border-0">
+                                    <thead>
+                                        <tr class="border-bottom border-secondary">
+                                            <th>Device / Location</th>
+                                            <th>Metric Trait</th>
+                                            <th>Control Vector</th>
+                                            <th>Status</th>
+                                            <th class="text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pms_device_list">
+                                        <t t-foreach="request.env['pms.device'].search([('resident_id', '=', request.env.user.id)])" t-as="device">
+                                            <tr class="align-middle">
+                                                <td>
+                                                    <div class="font-weight-bold" t-esc="device.name"/>
+                                                    <small class="text-muted" t-esc="device.room_name"/>
+                                                </td>
+                                                <td><span class="badge badge-outline-light" t-esc="device.device_type.split('.')[-1]"/></td>
+                                                <td>
+                                                    <t t-if="device.device_type == 'action.devices.types.LIGHT'">
+                                                        <div class="mb-2">
+                                                            <small class="text-muted d-block">Intensity</small>
+                                                            <input type="range" class="brightness-slider pms-brightness w-100"
+                                                                   t-att-data-id="device.id" min="0" max="100" t-att-value="device.brightness"/>
+                                                        </div>
+                                                    </t>
+                                                    <t t-if="device.device_type == 'action.devices.types.SENSOR'">
+                                                        <div class="d-flex gap-2">
+                                                            <small class="text-info mr-2"><i class="fa fa-thermometer-half"/> <t t-esc="device.temperature"/>°C</small>
+                                                            <small class="text-primary"><i class="fa fa-tint"/> <t t-esc="device.humidity"/>%</small>
+                                                        </div>
+                                                    </t>
+                                                    <t t-if="device.device_type == 'action.devices.types.SCENE'">
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input pms-eco-toggle"
+                                                                   t-att-id="'eco_' + str(device.id)" t-att-data-id="device.id" t-att-checked="device.eco_mode"/>
+                                                            <label class="custom-control-label" t-att-for="'eco_' + str(device.id)">Eco Optimization</label>
+                                                        </div>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-if="device.is_on" class="badge badge-success px-3 py-1" style="box-shadow: 0 0 10px rgba(40,167,69,0.5);">ACTIVE</span>
+                                                    <span t-else="" class="badge badge-secondary px-3 py-1">IDLE</span>
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-sm btn-outline-info pms-toggle" t-att-data-id="device.id">
+                                                        <i class="fa fa-bolt mr-1"/>Pulse
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
