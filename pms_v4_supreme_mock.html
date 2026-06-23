@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMS Supreme V4 Resident Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .pms-card {
+            margin-bottom: 20px;
+        }
+        .badge-info { background-color: #17a2b8; }
+        .badge-primary { background-color: #007bff; }
+        .badge-success { background-color: #28a745; }
+        .text-warning { color: #ffc107 !important; }
+        .text-info { color: #17a2b8 !important; }
+        .text-success { color: #28a745 !important; }
+        .border-info { border-color: #17a2b8 !important; }
+    </style>
+</head>
+<body>
+    <div class="container pms-glass-container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-white mb-0">Command Center</h2>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge badge-pill badge-primary py-2 px-3 mr-2" style="box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);">
+                        <i class="fa fa-shield mr-1"></i> Metric Tensor: ACTIVE
+                    </span>
+                    <span class="badge badge-pill badge-info py-2 px-3" style="box-shadow: 0 0 15px rgba(23, 162, 184, 0.5);">
+                        <i class="fa fa-star mr-1"></i> Supreme Optimization Active
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Telemetry Widget -->
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100">
+                    <h4>STAPS Live Telemetry</h4>
+                    <div id="pms_staps_status" class="mt-3">
+                        <p>Source Node: <span class="text-info">CNS-Main-01</span></p>
+                        <p>Signal Latency: <span id="staps_latency" class="h4">12.42</span> ms</p>
+                        <div class="progress mb-3" style="height: 6px; background: rgba(255,255,255,0.1);">
+                            <div id="staps_heartbeat" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%"></div>
+                        </div>
+                        <p>Secure Coordinate: <small id="staps_coord" class="text-muted" style="font-size: 0.75rem;">f2a4-b9c1-88d3</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Happiness Coin Widget -->
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100">
+                    <h4>Sustainability Rewards</h4>
+                    <div class="coin-balance-display mt-3 text-center">
+                        <span class="h1 text-warning">455.50</span>
+                        <div class="text-muted mt-2">Happiness Coins</div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary w-100" id="btn_claim_reward">Claim Reward (5.0)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eco Efficiency Score -->
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100 text-center">
+                    <h4>Eco-Efficiency Score</h4>
+                    <div class="mt-3">
+                        <h1 class="display-3 text-success">98</h1>
+                        <p class="text-muted">Global Percentile: 88.2%</p>
+                    </div>
+                    <div class="mt-2 small text-muted">V4 Supreme Degree Algorithm</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volunteering & Google Home Integration Row -->
+        <div class="row mt-4">
+            <!-- Maintenance Matrix -->
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0">Maintenance Matrix</h4>
+                        <span class="badge badge-success">System Stable</span>
+                    </div>
+                    <div class="mt-3">
+                        <div class="border-left border-info pl-2 mb-2">
+                            <div class="small font-weight-bold">HVAC Filter Replacement</div>
+                            <div class="text-muted" style="font-size: 0.7rem;">Status: in_progress | c4d2-e1a5</div>
+                        </div>
+                        <div class="border-left border-info pl-2 mb-2">
+                            <div class="small font-weight-bold">Smart Lock Firmware Update</div>
+                            <div class="text-muted" style="font-size: 0.7rem;">Status: new | a9b8-f3c7</div>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <button class="btn btn-sm btn-outline-light w-100 mt-2">New Request</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0">Volunteer Nexus</h4>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="volunteer_toggle" checked>
+                            <label class="custom-control-label" for="volunteer_toggle">Active</label>
+                        </div>
+                    </div>
+                    <p class="text-muted small">Contribute your skills to the community and earn Happiness Coins.</p>
+                    <div class="mt-3">
+                        <h6>My Skills</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge badge-info mr-1 mb-1">Maintenance</span>
+                            <span class="badge badge-info mr-1 mb-1">Technical Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="pms-card glass-morphism h-100 text-center">
+                    <h4>Google Home</h4>
+                    <p class="text-muted mb-0">Use this token to link your property with Google Home.</p>
+                    <div class="mt-4 text-center">
+                        <code class="h3 text-warning" style="letter-spacing: 2px;">PMS-SUP-4291-8029</code>
+                    </div>
+                    <div class="mt-3 text-right">
+                        <small class="text-info"><i class="fa fa-shield mr-1"></i> STAPS Encrypted</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="pms-card glass-morphism">
+                    <h4>My Smart Devices</h4>
+                    <div class="table-responsive mt-3">
+                        <table class="table text-white border-0">
+                            <thead>
+                                <tr class="border-bottom border-secondary">
+                                    <th>Device</th>
+                                    <th>Type</th>
+                                    <th>Brightness / Eco</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="align-middle">
+                                    <td>
+                                        <div class="font-weight-bold">Living Room Light</div>
+                                        <small class="text-muted">Living Room</small>
+                                    </td>
+                                    <td><span class="badge badge-outline-light">LIGHT</span></td>
+                                    <td>
+                                        <div class="mb-2">
+                                            <small class="text-muted d-block">Brightness</small>
+                                            <input type="range" class="w-100" min="0" max="100" value="85">
+                                        </div>
+                                    </td>
+                                    <td><span class="badge badge-success px-3 py-2">ON</span></td>
+                                    <td class="text-right">
+                                        <button class="btn btn-sm btn-outline-info">Toggle</button>
+                                    </td>
+                                </tr>
+                                <tr class="align-middle">
+                                    <td>
+                                        <div class="font-weight-bold">Environmental Sensor</div>
+                                        <small class="text-muted">Balcony</small>
+                                    </td>
+                                    <td><span class="badge badge-outline-light">SENSOR</span></td>
+                                    <td>
+                                        <small class="text-info d-block">Temp: 24.5°C | Hum: 52%</small>
+                                        <small class="text-success d-block">Occupancy: UNOCCUPIED</small>
+                                    </td>
+                                    <td><span class="badge badge-success px-3 py-2">ON</span></td>
+                                    <td class="text-right">
+                                        <button class="btn btn-sm btn-outline-info">Toggle</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
