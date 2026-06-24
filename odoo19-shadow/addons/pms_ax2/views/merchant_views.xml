@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_ax2_voucher_validation_wizard_form" model="ir.ui.view">
+        <field name="name">pms.ax2.voucher.validation.wizard.form</field>
+        <field name="model">pms.ax2.voucher.validation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Validate Voucher">
+                <group>
+                    <field name="qr_code"/>
+                </group>
+                <footer>
+                    <button name="action_validate" string="Validate &amp; Redeem" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </record>
+    </record>
+
+    <record id="action_ax2_voucher_validation_wizard" model="ir.actions.act_window">
+        <field name="name">Validate Voucher (AX2)</field>
+        <field name="res_model">pms.ax2.voucher.validation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Merchant View for Voucher Templates -->
+    <record id="view_pms_voucher_template_merchant_tree" model="ir.ui.view">
+        <field name="name">pms.voucher.template.merchant.tree</field>
+        <field name="model">pms.voucher.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="coin_cost"/>
+                <field name="merchant_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pms_voucher_template_merchant" model="ir.actions.act_window">
+        <field name="name">My Voucher Templates</field>
+        <field name="res_model">pms.voucher.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('merchant_id.user_ids', 'in', [uid])]</field>
+    </record>
+
+    <menuitem id="menu_pms_merchant_root" name="Merchant Portal" sequence="10"/>
+    <menuitem id="menu_pms_merchant_vouchers" name="Voucher Production" parent="menu_pms_merchant_root" action="action_pms_voucher_template_merchant"/>
+    <menuitem id="menu_pms_merchant_validate" name="Redeem Voucher (AX2)" parent="menu_pms_merchant_root" action="action_ax2_voucher_validation_wizard"/>
+</odoo>
