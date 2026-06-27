@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS Dashboard" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMS Dashboard</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholdertext">Manage your smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-glass-container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-white mb-0">Command Center</h2>
+                        <div>
+                            <span class="badge badge-pill badge-primary mr-2 py-2 px-3">
+                                <i class="fa fa-microchip mr-1"/> Metric Tensor: ACTIVE
+                            </span>
+                            <span class="badge badge-pill badge-info py-2 px-3" style="box-shadow: 0 0 15px rgba(23, 162, 184, 0.5);">
+                                <i class="fa fa-star mr-1"/> Supreme Optimization Active
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Telemetry Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>STAPS Live Telemetry</h4>
+                            <div id="pms_staps_status" class="mt-3">
+                                <p>Source Node: <span class="text-info">CNS-Main-01</span></p>
+                                <p>Signal Latency: <span id="staps_latency" class="h4">--</span> ms</p>
+                                <div class="progress mb-3" style="height: 6px; background: rgba(255,255,255,0.1);">
+                                    <div id="staps_heartbeat" class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"/>
+                                </div>
+                                <p>Secure Coordinate: <small id="staps_coord" class="text-muted" style="font-size: 0.75rem;">--</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>Sustainability Rewards</h4>
+                            <div class="coin-balance-display mt-3 text-center">
+                                <span class="h1 text-warning" t-esc="user.happiness_coin_balance"/>
+                                <div class="text-muted mt-2">Happiness Coins</div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-primary w-100" id="btn_claim_reward">Claim Reward (5.0)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eco Efficiency Score -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism h-100 text-center">
+                            <h4>Eco-Efficiency Score</h4>
+                            <div class="mt-3">
+                                <h1 class="display-3 text-success" t-esc="user.eco_efficiency_score"/>
+                                <p class="text-muted">Highest Degree (V4 Algorithm)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <!-- Maintenance Matrix -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>Maintenance Matrix</h4>
+                            <div class="mt-3">
+                                <t t-if="maintenance_requests">
+                                    <ul class="list-group list-group-flush bg-transparent">
+                                        <t t-foreach="maintenance_requests" t-as="req">
+                                            <li class="list-group-item bg-transparent text-white border-secondary px-0">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <div class="font-weight-bold" t-esc="req.name"/>
+                                                        <small class="text-muted" t-esc="req.staps_coordinate"/>
+                                                    </div>
+                                                    <span t-attf-class="badge badge-pill badge-#{'success' if req.status == 'done' else 'info'}" t-esc="req.status.upper()"/>
+                                                </div>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </t>
+                                <t t-else="">
+                                    <p class="text-muted text-center py-4">No active service requests.</p>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Nexus -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>Volunteer Nexus</h4>
+                            <div class="mt-3 text-center">
+                                <t t-if="user.x_is_volunteer">
+                                    <div class="alert alert-info bg-transparent border-info text-info">
+                                        <i class="fa fa-heart mr-2"/> You are a Supreme Resident Volunteer!
+                                    </div>
+                                    <div class="mt-2 mb-3">
+                                        <t t-foreach="user.x_volunteer_skills" t-as="skill">
+                                            <span class="badge badge-outline-info mr-1" t-esc="skill.name"/>
+                                        </t>
+                                    </div>
+                                </t>
+                                <button class="btn btn-outline-info w-100 pms-toggle-volunteer">
+                                    <t t-if="user.x_is_volunteer">Opt-out Volunteering</t>
+                                    <t t-else="">Join Resident Volunteers</t>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Smart Devices -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="pms-card glass-morphism">
+                            <h4>My Smart Devices</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table text-white border-0">
+                                    <thead>
+                                        <tr class="border-bottom border-secondary">
+                                            <th>Device</th>
+                                            <th>Type</th>
+                                            <th>Controls / Sensors</th>
+                                            <th>Status</th>
+                                            <th class="text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pms_device_list">
+                                        <t t-foreach="devices" t-as="device">
+                                            <tr class="align-middle">
+                                                <td>
+                                                    <div class="font-weight-bold" t-esc="device.name"/>
+                                                    <small class="text-muted" t-esc="device.room_name"/>
+                                                </td>
+                                                <td><span class="badge badge-outline-light" t-esc="device.device_type.split('.')[-1]"/></td>
+                                                <td>
+                                                    <t t-if="device.device_type == 'action.devices.types.LIGHT'">
+                                                        <div class="mb-2">
+                                                            <small class="text-muted d-block">Brightness</small>
+                                                            <input type="range" class="brightness-slider pms-brightness w-100"
+                                                                   t-att-data-id="device.id" min="0" max="100" t-att-value="device.brightness"/>
+                                                        </div>
+                                                    </t>
+                                                    <t t-if="device.device_type == 'action.devices.types.THERMOSTAT'">
+                                                        <div class="mb-2">
+                                                            <small class="text-muted d-block">Fan Speed</small>
+                                                            <input type="range" class="fan-speed-slider pms-fan-speed w-100"
+                                                                   t-att-data-id="device.id" min="0" max="100" t-att-value="device.fan_speed"/>
+                                                        </div>
+                                                        <div class="text-info small">Temp: <t t-esc="device.temperature"/>°C</div>
+                                                    </t>
+                                                    <t t-if="device.device_type == 'action.devices.types.SENSOR'">
+                                                        <div class="text-info small">Humidity: <t t-esc="device.humidity"/>%</div>
+                                                        <div class="text-success small">Occupancy: <t t-esc="device.occupancy"/></div>
+                                                    </t>
+                                                    <t t-if="device.device_type == 'action.devices.types.SCENE'">
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input pms-eco-toggle"
+                                                                   t-att-id="'eco_' + str(device.id)" t-att-data-id="device.id" t-att-checked="device.eco_mode"/>
+                                                            <label class="custom-control-label" t-att-for="'eco_' + str(device.id)">Eco Mode</label>
+                                                        </div>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-if="device.is_on" class="badge badge-success px-3 py-2">ON</span>
+                                                    <span t-else="" class="badge badge-secondary px-3 py-2">OFF</span>
+                                                </td>
+                                                <td class="text-right">
+                                                    <button class="btn btn-sm btn-outline-info pms-toggle" t-att-data-id="device.id">
+                                                        <i class="fa fa-power-off mr-1"/>Toggle
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
