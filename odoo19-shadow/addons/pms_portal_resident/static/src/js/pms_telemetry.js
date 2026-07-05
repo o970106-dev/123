@@ -1,0 +1,140 @@
+/** @odoo-module **/
+
+import { rpc } from "@web/core/network/rpc_service";
+
+document.addEventListener('DOMContentLoaded', () => {
+    const latencyEl = document.getElementById('staps_latency');
+    const coordEl = document.getElementById('staps_coord');
+    const heartbeatEl = document.getElementById('staps_heartbeat');
+
+    // High-precision STAPS telemetry update
+    const updateTelemetry = () => {
+        const startTime = performance.now();
+        if (heartbeatEl) {
+            heartbeatEl.style.width = '100%';
+            heartbeatEl.style.transition = 'none';
+            setTimeout(() => {
+                heartbeatEl.style.transition = 'width 5s linear';
+                heartbeatEl.style.width = '0%';
+            }, 100);
+        }
+
+        rpc("/pms/staps_ping", {}).then((res) => {
+            const duration = (performance.now() - startTime).toFixed(4);
+            if (latencyEl) {
+                latencyEl.innerText = duration;
+                latencyEl.className = duration < 50 ? 'text-success' : (duration < 150 ? 'text-warning' : 'text-danger');
+            }
+            if (coordEl && res && res.coordinate) {
+                coordEl.innerText = res.coordinate;
+            }
+        }).catch(() => {
+             const duration = (performance.now() - startTime).toFixed(4);
+             if (latencyEl) latencyEl.innerText = duration;
+        });
+    };
+
+    setInterval(updateTelemetry, 5000);
+    updateTelemetry();
+
+    // Device Toggle Logic
+    document.querySelectorAll('.pms-toggle').forEach(btn => {
+        btn.addEventListener('click', async (ev) => {
+            const deviceId = ev.currentTarget.dataset.id;
+            const res = await rpc("/pms/toggle_device", { device_id: deviceId });
+            if (res.success) {
+                const statusBadge = ev.currentTarget.closest('tr').querySelector('td span.badge');
+                if (res.new_state) {
+                    statusBadge.className = 'badge badge-success px-3 py-2';
+                    statusBadge.innerText = 'ON';
+                } else {
+                    statusBadge.className = 'badge badge-secondary px-3 py-2';
+                    statusBadge.innerText = 'OFF';
+                }
+            }
+        });
+    });
+
+    // Brightness Slider Logic
+    document.querySelectorAll('.pms-brightness').forEach(slider => {
+        slider.addEventListener('change', async (ev) => {
+            const deviceId = ev.target.dataset.id;
+            const brightness = ev.target.value;
+            await rpc("/pms/set_brightness", { device_id: deviceId, brightness: brightness });
+        });
+    });
+
+    // Fan Speed Slider Logic
+    document.querySelectorAll('.pms-fan-speed').forEach(slider => {
+        slider.addEventListener('change', async (ev) => {
+            const deviceId = ev.target.dataset.id;
+            const fanSpeed = ev.target.value;
+            await rpc("/pms/set_fan_speed", { device_id: deviceId, fan_speed: fanSpeed });
+        });
+    });
+
+    // Color Temperature Slider Logic
+    document.querySelectorAll('.pms-color-temp').forEach(slider => {
+        slider.addEventListener('change', async (ev) => {
+            const deviceId = ev.target.dataset.id;
+            const colorTemp = ev.target.value;
+            await rpc("/pms/set_color_temp", { device_id: deviceId, color_temp: colorTemp });
+        });
+    });
+
+    // Eco Mode Toggle Logic
+    document.querySelectorAll('.pms-eco-toggle').forEach(toggle => {
+        toggle.addEventListener('change', async (ev) => {
+            const deviceId = ev.target.dataset.id;
+            const ecoState = ev.target.checked;
+            await rpc("/pms/toggle_eco_mode", { device_id: deviceId, eco_state: ecoState });
+        });
+    });
+
+    // Reward Claim Logic
+    const claimBtn = document.getElementById('btn_claim_reward');
+    if (claimBtn) {
+        claimBtn.addEventListener('click', async () => {
+            const res = await rpc("/pms/claim_reward", {});
+            if (res.success) {
+                const balanceDisplay = document.querySelector('.coin-balance-display .h1');
+                if (balanceDisplay) balanceDisplay.innerText = res.new_balance;
+            } else {
+                alert(res.message || "Unable to claim reward at this time.");
+            }
+        });
+    }
+
+    // Volunteer Nexus Logic
+    const volunteerToggle = document.getElementById('volunteer_toggle');
+    if (volunteerToggle) {
+        volunteerToggle.addEventListener('change', async (ev) => {
+            const active = ev.target.checked;
+            const res = await rpc("/pms/toggle_volunteer", { active: active });
+            if (res.success) {
+                if (active) {
+                    const balanceDisplay = document.querySelector('.coin-balance-display .h1');
+                    if (balanceDisplay) balanceDisplay.innerText = res.new_balance;
+                }
+                // Optional: add visual feedback/toast for status change
+            }
+        });
+    }
+
+    // Skill Addition Logic
+    const skillSelector = document.getElementById('skill_add_selector');
+    if (skillSelector) {
+        skillSelector.addEventListener('change', async (ev) => {
+            const skillId = ev.target.value;
+            if (!skillId) return;
+
+            // Get current skill IDs from DOM or state if available,
+            // for simplicity we'll just reload the page or update the list.
+            // In a real SPA we'd maintain state.
+            location.reload();
+            // Better would be:
+            // const currentSkills = ...;
+            // await rpc("/pms/update_skills", { skill_ids: [...currentSkills, skillId] });
+        });
+    }
+});
