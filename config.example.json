@@ -1,8 +1,11 @@
 {
-  "host": "your.server.example",
+  "host": "your_server_ip",
   "port": 22,
-  "user": "ubuntu",
-  "auth_method": "key",
-  "key_path": "C:\\Users\\<you>\\.ssh\\id_rsa",
-  "password": ""
+  "user": "your_ssh_user",
+  "key_path": "/path/to/your/ssh/private_key",
+  "password": "your_ssh_password_if_not_using_key",
+  "odoo_url": "http://your_odoo_instance.com:8069",
+  "odoo_db": "your_odoo_database",
+  "odoo_login": "your_odoo_username",
+  "odoo_password": "your_odoo_password"
 }
