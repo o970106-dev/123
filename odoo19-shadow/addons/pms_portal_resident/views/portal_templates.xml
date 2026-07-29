@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS Dashboard" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMS Dashboard</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholdertext">Manage your smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-glass-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4 text-white">Smart Home Dashboard</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Telemetry Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Real-time Telemetry</h4>
+                            <div id="pms_staps_status" class="mt-3">
+                                <p>STAPS Node: <span class="badge badge-success">Active</span></p>
+                                <p>Last Latency: <span id="staps_latency">--</span> ms</p>
+                                <p>Coordinate: <span id="staps_coord">--</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Happiness Coins</h4>
+                            <div class="coin-balance-display mt-3 text-center">
+                                <span class="h1 text-warning" t-esc="request.env.user.happiness_coin_balance"/>
+                                <span class="ml-2">Coins</span>
+                            </div>
+                            <button class="btn btn-outline-light btn-block mt-3" id="btn_claim_reward">Claim Energy Reward</button>
+                        </div>
+                    </div>
+
+                    <!-- Eco Mode Widget -->
+                    <div class="col-md-4 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Eco-Efficiency</h4>
+                            <div class="mt-3 text-center">
+                                <t t-set="eco_scene" t-value="request.env['pms.device'].search([('resident_id', '=', request.env.user.id), ('device_type', '=', 'action.devices.types.SCENE'), ('name', 'ilike', 'Eco')], limit=1)"/>
+                                <button id="btn_toggle_eco" t-att-class="'btn btn-lg ' + ('btn-success' if eco_scene and eco_scene.is_on else 'btn-outline-success') + ' btn-block'">
+                                    <i class="fa fa-leaf mr-2"/> <t t-esc="'Eco Mode: ON' if eco_scene and eco_scene.is_on else 'Activate Eco Mode'"/>
+                                </button>
+                                <p class="small text-muted mt-2">Earn 5 coins per activation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- My Devices -->
+                    <div class="col-12 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>My Devices</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table text-white">
+                                    <thead>
+                                        <tr>
+                                            <th>Device</th>
+                                            <th>Location</th>
+                                            <th>Status / Control</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pms_device_list">
+                                        <t t-foreach="request.env['pms.device'].search([('resident_id', '=', request.env.user.id), ('device_type', '!=', 'action.devices.types.SCENE')])" t-as="device">
+                                            <tr>
+                                                <td>
+                                                    <strong t-esc="device.name"/><br/>
+                                                    <span class="small text-muted" t-esc="device.device_type"/>
+                                                </td>
+                                                <td t-esc="device.room_name"/>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span t-attf-class="badge mr-3 #{'badge-success' if device.is_on else 'badge-secondary'}" t-esc="'ON' if device.is_on else 'OFF'"/>
+                                                        <t t-if="device.device_type == 'action.devices.types.LIGHT'">
+                                                            <input type="range" class="custom-range pms-brightness" t-att-data-id="device.id" t-att-value="device.brightness" min="0" max="100" style="width: 100px;"/>
+                                                            <span class="ml-2 small"><t t-esc="device.brightness"/>%</span>
+                                                        </t>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary pms-toggle" t-att-data-id="device.id">Toggle</button>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Sustainability History -->
+                    <div class="col-12 mb-4">
+                        <div class="pms-card glass-morphism">
+                            <h4>Recent Sustainability Activity</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table table-sm text-white">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Activity</th>
+                                            <th class="text-right">Coins</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="request.env['pms.happiness.coin'].search([('user_id', '=', request.env.user.id)], limit=5)" t-as="coin">
+                                            <tr>
+                                                <td><t t-esc="coin.date" t-options='{"widget": "datetime"}'/></td>
+                                                <td t-esc="coin.reason"/>
+                                                <td class="text-right">
+                                                    <span t-attf-class="badge #{'badge-success' if coin.amount > 0 else 'badge-danger'}">
+                                                        <t t-esc="'+' if coin.amount > 0 else ''"/><t t-esc="coin.amount"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
