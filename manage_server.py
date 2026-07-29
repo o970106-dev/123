@@ -120,8 +120,13 @@ def main():
 
     try:
         cfg = load_config(args.config)
-        client = connect(cfg)
-        password = cfg.get("password") or None
+        ssh_cfg = cfg.get("ssh")
+        if not ssh_cfg:
+            print("[错误] 配置文件中缺少 'ssh' 配置部分")
+            sys.exit(1)
+
+        client = connect(ssh_cfg)
+        password = ssh_cfg.get("password") or None
 
         if args.action == "check":
             action_check(client, password)
