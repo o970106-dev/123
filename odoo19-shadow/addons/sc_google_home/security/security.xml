@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_smart_control" model="ir.module.category">
+        <name>Smart Control</name>
+        <field name="description">Manage IoT and Google Home integration.</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="group_smart_control_user" model="res.groups">
+        <name>User</name>
+        <field name="category_id" ref="module_category_smart_control"/>
+        <field name="comment">Basic control of assigned smart devices.</field>
+    </record>
+
+    <record id="group_smart_control_manager" model="res.groups">
+        <name>Manager</name>
+        <field name="category_id" ref="module_category_smart_control"/>
+        <field name="implied_ids" eval="[(4, ref('group_smart_control_user'))]"/>
+        <field name="comment">Full management of all smart devices.</field>
+    </record>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Portal My Home : PMS Entry" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t_call="portal.portal_docs_entry">
+                <t t_set="title">Property Management</t>
+                <t t_set="url" t_value="'/my/pms'"/>
+                <t t_set="placeholdertext">Manage your property and smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="pms_portal_home" name="PMS Portal Home">
+        <t t_call="portal.portal_layout">
+            <t t_set="breadcrumbs_searchbar" t_value="True"/>
+            <div id="pms_portal_content">
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h3>Welcome, <t t_esc="resident_name"/></h3>
+                            <p class="text-muted">Your Unified Property Management Dashboard</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card bg-primary text-white mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Management Fee</h5>
+                                    <p class="card-text">Status: <t t_esc="management_fee_status"/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-success text-white mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Facility Reservations</h5>
+                                    <p class="card-text">Active: <t t_esc="active_reservations"/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-warning text-dark mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Announcements</h5>
+                                    <p class="card-text">Unread: <t t_esc="unread_announcements"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h4>Smart Home Quick Control</h4>
+                            <div class="alert alert-info">
+                                Integration with Google Home active. Manage your devices via voice or the Smart Control menu.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
