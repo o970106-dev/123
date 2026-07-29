@@ -33,6 +33,7 @@ odoo17_memory_index.json
 
 # Docker / compose temps
 compose.tmp.yml
+pms_modules/*/core/odoo19-shadow/docker-compose.yml
 
 # Odoo container state (do NOT commit DB/filestore binaries)
 odoo19-shadow/db-data/
