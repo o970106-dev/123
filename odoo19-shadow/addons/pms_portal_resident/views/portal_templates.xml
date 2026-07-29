@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_pms" name="Show PMS Dashboard" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMS Dashboard</t>
+                <t t-set="url" t-value="'/my/pms'"/>
+                <t t-set="placeholdertext">Manage your smart home</t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_pms_dashboard" name="PMS Resident Dashboard">
+        <t t-call="portal.portal_layout">
+            <div class="pms-glass-container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <h2 class="mb-4 text-white">Command Center</h2>
+                        <div class="eco-status-pill badge badge-pill badge-info p-2 px-3 mb-4">
+                            Eco Score: <span t-esc="'%.1f' % request.env.user.eco_efficiency_score"/>%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Telemetry Widget -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>STAPS Live Telemetry</h4>
+                            <div id="pms_staps_status" class="mt-3">
+                                <p>Operational Node: <span class="badge badge-success">CNS-Main-V2</span></p>
+                                <p>Signal Latency: <span id="staps_latency" class="h5">--</span> ms</p>
+                                <p>Encryption Key: <code id="staps_coord" class="text-info">--</code></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happiness Coin Widget -->
+                    <div class="col-md-6 mb-4">
+                        <div class="pms-card glass-morphism h-100">
+                            <h4>Sustainability Rewards</h4>
+                            <div class="coin-balance-display mt-3">
+                                <span class="h1 text-warning" t-esc="'%.2f' % request.env.user.happiness_coin_balance"/>
+                                <span class="ml-2 h4 text-muted">COINS</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-light btn-block pms-action" id="btn_claim_reward">Claim Eco-Incentive</button>
+                                <button class="btn btn-sm btn-info mt-2 btn-block pms-action" id="btn_toggle_eco">Global Eco-Mode Toggle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="pms-card glass-morphism">
+                            <h4>Connected Equipment</h4>
+                            <div class="table-responsive mt-3">
+                                <table class="table text-white table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Device Name</th>
+                                            <th>Room</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th style="width: 250px;">Controls</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pms_device_list">
+                                        <t t-foreach="request.env['pms.device'].search([('resident_id', '=', request.env.user.id)])" t-as="device">
+                                            <tr t-att-data-id="device.id">
+                                                <td t-esc="device.name"/>
+                                                <td t-esc="device.room_name"/>
+                                                <td class="text-capitalize" t-esc="device.device_type.split('.')[-1]"/>
+                                                <td>
+                                                    <span t-if="device.is_on" class="badge badge-success px-3">ACTIVE</span>
+                                                    <span t-else="" class="badge badge-secondary px-3">INACTIVE</span>
+                                                    <span t-if="device.eco_mode" class="badge badge-info ml-1">ECO</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <button class="btn btn-sm btn-primary pms-toggle mr-2" t-att-data-id="device.id">Power</button>
+                                                        <t t-if="device.device_type == 'action.devices.types.LIGHT'">
+                                                            <input type="range" class="brightness-slider pms-brightness"
+                                                                   t-att-data-id="device.id" min="0" max="100"
+                                                                   t-att-value="device.brightness"/>
+                                                        </t>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
