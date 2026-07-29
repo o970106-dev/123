@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit product template form to add Beverage Settings integration -->
+    <record id="view_product_template_form_beverage" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.beverage</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Smart button showing count and opening filtered beverage configs -->
+            <xpath expr="//sheet/div[@class='oe_button_box']" position="inside">
+                <button type="object" name="action_open_beverage_configs" class="oe_stat_button" icon="fa-coffee">
+                    <field name="beverage_config_count" widget="statinfo" string="Beverage"/>
+                </button>
+            </xpath>
+
+            <!-- Notebook page to manage beverage configs directly from product -->
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Beverage Settings">
+                    <field name="beverage_config_ids">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="pos_category_id"/>
+                            <field name="show_popup"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
