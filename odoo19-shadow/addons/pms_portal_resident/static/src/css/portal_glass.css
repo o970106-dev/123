@@ -1,0 +1,53 @@
+.pms-glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.pms-glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.pms-dashboard-bg {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.staps-telemetry-badge {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+}
+
+.eco-efficiency-widget {
+    background: rgba(0, 255, 127, 0.05);
+    border: 1px solid rgba(0, 255, 127, 0.2);
+}
+
+.brightness-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    margin: 15px 0;
+}
+
+.brightness-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fdbb2d;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(253, 187, 45, 0.5);
+}
