@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="knowledge_security_1" model="pms.knowledge">
+            <field name="name">大樓門禁安全防護指南</field>
+            <field name="category">security</field>
+            <field name="importance">high</field>
+            <field name="content">
+                1. 門禁系統應採雙因子認證。
+                2. 訪客必須於大廳登記並取得臨時 QR Code。
+                3. 每季進行感應卡片權限稽核，註銷已搬遷住戶卡片。
+                4. 監控系統應具備 AI 人臉辨識與黑名單預警功能。
+            </field>
+        </record>
+
+        <record id="knowledge_maintenance_1" model="pms.knowledge">
+            <field name="name">智慧電梯預防性維護標準</field>
+            <field name="category">maintenance</field>
+            <field name="importance">high</field>
+            <field name="content">
+                1. 透過感測器監控電梯鋼索震動頻率。
+                2. 運用大數據分析門機開關時間，提前預測零件老化。
+                3. 每月至少進行一次緊急通訊系統測試。
+                4. 停電時自動切換至備用能源並導向最近樓層。
+            </field>
+        </record>
+
+        <record id="knowledge_service_1" model="pms.knowledge">
+            <field name="name">五常小J：物管 AI 服務行為準則</field>
+            <field name="category">service</field>
+            <field name="importance">medium</field>
+            <field name="content">
+                1. 以溫暖且專業的 Traditional Chinese 回應住戶需求。
+                2. 提供 24/7 不間斷的報修進度查詢。
+                3. 針對獨居長者提供定時的主動關懷提醒。
+                4. 即時整合 Google Home 狀態，協助住戶優化居家能耗。
+            </field>
+        </record>
+    </data>
+</odoo>

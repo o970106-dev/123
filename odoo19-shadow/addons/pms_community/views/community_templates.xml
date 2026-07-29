@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Community Chat Template -->
+    <template id="portal_community_chat" name="Community Chat">
+        <t t-call="portal.portal_layout">
+            <div id="community_chat" class="container mt-4">
+                <div class="pf-portal-card" style="min-height: 600px; display: flex; flex-direction: column;">
+                    <div class="pf-portal-header">
+                        仁義住宅區聊天室
+                        <span class="pf-telemetry-badge">物管小J 線上中</span>
+                    </div>
+
+                    <div id="chat_messages" style="flex-grow: 1; overflow-y: auto; margin-bottom: 20px; padding: 10px; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                        <t t-foreach="messages" t-as="msg">
+                            <div t-attf-class="mb-3 d-flex #{'justify-content-end' if msg.partner_id == user_id.partner_id else 'justify-content-start'}">
+                                <div t-attf-class="p-2 rounded #{'bg-primary text-white' if msg.partner_id == user_id.partner_id else 'bg-light text-dark'}" style="max-width: 80%;">
+                                    <small class="d-block font-weight-bold"><t t-esc="msg.partner_id.name"/></small>
+                                    <span><t t-esc="msg.message"/></span>
+                                    <small class="d-block text-right opacity-75" style="font-size: 0.7rem;"><t t-esc="msg.create_date" t-options='{"widget": "datetime"}'/></small>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="chat_input" class="form-control" placeholder="輸入訊息... (標記 @小J 以獲取協助)"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="btn_send">發送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Knowledge Base Template -->
+    <template id="portal_community_knowledge" name="Community Knowledge">
+        <t t-call="portal.portal_layout">
+            <div id="community_knowledge" class="container mt-4">
+                <div class="pf-portal-header text-white mb-4">
+                    物業管理知識庫
+                    <span class="pf-telemetry-badge">由 物管小J 提供專業知識</span>
+                </div>
+
+                <div class="row">
+                    <t t-foreach="articles" t-as="article">
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="pf-portal-card h-100">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h4 class="mb-0"><t t-esc="article.name"/></h4>
+                                    <span t-attf-class="badge #{'badge-danger' if article.importance == 'high' else 'badge-info'}">
+                                        <t t-esc="dict(article._fields['importance'].selection).get(article.importance)"/>
+                                    </span>
+                                </div>
+                                <div class="text-white-50 small mb-3">
+                                    <i class="fa fa-tag mr-1"></i> <t t-esc="dict(article._fields['category'].selection).get(article.category)"/>
+                                </div>
+                                <div class="article-content">
+                                    <t t-esc="article.content"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

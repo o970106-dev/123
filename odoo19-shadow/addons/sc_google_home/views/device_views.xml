@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sc_google_home_device_tree" model="ir.ui.view">
+        <field name="name">sc.google.home.device.tree</field>
+        <field name="model">sc.google.home.device</field>
+        <field name="arch" type="xml">
+            <list string="Google Home 設備">
+                <field name="name"/>
+                <field name="device_type"/>
+                <field name="room_name"/>
+                <field name="partner_id"/>
+                <field name="is_on"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_sc_google_home_device" model="ir.actions.act_window">
+        <field name="name">智能設備管理</field>
+        <field name="res_model">sc.google.home.device</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
