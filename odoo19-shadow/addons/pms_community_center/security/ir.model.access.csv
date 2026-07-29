@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pms_happiness_coin,access_pms_happiness_coin,model_pms_happiness_coin,base.group_user,1,0,1,0
+access_pms_voucher_template,access_pms_voucher_template,model_pms_voucher_template,base.group_user,1,0,0,0
+access_pms_voucher,access_pms_voucher,model_pms_voucher,base.group_user,1,0,1,0
+access_pms_delivery_order,access_pms_delivery_order,model_pms_delivery_order,base.group_user,1,0,1,0
