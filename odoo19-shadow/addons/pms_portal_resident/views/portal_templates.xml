@@ -1,0 +1,75 @@
+<odoo>
+    <template id="portal_happiness_mall" name="Happiness Mall">
+        <t t-call="portal.portal_layout">
+            <div id="wrap">
+                <div class="container">
+                    <h3>Happiness Mall</h3>
+                    <div class="row">
+                        <t t-foreach="templates" t-as="tpl">
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><t t-esc="tpl.name"/></h5>
+                                        <p class="card-text"><t t-esc="tpl.description"/></p>
+                                        <p class="font-weight-bold"><t t-esc="tpl.coin_cost"/> Coins</p>
+                                        <form t-attf-action="/my/happiness/purchase/#{tpl.id}" method="post">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <button type="submit" class="btn btn-primary">Purchase</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_my_vouchers" name="My Vouchers">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <h3>My Vouchers</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Voucher</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="vouchers" t-as="v">
+                            <tr>
+                                <td><t t-esc="v.template_id.name"/></td>
+                                <td><t t-esc="v.qr_code"/></td>
+                                <td><t t-esc="v.state"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_volunteer_hub" name="Volunteer Hub">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <h3>Volunteer Hub - Pending Deliveries</h3>
+                <div class="list-group">
+                    <t t-foreach="pending_orders" t-as="order">
+                        <div class="list-group-item">
+                            <h5 class="mb-1"><t t-esc="order.name"/></h5>
+                            <p class="mb-1">From: <t t-esc="order.pickup_address"/></p>
+                            <p class="mb-1">To: <t t-esc="order.delivery_address"/></p>
+                            <form t-attf-action="/my/volunteer/accept/#{order.id}" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <button type="submit" class="btn btn-success btn-sm">Accept Task</button>
+                            </form>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
