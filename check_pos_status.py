@@ -4,19 +4,34 @@ from odoo_jsonrpc import OdooClient
 
 def main():
     url = "http://127.0.0.1:18069"
-    db_name = "wuchang_preview_20251107"
+    # Standard DB names for shadow and preview environments
+    db_candidates = ["wuchang_shadow19", "wuchang_preview_20251107"]
     login = "admin"
     pw = "odoo"
 
     print("Connecting to", url)
     client = OdooClient(url)
-    dbs = client.list_databases()
-    print("DBs:", dbs)
-    if not dbs:
-        print("No databases returned")
+    try:
+        dbs = client.list_databases()
+        print("Available DBs:", dbs)
+    except Exception as e:
+        print(f"Error listing databases: {e}")
         return
 
-    db = db_name if db_name in dbs else dbs[0]
+    if not dbs:
+        print("No databases found on server.")
+        return
+
+    # Select the best matching database
+    db = None
+    for candidate in db_candidates:
+        if candidate in dbs:
+            db = candidate
+            break
+
+    if not db:
+        db = dbs[0]
+        print(f"None of the target DBs found. Falling back to: {db}")
     print("Using DB:", db)
     client.authenticate(db, login, pw)
     print("Authenticated as", login)
