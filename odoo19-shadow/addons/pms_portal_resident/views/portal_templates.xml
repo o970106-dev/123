@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pms_dashboard_template" name="PMS Resident Dashboard">
+        <t t-call="website.layout">
+            <div class="pms-dashboard">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="text-white mb-5">歡迎回來， <t t-esc="user_id.name"/></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="glass-card">
+                                <h3>幸福幣餘額</h3>
+                                <div class="happiness-coin-balance">
+                                    <t t-esc="coin_balance"/> <span style="font-size: 1.5rem">🪙</span>
+                                </div>
+                                <p>參與社區活動獲得更多幸福幣</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="glass-card">
+                                <h3>智慧家裝置控制</h3>
+                                <div class="row mt-4">
+                                    <t t-foreach="devices" t-as="device">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="device-item p-3 border rounded border-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span><t t-esc="device.name"/></span>
+                                                    <div>
+                                                        <span t-attf-class="status-indicator status-#{device.status}"/>
+                                                        <span class="ml-2 text-uppercase"><t t-esc="device.status"/></span>
+                                                        <div class="mt-1">
+                                                            <small t-if="device.state" class="text-success">ON</small>
+                                                            <small t-if="not device.state" class="text-muted">OFF</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-outline-light btn-sm mt-3 w-100 toggle-device" t-att-data-id="device.id">
+                                                    切換狀態
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </t>
+                                    <div t-if="not devices" class="col-12 text-center py-5">
+                                        <p>目前沒有已連線的裝置</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="glass-card">
+                                <h3>社區公告</h3>
+                                <p>2025/11/10 - 頂樓花園維護通知</p>
+                                <p>2025/11/08 - 幸福幣兌換咖啡活動開始</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
