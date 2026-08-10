@@ -16,7 +16,8 @@ def load_config(path: str) -> dict:
         path = alt
         print(f"[提示] 使用示例配置：{path}")
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        config = json.load(f)
+        return config.get("ssh", {})
 
 
 def connect(cfg: dict) -> paramiko.SSHClient:
@@ -153,4 +154,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

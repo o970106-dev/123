@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -9,6 +10,17 @@ except Exception as e:
     load_workbook = None  # will error at runtime with a clear message
 
 from odoo_jsonrpc import OdooClient, OdooRPCError
+
+
+def load_config(path: str = "config.json") -> dict:
+    if not os.path.exists(path):
+        alt_path = "config.example.json"
+        if not os.path.exists(alt_path):
+            return {}  # No config found, will rely on args
+        path = alt_path
+    with open(path, "r", encoding="utf-8") as f:
+        config = json.load(f)
+        return config.get("odoo", {})
 
 
 def guess_columns(headers: List[str]) -> Dict[str, int]:
@@ -236,13 +248,15 @@ def create_or_update_product(
 
 
 def main() -> None:
+    cfg = load_config()
+
     ap = argparse.ArgumentParser(description="Import POS menu from Excel into Odoo")
     ap.add_argument("--source", required=True, help="Excel file path (.xlsx)")
     ap.add_argument("--sheet", help="Sheet name (default: active)")
-    ap.add_argument("--url", default="http://34.80.194.190", help="Odoo base URL")
-    ap.add_argument("--login", default="admin@wuchang.life", help="Odoo login")
-    ap.add_argument("--password", default="poiuY926", help="Odoo password")
-    ap.add_argument("--db", help="Database name (optional)")
+    ap.add_argument("--url", default=cfg.get("url"), help="Odoo base URL")
+    ap.add_argument("--login", default=cfg.get("login"), help="Odoo login")
+    ap.add_argument("--password", default=cfg.get("password"), help="Odoo password")
+    ap.add_argument("--db", default=cfg.get("db"), help="Database name (optional)")
     ap.add_argument("--apply", action="store_true", help="Apply changes to Odoo (default: dry-run)")
     ap.add_argument("--update-existing", action="store_true", help="Update existing products if found")
     ap.add_argument("--skip-ambiguous", action="store_true", help="Skip items with uncertain fields (price/category/combo)")
@@ -355,6 +369,10 @@ def main() -> None:
             print(f"[dump] Wrote prepared payload with {len(payload)} items to {args.dump}")
         else:
             print("[dry-run] Not applying changes. Use --apply to write to Odoo.")
+        return
+
+    if not all([args.url, args.login, args.password]):
+        print("[error] Missing Odoo connection details. Provide --url, --login, and --password, or configure them in config.json.")
         return
 
     client = OdooClient(args.url)
