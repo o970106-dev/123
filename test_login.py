@@ -1,7 +1,7 @@
-from odoo_jsonrpc import OdooClient, OdooRPCError
+from odoo_jsonrpc import OdooClient
 
 
-URL = "http://127.0.0.1:18069"
+URL = "https://wuchang.life"
 TARGET_DB = "wuchang_preview_20251107"
 
 # Try common admin credential sets, first one that succeeds wins
@@ -27,8 +27,13 @@ def main():
     for login, password in CREDENTIALS:
         try:
             client.authenticate(db, login, password)
-            me = client.search_read("res.users", [["login", "=", login]], ["id", "name", "login", "active"], limit=1)
-            base_url = client.call_kw("ir.config_parameter", "get_param", [], {"key": "web.base.url"})
+            me = client.search_read(
+                "res.users", [["login", "=", login]],
+                ["id", "name", "login", "active"], limit=1
+            )
+            base_url = client.call_kw(
+                "ir.config_parameter", "get_param", [], {"key": "web.base.url"}
+            )
             print("[ok] login succeeded")
             print("db:", db)
             print("user:", me)
