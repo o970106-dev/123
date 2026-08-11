@@ -4,5 +4,9 @@
   "user": "o0930",
   "auth_method": "key",
   "key_path": "C:\\Users\\o0930\\.ssh\\gcp_key",
-  "password": null
+  "password": null,
+  "odoo_url": "https://wuchang.life",
+  "odoo_db": "admin",
+  "odoo_user": "admin",
+  "odoo_password": "REPLACE_WITH_CORRECT_PASSWORD"
 }
