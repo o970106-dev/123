@@ -239,7 +239,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Import POS menu from Excel into Odoo")
     ap.add_argument("--source", required=True, help="Excel file path (.xlsx)")
     ap.add_argument("--sheet", help="Sheet name (default: active)")
-    ap.add_argument("--url", default="http://34.80.194.190", help="Odoo base URL")
+    ap.add_argument("--url", default="http://35.185.167.23", help="Odoo base URL")
     ap.add_argument("--login", default="admin@wuchang.life", help="Odoo login")
     ap.add_argument("--password", default="poiuY926", help="Odoo password")
     ap.add_argument("--db", help="Database name (optional)")
