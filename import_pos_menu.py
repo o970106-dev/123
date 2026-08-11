@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -9,6 +10,18 @@ except Exception as e:
     load_workbook = None  # will error at runtime with a clear message
 
 from odoo_jsonrpc import OdooClient, OdooRPCError
+
+
+def load_config(path: str = "config.json") -> dict:
+    """Loads config, falling back to example."""
+    if not os.path.exists(path):
+        alt = os.path.join(os.path.dirname(__file__), "config.example.json")
+        if not os.path.exists(alt):
+            raise FileNotFoundError("Missing config: create config.json or keep config.example.json")
+        path = alt
+        print(f"[info] Using example config: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def guess_columns(headers: List[str]) -> Dict[str, int]:
@@ -236,13 +249,17 @@ def create_or_update_product(
 
 
 def main() -> None:
+    # Load config first to set defaults
+    cfg = load_config()
+    odoo_cfg = cfg.get("odoo", {})
+
     ap = argparse.ArgumentParser(description="Import POS menu from Excel into Odoo")
     ap.add_argument("--source", required=True, help="Excel file path (.xlsx)")
     ap.add_argument("--sheet", help="Sheet name (default: active)")
-    ap.add_argument("--url", default="http://34.80.194.190", help="Odoo base URL")
-    ap.add_argument("--login", default="admin@wuchang.life", help="Odoo login")
-    ap.add_argument("--password", default="poiuY926", help="Odoo password")
-    ap.add_argument("--db", help="Database name (optional)")
+    ap.add_argument("--url", default=odoo_cfg.get("url"), help="Odoo base URL")
+    ap.add_argument("--login", default=odoo_cfg.get("login"), help="Odoo login")
+    ap.add_argument("--password", default=odoo_cfg.get("password"), help="Odoo password")
+    ap.add_argument("--db", default=odoo_cfg.get("db"), help="Database name (optional)")
     ap.add_argument("--apply", action="store_true", help="Apply changes to Odoo (default: dry-run)")
     ap.add_argument("--update-existing", action="store_true", help="Update existing products if found")
     ap.add_argument("--skip-ambiguous", action="store_true", help="Skip items with uncertain fields (price/category/combo)")
