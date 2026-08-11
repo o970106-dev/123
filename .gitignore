@@ -1,48 +1,14 @@
-# OS & editor
-Thumbs.db
-.DS_Store
-.vscode/
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
-.Python
-env/
-venv/
+# 敏感資訊
+config.json
+
+# Python 虛擬環境
 .venv/
 
-# Logs & temp
-*.log
-*.tmp
-*.swp
+# Python 快取檔案
+__pycache__/
+*.pyc
 
-# Secrets & local configs
-config.json
-*.secret
-.env
-.env.*
-
-# Build / archives / large indexes
-dist/
-build/
-odoo17_memory_archive.zip
-odoo17_memory_index.json
-
-# Docker / compose temps
-compose.tmp.yml
-
-# Odoo container state (do NOT commit DB/filestore binaries)
-odoo19-shadow/db-data/
-odoo19-shadow/odoo-data/
-odoo19-shadow/backups/
-
-# Local runtime caches
-.pytest_cache/
-.mypy_cache/
-*.coverage
-
-# Node / web (if present)
-node_modules/
+# IDE/編輯器設定檔
+.vscode/
+.idea/
