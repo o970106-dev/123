@@ -1,5 +1,7 @@
 import argparse
 import json
+import logging
+import os
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -9,6 +11,19 @@ except Exception as e:
     load_workbook = None  # will error at runtime with a clear message
 
 from odoo_jsonrpc import OdooClient, OdooRPCError
+
+logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+
+
+def load_config(path: str) -> dict:
+    if not os.path.exists(path):
+        alt = os.path.join(os.path.dirname(__file__), "config.example.json")
+        if not os.path.exists(alt):
+            raise FileNotFoundError("缺少配置文件，请创建 config.json 或保留 config.example.json")
+        path = alt
+        logging.info(f"使用示例配置：{path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def guess_columns(headers: List[str]) -> Dict[str, int]:
@@ -33,7 +48,7 @@ def guess_columns(headers: List[str]) -> Dict[str, int]:
         "price", "售價", "單價", "價格", "價", "list_price", "主商品價格",
     ])
     category_idx = find([
-        "category", "類別", "分類", "pos類別", "pos category", "主商品類別",
+        "category", "類別", "分類", "pos類別", "pos category", "主商品類別", "cat",
     ])
     sku_idx = find([
         "sku", "code", "條碼", "barcode", "貨號", "型號", "主商品代碼", "主商品料號", "主商品編號",
@@ -239,10 +254,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Import POS menu from Excel into Odoo")
     ap.add_argument("--source", required=True, help="Excel file path (.xlsx)")
     ap.add_argument("--sheet", help="Sheet name (default: active)")
-    ap.add_argument("--url", default="http://34.80.194.190", help="Odoo base URL")
-    ap.add_argument("--login", default="admin@wuchang.life", help="Odoo login")
-    ap.add_argument("--password", default="poiuY926", help="Odoo password")
-    ap.add_argument("--db", help="Database name (optional)")
+    ap.add_argument("--config", default="config.json", help="Config file path")
     ap.add_argument("--apply", action="store_true", help="Apply changes to Odoo (default: dry-run)")
     ap.add_argument("--update-existing", action="store_true", help="Update existing products if found")
     ap.add_argument("--skip-ambiguous", action="store_true", help="Skip items with uncertain fields (price/category/combo)")
@@ -254,12 +266,12 @@ def main() -> None:
     items, headers = read_excel(args.source, args.sheet)
     combo_map = read_combo_options(args.source)
     if not items:
-        print("[error] No rows parsed from Excel. Headers:", headers)
+        logging.error(f"No rows parsed from Excel. Headers: {headers}")
         return
 
-    print(f"[info] Parsed {len(items)} items. Sample:")
+    logging.info(f"Parsed {len(items)} items. Sample:")
     for s in items[:5]:
-        print("  -", s)
+        logging.info(f"  - {s}")
 
     # 顯示加購題型解析摘要（前 2 個不同 combo）
     shown = 0
@@ -270,15 +282,15 @@ def main() -> None:
             continue
         seen.add(cid)
         lines = combo_map.get(str(cid)) or []
-        print(f"[info] Combo {cid}: {len(lines)} options")
+        logging.info(f"Combo {cid}: {len(lines)} options")
         for ln in lines[:6]:
-            print("    -", ln)
+            logging.info(f"    - {ln}")
         shown += 1
         if shown >= 2:
             break
 
     # 價格驗算展示：列出前 5 筆商品的尺寸價格表，並以 M 作為基準價
-    print("[check] Price tables for first 5 items (M-baseline):")
+    logging.info("Price tables for first 5 items (M-baseline):")
     cnt = 0
     for it in items:
         base = it.get("price") or 0.0
@@ -290,7 +302,7 @@ def main() -> None:
         base_m = round(base + m_extra, 2)
         tbl = {ln["name"]: round(base + (ln.get("price") or 0.0), 2) for ln in sizes}
         default = "M" if any(str(ln.get("name")).strip().upper() == "M" for ln in sizes) else None
-        print(f"    - {it.get('name')} base_M={base_m} default={default} table={tbl}")
+        logging.info(f"    - {it.get('name')} base_M={base_m} default={default} table={tbl}")
         cnt += 1
         if cnt >= 5:
             break
@@ -352,15 +364,16 @@ def main() -> None:
                 })
             with open(args.dump, "w", encoding="utf-8") as f:
                 json.dump(payload, f, ensure_ascii=False, indent=2)
-            print(f"[dump] Wrote prepared payload with {len(payload)} items to {args.dump}")
+            logging.info(f"Wrote prepared payload with {len(payload)} items to {args.dump}")
         else:
-            print("[dry-run] Not applying changes. Use --apply to write to Odoo.")
+            logging.info("Dry-run mode. Not applying changes. Use --apply to write to Odoo.")
         return
 
-    client = OdooClient(args.url)
-    db = ensure_db(client, args.db)
-    client.authenticate(db, args.login, args.password)
-    print(f"[info] Authenticated to {args.url}, db={db} as {args.login}")
+    cfg = load_config(args.config)
+    client = OdooClient(cfg["odoo_url"])
+    db = ensure_db(client, cfg.get("odoo_db"))
+    client.authenticate(db, cfg["odoo_login"], cfg["odoo_password"])
+    logging.info(f"Authenticated to {cfg['odoo_url']}, db={db} as {cfg['odoo_login']}")
 
     # cache categories
     cat_cache: Dict[str, int] = {}
@@ -382,13 +395,13 @@ def main() -> None:
         if combo_id and not (combo_map.get(combo_id) or []):
             reasons.append("combo")
         if args.skip_ambiguous and reasons:
-            print(f"[skip] ambiguous item '{name}' reasons={reasons}")
+            logging.warning(f"Skipping ambiguous item '{name}': {reasons}")
             skipped += 1
             continue
         # 若要求只有題型才建入，無題型則略過
         lines_for_combo = combo_map.get(combo_id) or []
         if args.only_combo and not lines_for_combo:
-            print(f"[skip] no combo/options for '{name}'")
+            logging.info(f"Skipping item '{name}' because it has no combo/options.")
             skipped += 1
             continue
         cat_id: Optional[int] = None
@@ -412,7 +425,7 @@ def main() -> None:
             updated += 1
         else:
             skipped += 1
-        print(f"[ok] {action}: product.template(id={pid}) name='{name}' price={price} cat='{cat_name}'")
+        logging.info(f"{action}: product.template(id={pid}) name='{name}' price={price} cat='{cat_name}'")
 
         # 建立/更新飲品客製設定（若加購題型存在且模型可用）
         if not args.no_config:
@@ -450,7 +463,7 @@ def main() -> None:
             else:
                 client.create("pos.beverage.config", vals)
 
-    print(f"[summary] created={created}, updated={updated}, skipped={skipped}")
+    logging.info(f"Summary: created={created}, updated={updated}, skipped={skipped}")
 
 
 if __name__ == "__main__":
